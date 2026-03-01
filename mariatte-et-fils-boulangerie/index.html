@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Mariatte et Fils Boulangerie — Boulangerie a Caen. Le pain fait maison, cuit chaque matin avec amour. Farine locale, recettes traditionnelles, saveurs genuines." />
+  <title>Mariatte et Fils Boulangerie — Boulangerie a Caen</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- BANNIERE DEMO ADIGICOM -->
+  <div class="demo-banner">
+    Demo gratuite par ADIGICOM pour Mariatte et Fils Boulangerie &mdash;
+    <a href="tel:+33767719994">07 67 71 99 94</a>
+    &nbsp;|&nbsp;
+    <a href="https://adigicom.com" target="_blank" rel="noopener">adigicom.com</a>
+  </div>
+
+  <!-- NAV -->
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="#" class="nav__logo">Mariatte et Fils Boulangerie</a>
+      <button class="nav__burger" id="burger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav__links" id="navLinks">
+        <li><a href="#apropos">A propos</a></li>
+        <li><a href="#menu">Nos pains</a></li>
+        <li><a href="#avis">Avis</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#contact" class="nav__cta">Horaires</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    
+    <div class="hero__bg">
+      <img
+        src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=1600&q=80&auto=format&fit=crop"
+        alt="Mariatte et Fils Boulangerie"
+        class="hero__img"
+        loading="eager"
+      />
+      <div class="hero__overlay"></div>
+    </div>
+    <div class="hero__content reveal">
+      <span class="hero__tag">Boulangerie Artisanale — Caen</span>
+      <h1 class="hero__title">Mariatte<br><em>et Fils Boulangerie</em></h1>
+      <p class="hero__sub">Le pain fait maison, cuit chaque matin avec amour.<br>Farine locale, recettes traditionnelles, saveurs genuines.</p>
+      <div class="hero__actions">
+        <a href="#contact" class="btn btn--gold">Nos creations</a>
+        <a href="#menu" class="btn btn--ghost">Horaires</a>
+      </div>
+    </div>
+    <div class="hero__scroll"><span></span></div>
+  </section>
+
+  <!-- BANDEAU -->
+  <div class="bandeau">
+    <div class="bandeau__inner">
+      <span>Pain frais chaque matin</span>
+            <span class="sep">·</span>
+      <span>Petri &amp; cuit sur place</span>
+            <span class="sep">·</span>
+      <span>Recettes artisanales</span>
+            <span class="sep">·</span>
+      <span>Sans additifs</span>
+      
+    </div>
+  </div>
+
+  <!-- A PROPOS -->
+  <section class="apropos section" id="apropos">
+    <div class="container">
+      <div class="apropos__grid">
+        <div class="apropos__img-wrap reveal">
+          <img
+            src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=800&q=80&auto=format&fit=crop"
+            alt="Mariatte et Fils Boulangerie"
+            class="apropos__img"
+            loading="lazy"
+          />
+          <div class="apropos__badge">
+            <strong>Note</strong>
+            <span>4.0</span>
+          </div>
+        </div>
+        <div class="apropos__text reveal">
+          <span class="label">Notre histoire</span>
+          <h2 class="h2">L'art du pain<br>depuis <em>toujours</em></h2>
+          <p>Passionnes par le pain authentique, nous petrissonss chaque jour nos pates avec des farines soigneusement selectionnees. Notre four tourne des l'aube pour vous offrir le meilleur pain de Caen.</p>
+          <p>Notre boulangerie est un lieu de vie ou se retrouvent les habitants du quartier. Venez decouvrir nos creations de saison, nos viennoiseries croustillantes et nos patisseries gourmandes.</p>
+          <div class="apropos__stats">
+            <div class="stat">
+              <strong>4.0</strong>
+              <span>Note Google</span>
+            </div>
+            <div class="stat">
+              <strong>0+</strong>
+              <span>Avis clients</span>
+            </div>
+            <div class="stat">
+              <strong>100%</strong>
+              <span>Fait maison</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="menu section" id="menu">
+    <div class="container">
+      <div class="section__header reveal">
+        <span class="label">Notre savoir-faire</span>
+        <h2 class="h2">Nos Specialites</h2>
+        <p class="section__sub">Pains, viennoiseries et patisseries prepares chaque jour par nos artisans.</p>
+      </div>
+      <div class="menu__tabs reveal">
+        <button class="menu__tab active" data-tab="pains">Pains</button>
+        <button class="menu__tab" data-tab="viennoiseries">Viennoiseries</button>
+        <button class="menu__tab" data-tab="patisseries">Patisseries</button>
+      </div>
+      <div class="menu__grid" id="menuGrid">
+        <div class="menu__panel active" data-panel="pains">
+          <div class="menu__card reveal">
+            <div class="menu__card-img" style="background-image: url('https://images.unsplash.com/photo-1589367920969-ab8e050bbb04?w=600&q=80&auto=format&fit=crop')"></div>
+            <div class="menu__card-body">
+              <div class="menu__card-top">
+                <h3>Tradition Francaise</h3>
+                <span class="price">1,40 €</span>
+              </div>
+              <p>Notre baguette signature, croustillante a l'exterieur, moelleuse a l'interieur</p>
+              <span class="menu__tag">Best-seller</span>
+            </div>
+          </div>
+          <div class="menu__card reveal">
+            <div class="menu__card-img" style="background-image: url('https://images.unsplash.com/photo-1509440159596-0249088772ff?w=600&q=80&auto=format&fit=crop')"></div>
+            <div class="menu__card-body">
+              <div class="menu__card-top">
+                <h3>Pain de Campagne</h3>
+                <span class="price">3,50 €</span>
+              </div>
+              <p>Mie dense et savoureuse, croute epaisse, farine de ble ancien</p>
+            </div>
+          </div>
+          <div class="menu__card reveal">
+            <div class="menu__card-img" style="background-image: url('https://images.unsplash.com/photo-1585478259715-4d3916fb5a03?w=600&q=80&auto=format&fit=crop')"></div>
+            <div class="menu__card-body">
+              <div class="menu__card-top">
+                <h3>Pain au Levain</h3>
+                <span class="price">4,20 €</span>
+              </div>
+              <p>Fermentation longue 24h, gout subtil, tres digeste</p>
+              <span class="menu__tag">Coup de coeur</span>
+            </div>
+          </div>
+        </div>
+        <div class="menu__panel" data-panel="viennoiseries">
+          <div class="menu__card reveal">
+            <div class="menu__card-img" style="background-image: url('https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=600&q=80&auto=format&fit=crop')"></div>
+            <div class="menu__card-body">
+              <div class="menu__card-top">
+                <h3>Croissant Pur Beurre</h3>
+                <span class="price">1,30 €</span>
+              </div>
+              <p>Feuilletage maison au beurre AOP de Normandie</p>
+              <span class="menu__tag">Signature</span>
+            </div>
+          </div>
+          <div class="menu__card reveal">
+            <div class="menu__card-img" style="background-image: url('https://images.unsplash.com/photo-1623334044303-241021148842?w=600&q=80&auto=format&fit=crop')"></div>
+            <div class="menu__card-body">
+              <div class="menu__card-top">
+                <h3>Pain au Chocolat</h3>
+                <span class="price">1,50 €</span>
+              </div>
+              <p>Deux barres de chocolat noir, pate feuilletee maison</p>
+            </div>
+          </div>
+          <div class="menu__card reveal">
+            <div class="menu__card-img" style="background-image: url('https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=600&q=80&auto=format&fit=crop')"></div>
+            <div class="menu__card-body">
+              <div class="menu__card-top">
+                <h3>Brioche Tressee</h3>
+                <span class="price">6,50 €</span>
+              </div>
+              <p>Brioche moelleuse, parfumee a la fleur d'oranger, dorure oeuf</p>
+              <span class="menu__tag">Maison</span>
+            </div>
+          </div>
+        </div>
+        <div class="menu__panel" data-panel="patisseries">
+          <div class="menu__card reveal">
+            <div class="menu__card-img" style="background-image: url('https://images.unsplash.com/photo-1562007908-17c67e878c88?w=600&q=80&auto=format&fit=crop')"></div>
+            <div class="menu__card-body">
+              <div class="menu__card-top">
+                <h3>Tarte aux Pommes</h3>
+                <span class="price">3,80 €</span>
+              </div>
+              <p>Pommes de Normandie, creme patissiere, pate sablee maison</p>
+              <span class="menu__tag">Coup de coeur</span>
+            </div>
+          </div>
+          <div class="menu__card reveal">
+            <div class="menu__card-img" style="background-image: url('https://images.unsplash.com/photo-1488477181946-6428a0291777?w=600&q=80&auto=format&fit=crop')"></div>
+            <div class="menu__card-body">
+              <div class="menu__card-top">
+                <h3>Eclair au Chocolat</h3>
+                <span class="price">3,20 €</span>
+              </div>
+              <p>Chou croustillant, creme au chocolat noir 70%, fondant brillant</p>
+            </div>
+          </div>
+          <div class="menu__card reveal">
+            <div class="menu__card-img" style="background-image: url('https://images.unsplash.com/photo-1464305795204-6f5bbfc7fb81?w=600&q=80&auto=format&fit=crop')"></div>
+            <div class="menu__card-body">
+              <div class="menu__card-top">
+                <h3>Mille-Feuille</h3>
+                <span class="price">4,50 €</span>
+              </div>
+              <p>Feuilletage caramelise, creme mousseline vanille, glacage royal</p>
+              <span class="menu__tag">Signature</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="menu__cta reveal">
+        <a href="#contact" class="btn btn--gold">Nos creations</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- AVIS -->
+  <section class="avis section" id="avis">
+    <div class="container">
+      <div class="section__header reveal">
+        <span class="label">Ce qu'ils en disent</span>
+        <h2 class="h2">Avis Clients</h2>
+      </div>
+      <div class="avis__grid">
+        <div class="avis__card reveal">
+          <div class="stars"><span>★</span><span>★</span><span>★</span><span>★</span><span style="opacity:.25">★</span></div>
+          <p class="avis__text">"La meilleure boulangerie de Caen ! La baguette tradition est incroyable, croustillante et savoureuse. Je viens tous les matins."</p>
+          <div class="avis__author">
+            <div class="avis__avatar">CL</div>
+            <div>
+              <strong>Claire L.</strong>
+              <span>Cliente reguliere</span>
+            </div>
+          </div>
+        </div>
+        <div class="avis__card reveal">
+          <div class="stars"><span>★</span><span>★</span><span>★</span><span>★</span><span style="opacity:.25">★</span></div>
+          <p class="avis__text">"Des croissants au beurre exceptionnels, vrais et genereux. La brioche du weekend est un regal. Equipe accueillante."</p>
+          <div class="avis__author">
+            <div class="avis__avatar">PM</div>
+            <div>
+              <strong>Pierre M.</strong>
+              <span>Via Google Maps</span>
+            </div>
+          </div>
+        </div>
+        <div class="avis__card reveal">
+          <div class="stars"><span>★</span><span>★</span><span>★</span><span>★</span><span style="opacity:.25">★</span></div>
+          <p class="avis__text">"J'ai commande un gateau d'anniversaire personnalise. Magnifique et delicieux ! Toute la famille a ete bluffee. Merci !"</p>
+          <div class="avis__author">
+            <div class="avis__avatar">NB</div>
+            <div>
+              <strong>Nathalie B.</strong>
+              <span>Commande anniversaire</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact section" id="contact">
+    <div class="container">
+      <div class="section__header reveal">
+        <span class="label">Nous trouver</span>
+        <h2 class="h2">Horaires &amp; Contact</h2>
+      </div>
+      <div class="contact__grid">
+        <div class="contact__infos reveal">
+          <div class="contact__block">
+            <div class="contact__icon">
+              <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div>
+              <strong>Adresse</strong>
+              <span>77 Bd Yves Guillou, 14000 Caen</span>
+            </div>
+          </div>
+          <div class="contact__block">
+            <div class="contact__icon">
+              <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.42 2 2 0 0 1 3.6 1.25h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.84a16 16 0 0 0 5.25 5.25l.97-.97a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            </div>
+            <div>
+              <strong>Telephone</strong>
+              <a href="tel:+33231291135">+33 2 31 29 11 35</a>
+            </div>
+          </div>
+          <div class="horaires">
+            <h3>Horaires d'ouverture</h3>
+            <div class="horaires__grid">
+              <div class="horaire__row">
+                <span>Contactez-nous</span>
+                <span>pour les horaires</span>
+              </div>
+            </div>
+          </div>
+          <a href="tel:+33231291135" class="btn btn--gold"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.42 2 2 0 0 1 3.6 1.25h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.84a16 16 0 0 0 5.25 5.25l.97-.97a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>Appeler maintenant</a>
+        </div>
+        <div class="contact__map reveal">
+          <div class="map__placeholder">
+            <div class="map__inner">
+              <svg width="40" height="40" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <p>Mariatte et Fils Boulangerie</p>
+              <span>77 Bd Yves Guillou, 14000 Caen</span>
+              <a href="https://maps.google.com/?q=77+Bd+Yves+Guillou,+14000+Caen" target="_blank" rel="noopener" class="btn btn--ghost btn--sm">Ouvrir dans Maps</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <div class="footer__logo">Mariatte et Fils Boulangerie</div>
+          <p>Boulangerie artisanale au coeur de Caen. Pain frais chaque matin, viennoiseries et patisseries maison.</p>
+          <div class="footer__socials">
+            <a href="#" aria-label="Facebook" class="social">
+              <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            </a>
+            <a href="#" aria-label="Instagram" class="social">
+              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="footer__col">
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="#apropos">A propos</a></li>
+            <li><a href="#menu">Nos Specialites</a></li>
+            <li><a href="#avis">Avis clients</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="#">Commandes speciales</a></li>
+            <li><a href="#">Pieces montees</a></li>
+            <li><a href="#">Buffets entreprise</a></li>
+            <li><a href="#">Carte cadeau</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="tel:+33231291135">+33 2 31 29 11 35</a></li>
+            <li>77 Bd Yves Guillou, 14000 Caen</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>&copy; 2026 Mariatte et Fils Boulangerie. Tous droits reserves.</span>
+        <a href="https://adigicom.com" target="_blank" rel="noopener" class="footer__adigicom">
+          Site cree par <strong>ADIGICOM</strong>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

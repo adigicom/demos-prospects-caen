@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Les Dunes — Brasserie en Bord de Mer &middot; Caen</title>
+  <meta name="description" content="Les Dunes, brasserie chaleureusse au coeur de Caen. Cuisine normande, atmosphere bistrot, vue sur la mer.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    /* DESIGN A — VARIANTE BORDEAUX — LES DUNES
+       Fond noir chaud, accent bordeaux #8B2E2E, layout hero GAUCHE
+       Atmosphere bistrot / brasserie normande */
+    :root {
+      --bg:       #0E0D0B;
+      --bg2:      #1C1A16;
+      --bg-card:  #231A1A;
+      --acc:      #8B2E2E;
+      --acc2:     #C9A84C;
+      --acc-lt:   #B85050;
+      --txt:      #F5F0E8;
+      --txt-m:    #9A8880;
+      --border:   rgba(139,46,46,.22);
+      --fh:       'Cormorant Garamond', serif;
+      --fb:       'Inter', sans-serif;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:var(--fb);background:var(--bg);color:var(--txt);font-size:16px;line-height:1.7;overflow-x:hidden}
+    img{display:block;max-width:100%}
+    a{text-decoration:none;color:inherit;cursor:pointer}
+    button{cursor:pointer}
+
+    /* BANNIERE */
+    .banner{background:var(--acc);color:#fff;text-align:center;padding:9px 20px;font-size:13px;font-weight:600;letter-spacing:.03em;position:sticky;top:0;z-index:9999}
+    .banner a{color:#fff;text-decoration:underline;font-weight:700}
+
+    /* NAV */
+    .nav{position:fixed;top:40px;left:0;right:0;z-index:100;padding:0 48px;display:flex;align-items:center;justify-content:space-between;height:80px;transition:background .4s,top .4s}
+    .nav.scrolled{background:rgba(14,13,11,.93);backdrop-filter:blur(14px);top:0;border-bottom:1px solid var(--border)}
+    .nav-logo{font-family:var(--fh);font-size:26px;font-weight:600;color:var(--acc2);letter-spacing:.06em}
+    .nav-logo em{font-style:italic;color:var(--acc-lt)}
+    .nav-links{display:flex;list-style:none;gap:36px;align-items:center}
+    .nav-links a{font-size:12px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--txt-m);transition:color .2s}
+    .nav-links a:hover{color:var(--txt)}
+    .nav-cta{padding:10px 22px;border:1px solid var(--acc) !important;color:var(--acc) !important;border-radius:4px;font-size:11px !important;letter-spacing:.1em !important;font-weight:600 !important;text-transform:uppercase;transition:background .2s,color .2s !important}
+    .nav-cta:hover{background:var(--acc) !important;color:#fff !important}
+    .burger{display:none;flex-direction:column;gap:5px;background:none;border:none;padding:8px}
+    .burger span{display:block;width:24px;height:2px;background:var(--txt)}
+
+    /* HERO — LAYOUT GAUCHE */
+    .hero{position:relative;height:100vh;min-height:600px;overflow:hidden;display:flex;align-items:stretch}
+    .hero-bg{position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1800&q=85&auto=format&fit=crop') center/cover;animation:hzoom 9s ease-out forwards}
+    @keyframes hzoom{from{transform:scale(1.08)}to{transform:scale(1)}}
+    /* Overlay degrade de gauche — laisse transparence a droite */
+    .hero-ov{position:absolute;inset:0;background:linear-gradient(to right,rgba(14,13,11,.96) 0%,rgba(14,13,11,.78) 45%,rgba(14,13,11,.12) 100%)}
+    .hero-ov2{position:absolute;inset:0;background:linear-gradient(to top,rgba(14,13,11,.6) 0%,transparent 60%)}
+    .hero-cnt{position:relative;z-index:2;display:flex;align-items:center;padding:120px 48px 80px;max-width:680px}
+    .hero-inner{}
+    .hero-eyebrow{font-size:11px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--acc-lt);margin-bottom:20px;display:block;opacity:0;animation:fu .8s .3s ease forwards}
+    .hero-title{font-family:var(--fh);font-size:clamp(60px,9vw,100px);font-weight:700;line-height:.92;letter-spacing:-.01em;margin-bottom:8px;opacity:0;animation:fu .8s .5s ease forwards}
+    .hero-title-serif{font-family:var(--fh);font-style:italic;font-size:clamp(36px,5.5vw,64px);font-weight:400;color:var(--acc2);line-height:1;margin-bottom:28px;display:block;opacity:0;animation:fu .8s .65s ease forwards}
+    .hero-sub{font-size:16px;font-weight:300;color:rgba(245,240,232,.75);line-height:1.7;margin-bottom:32px;max-width:440px;opacity:0;animation:fu .8s .8s ease forwards}
+    .rating-pill{display:inline-flex;align-items:center;gap:10px;padding:10px 22px;background:rgba(139,46,46,.18);backdrop-filter:blur(8px);border:1px solid rgba(139,46,46,.35);border-radius:100px;font-size:14px;margin-bottom:36px;opacity:0;animation:fu .8s 1s ease forwards}
+    .stars{color:var(--acc2);letter-spacing:2px}
+    .hero-btns{display:flex;gap:16px;flex-wrap:wrap;opacity:0;animation:fu .8s 1.2s ease forwards}
+    .btn-rouge{padding:16px 36px;background:var(--acc);color:#fff;font-family:var(--fb);font-weight:600;font-size:13px;letter-spacing:.1em;text-transform:uppercase;border-radius:4px;border:none;transition:background .2s,transform .2s;box-shadow:0 4px 20px rgba(139,46,46,.4)}
+    .btn-rouge:hover{background:var(--acc-lt);transform:translateY(-2px)}
+    .btn-outline{padding:15px 36px;background:transparent;color:var(--txt);font-family:var(--fb);font-weight:500;font-size:13px;letter-spacing:.1em;text-transform:uppercase;border-radius:4px;border:1px solid rgba(245,240,232,.28);transition:border-color .2s}
+    .btn-outline:hover{border-color:rgba(245,240,232,.65)}
+    @keyframes fu{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
+
+    /* CONTAINER */
+    .container{max-width:1200px;margin:0 auto;padding:0 48px}
+
+    /* DIVIDER */
+    .divider{width:60px;height:2px;background:var(--acc);margin:0 auto 32px}
+    .divider.left{margin:0 0 32px}
+    .divider.gold{background:var(--acc2)}
+
+    /* BANDE INFOS */
+    .bandeau{background:var(--acc);padding:14px 0}
+    .bandeau-inner{display:flex;justify-content:center;gap:56px;flex-wrap:wrap}
+    .bandeau-item{color:#fff;font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;display:flex;align-items:center;gap:8px}
+
+    /* SECTIONS */
+    .s-menu{padding:96px 0}
+    .s-apropos{padding:96px 0;background:var(--bg2)}
+    .s-galerie{padding:96px 0}
+    .s-avis{padding:96px 0;background:var(--bg2)}
+    .s-contact{padding:96px 0}
+
+    .s-header{text-align:center;margin-bottom:56px}
+    .s-label{font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--acc-lt);margin-bottom:12px;display:block}
+    .s-title{font-family:var(--fh);font-size:clamp(36px,5vw,54px);font-weight:400;line-height:1.1;color:var(--txt);margin-bottom:12px}
+    .s-title em{font-style:italic;color:var(--acc2)}
+    .s-sub{color:var(--txt-m);font-size:15px;max-width:480px;margin:0 auto}
+
+    /* TABS */
+    .tabs{display:flex;justify-content:center;gap:4px;margin:0 auto 44px;background:var(--bg2);padding:6px;border-radius:8px;max-width:440px}
+    .tab-btn{flex:1;padding:10px 16px;background:transparent;border:none;color:var(--txt-m);font-size:13px;font-weight:500;letter-spacing:.04em;border-radius:6px;transition:all .2s}
+    .tab-btn.active{background:var(--acc);color:#fff;font-weight:600}
+    .tab-panel{display:none}.tab-panel.active{display:block}
+
+    /* MENU CARDS — style bistrot avec border-top accent */
+    .menu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+    .menu-card{border-radius:0;overflow:hidden;background:var(--bg-card);border-top:3px solid var(--acc);transition:transform .3s,box-shadow .3s}
+    .menu-card:hover{transform:translateY(-6px);box-shadow:0 12px 40px rgba(139,46,46,.3)}
+    .menu-img{width:100%;aspect-ratio:4/3;object-fit:cover;transition:transform .4s}
+    .menu-card:hover .menu-img{transform:scale(1.05)}
+    .menu-body{padding:20px}
+    .menu-row{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:8px}
+    .menu-name{font-family:var(--fh);font-size:20px;font-weight:600;color:var(--txt);line-height:1.2}
+    .menu-price{font-size:16px;font-weight:600;color:var(--acc2);white-space:nowrap}
+    .menu-desc{font-size:13px;color:var(--txt-m);line-height:1.6;margin-bottom:12px}
+    .menu-badge{display:inline-block;padding:3px 10px;background:rgba(139,46,46,.18);border:1px solid rgba(139,46,46,.35);color:var(--acc-lt);font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;border-radius:100px}
+
+    /* A PROPOS — split ecran vertical pleine hauteur */
+    .apropos-grid{display:grid;grid-template-columns:55% 45%;gap:0;align-items:stretch;min-height:560px}
+    .apropos-txt{padding:72px 64px 72px 0;display:flex;flex-direction:column;justify-content:center}
+    .a-label{font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--acc-lt);margin-bottom:12px;display:block}
+    .a-title{font-family:var(--fh);font-size:clamp(32px,4vw,50px);font-weight:400;line-height:1.1;color:var(--txt);margin-bottom:24px}
+    .a-title em{font-style:italic;color:var(--acc2)}
+    .a-p{color:var(--txt-m);font-size:15px;margin-bottom:18px;line-height:1.8}
+    .stats{display:flex;gap:40px;margin-top:40px;padding-top:40px;border-top:1px solid var(--border)}
+    .stat-n{font-family:var(--fh);font-size:42px;font-weight:600;color:var(--acc2);line-height:1;display:block}
+    .stat-l{font-size:11px;color:var(--txt-m);letter-spacing:.08em;text-transform:uppercase;margin-top:4px;display:block}
+    .apropos-img-side{position:relative;overflow:hidden}
+    .apropos-img-side img{width:100%;height:100%;object-fit:cover;display:block}
+    /* Ligne verticale decorative */
+    .vert-line{width:1px;height:80px;background:var(--acc2);margin:0 0 24px;opacity:.5}
+
+    /* GALERIE 2x3 */
+    .galerie-grid{display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(2,280px);gap:12px}
+    .galerie-item{overflow:hidden;border-radius:4px;position:relative}
+    .galerie-item img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+    .galerie-item:hover img{transform:scale(1.06)}
+    .galerie-item::after{content:'';position:absolute;inset:0;background:rgba(139,46,46,0);transition:background .3s}
+    .galerie-item:hover::after{background:rgba(139,46,46,.18)}
+    .galerie-item.tall{grid-row:span 2}
+
+    /* AVIS */
+    .avis-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+    .avis-card{background:var(--bg-card);border:1px solid var(--border);border-radius:0;border-top:3px solid var(--acc2);padding:32px}
+    .avis-q{font-family:var(--fh);font-size:64px;color:var(--acc2);line-height:.6;margin-bottom:20px;opacity:.4}
+    .avis-txt{font-size:15px;color:var(--txt-m);line-height:1.7;margin-bottom:24px;font-style:italic}
+    .avis-f{display:flex;align-items:center;gap:12px}
+    .avis-av{width:44px;height:44px;background:linear-gradient(135deg,var(--acc),#5a1010);border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;color:#fff;flex-shrink:0}
+    .avis-n{font-weight:600;font-size:14px}
+    .avis-meta{font-size:12px;color:var(--txt-m)}
+    .avis-stars{color:var(--acc2);font-size:12px;letter-spacing:2px}
+
+    /* CONTACT */
+    .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
+    .contact-map{border-radius:4px;overflow:hidden;height:380px;border:1px solid var(--border)}
+    .contact-map iframe{width:100%;height:100%;border:0;display:block}
+    .c-title{font-family:var(--fh);font-size:32px;font-weight:400;margin-bottom:32px;color:var(--txt)}
+    .c-item{display:flex;align-items:flex-start;gap:16px;margin-bottom:24px;padding-bottom:24px;border-bottom:1px solid var(--border)}
+    .c-icon{width:40px;height:40px;background:rgba(139,46,46,.12);border-radius:4px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:18px}
+    .c-label{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--txt-m);margin-bottom:4px}
+    .c-val{font-weight:500;font-size:15px}
+    .c-val a{color:var(--acc-lt)}
+    .hgrid{display:grid;grid-template-columns:1fr 1fr;gap:4px 24px;margin-top:8px}
+    .hday{font-size:13px;color:var(--txt-m)}
+    .htime{font-size:13px;font-weight:500;color:var(--txt);text-align:right}
+
+    /* FOOTER */
+    footer{background:#070604;padding:56px 0 32px;border-top:1px solid var(--border)}
+    .f-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:48px;margin-bottom:48px}
+    .f-logo{font-family:var(--fh);font-size:28px;font-weight:600;color:var(--acc2);margin-bottom:12px}
+    .f-logo em{font-style:italic;color:var(--acc-lt)}
+    .f-desc{font-size:14px;color:var(--txt-m);line-height:1.7;max-width:280px}
+    .f-col-title{font-size:11px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--txt);margin-bottom:20px}
+    .f-links{list-style:none;display:flex;flex-direction:column;gap:10px}
+    .f-links a{font-size:14px;color:var(--txt-m);transition:color .2s}
+    .f-links a:hover{color:var(--acc-lt)}
+    .f-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:32px;border-top:1px solid var(--border);font-size:12px;color:var(--txt-m);flex-wrap:wrap;gap:12px}
+    .f-bottom a{color:var(--acc-lt)}
+
+    /* CTA MOBILE */
+    .mobile-cta{display:none}
+    @media(max-width:768px){
+      .mobile-cta{display:block;position:fixed;bottom:0;left:0;right:0;padding:16px 20px;background:var(--acc);color:#fff;font-weight:700;font-size:16px;text-align:center;z-index:999;border:none;letter-spacing:.04em}
+    }
+
+    /* SCROLL REVEAL */
+    .rv{opacity:0;transform:translateY(32px);transition:opacity .7s ease,transform .7s ease}
+    .rv.vis{opacity:1;transform:translateY(0)}
+    .d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}
+
+    /* RESPONSIVE */
+    @media(max-width:1024px){
+      .container{padding:0 32px}
+      .hero-cnt{padding:120px 32px 80px;max-width:560px}
+      .menu-grid{grid-template-columns:repeat(2,1fr)}
+      .apropos-grid{grid-template-columns:1fr;gap:0}
+      .apropos-txt{padding:56px 0}
+      .apropos-img-side{height:360px;border-radius:8px;overflow:hidden}
+      .galerie-grid{grid-template-columns:repeat(2,1fr);grid-template-rows:auto}
+      .galerie-item.tall{grid-row:span 1}
+      .f-grid{grid-template-columns:1fr 1fr}
+    }
+    @media(max-width:768px){
+      .nav{padding:0 20px}
+      .nav-links{display:none}
+      .burger{display:flex}
+      .container{padding:0 20px}
+      .hero-cnt{padding:100px 20px 60px}
+      .s-menu,.s-apropos,.s-galerie,.s-avis,.s-contact{padding:56px 0}
+      .menu-grid,.avis-grid{grid-template-columns:1fr}
+      .contact-grid{grid-template-columns:1fr}
+      .galerie-grid{grid-template-columns:1fr 1fr;grid-template-rows:auto}
+      .f-grid{grid-template-columns:1fr}
+      .f-bottom{flex-direction:column;text-align:center}
+      .bandeau-inner{gap:24px}
+      body{padding-bottom:60px}
+    }
+  </style>
+</head>
+<body>
+
+  <div class="banner">
+    Site demo ADIGICOM &mdash; Votre site web professionnel &agrave; partir de 490 &euro;&nbsp;|&nbsp;
+    <a href="https://adigicom.com" target="_blank">Demander un devis gratuit</a>
+  </div>
+
+  <nav class="nav" id="navbar">
+    <div class="nav-logo"><em>Les</em> Dunes</div>
+    <ul class="nav-links">
+      <li><a href="#menu">La Carte</a></li>
+      <li><a href="#apropos">Notre Histoire</a></li>
+      <li><a href="#galerie">Galerie</a></li>
+      <li><a href="#avis">Avis</a></li>
+      <li><a href="tel:0231000001" class="nav-cta">R&eacute;server</a></li>
+    </ul>
+    <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </nav>
+
+  <!-- HERO — LAYOUT GAUCHE avec contenu a gauche, photo visible a droite -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-ov"></div>
+    <div class="hero-ov2"></div>
+    <div class="hero-cnt">
+      <div class="hero-inner">
+        <span class="hero-eyebrow">Brasserie &middot; Caen, Normandie</span>
+        <h1 class="hero-title">Les Dunes</h1>
+        <span class="hero-title-serif">Saveurs du terroir normand</span>
+        <p class="hero-sub">Une brasserie authentique au coeur de Caen. Produits locaux, recettes transmises de g&eacute;n&eacute;ration en g&eacute;n&eacute;ration, ambiance chaleureuse.</p>
+        <div class="rating-pill">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <span>4.7 / 5 &middot; 218 avis Google</span>
+        </div>
+        <div class="hero-btns">
+          <a href="tel:0231000001" class="btn-rouge">R&eacute;server une table</a>
+          <a href="#menu" class="btn-outline">Voir la carte</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BANDEAU CONFIANCE -->
+  <div class="bandeau">
+    <div class="bandeau-inner">
+      <span class="bandeau-item">&#10003; Ouvert 7j/7</span>
+      <span class="bandeau-item">&#10003; Produits locaux &amp; de saison</span>
+      <span class="bandeau-item">&#10003; Terrasse en &eacute;t&eacute;</span>
+      <span class="bandeau-item">&#10003; Privatisation possible</span>
+    </div>
+  </div>
+
+  <section class="s-menu" id="menu">
+    <div class="container">
+      <div class="s-header">
+        <span class="s-label rv">Notre cuisine</span>
+        <h2 class="s-title rv">La Carte <em>des Dunes</em></h2>
+        <p class="s-sub rv d1">Entr&eacute;es, plats, desserts — une cuisine sincere qui met en valeur les produits de Normandie.</p>
+      </div>
+      <div class="tabs rv">
+        <button class="tab-btn active" onclick="switchTab(event,'entrees')">Entr&eacute;es</button>
+        <button class="tab-btn" onclick="switchTab(event,'plats')">Plats</button>
+        <button class="tab-btn" onclick="switchTab(event,'desserts')">Desserts</button>
+      </div>
+
+      <div class="tab-panel active" id="tab-entrees">
+        <div class="menu-grid">
+          <div class="menu-card rv">
+            <img class="menu-img" src="https://images.unsplash.com/photo-1600803907087-f56d462fd26b?w=600&q=80&auto=format&fit=crop" alt="Moules mariniere" loading="lazy">
+            <div class="menu-body">
+              <div class="menu-row"><span class="menu-name">Moules Mari&egrave;res</span><span class="menu-price">14 &euro;</span></div>
+              <p class="menu-desc">Moules de bouchot, cr&egrave;me fra&icirc;che, &eacute;chalotes, persil frais, vin blanc</p>
+              <span class="menu-badge">Incontournable</span>
+            </div>
+          </div>
+          <div class="menu-card rv d1">
+            <img class="menu-img" src="https://images.unsplash.com/photo-1574484284002-952d92456975?w=600&q=80&auto=format&fit=crop" alt="Terrine normande" loading="lazy">
+            <div class="menu-body">
+              <div class="menu-row"><span class="menu-name">Terrine Normande</span><span class="menu-price">12 &euro;</span></div>
+              <p class="menu-desc">Terrine de campagne, cornichons, pain de campagne grille, beurre AOP</p>
+            </div>
+          </div>
+          <div class="menu-card rv d2">
+            <img class="menu-img" src="https://images.unsplash.com/photo-1560717789-0ac7c58ac90a?w=600&q=80&auto=format&fit=crop" alt="Oeufs mayo" loading="lazy">
+            <div class="menu-body">
+              <div class="menu-row"><span class="menu-name">Oeuf Mayonnaise Maison</span><span class="menu-price">8 &euro;</span></div>
+              <p class="menu-desc">Oeufs fermiers, mayonnaise artisanale, ciboulette, paprika doux</p>
+              <span class="menu-badge">Bistrot</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-panel" id="tab-plats">
+        <div class="menu-grid">
+          <div class="menu-card rv">
+            <img class="menu-img" src="https://images.unsplash.com/photo-1558030006-450675393462?w=600&q=80&auto=format&fit=crop" alt="Entrecote" loading="lazy">
+            <div class="menu-body">
+              <div class="menu-row"><span class="menu-name">Entrec&ocirc;te Normandie</span><span class="menu-price">28 &euro;</span></div>
+              <p class="menu-desc">Boeuf charolais, sauce au camembert, frites maison, salade verte</p>
+              <span class="menu-badge">Coup de coeur</span>
+            </div>
+          </div>
+          <div class="menu-card rv d1">
+            <img class="menu-img" src="https://images.unsplash.com/photo-1467003909585-2f8a72700288?w=600&q=80&auto=format&fit=crop" alt="Poisson" loading="lazy">
+            <div class="menu-body">
+              <div class="menu-row"><span class="menu-name">Dos de Cabillaud</span><span class="menu-price">24 &euro;</span></div>
+              <p class="menu-desc">Cabillaud r&ocirc;ti, beurre blanc, l&eacute;gumes du moment, riz basmati</p>
+              <span class="menu-badge">Mer</span>
+            </div>
+          </div>
+          <div class="menu-card rv d2">
+            <img class="menu-img" src="https://images.unsplash.com/photo-1574484284002-952d92456975?w=600&q=80&auto=format&fit=crop" alt="Andouille" loading="lazy">
+            <div class="menu-body">
+              <div class="menu-row"><span class="menu-name">Andouille de Vire</span><span class="menu-price">19 &euro;</span></div>
+              <p class="menu-desc">Andouille grille, pommes &agrave; la creme, lard fumee, herbes du jardin</p>
+              <span class="menu-badge">Normand</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-panel" id="tab-desserts">
+        <div class="menu-grid">
+          <div class="menu-card rv">
+            <img class="menu-img" src="https://images.unsplash.com/photo-1470124182917-cc6e71b22ecc?w=600&q=80&auto=format&fit=crop" alt="Tarte normande" loading="lazy">
+            <div class="menu-body">
+              <div class="menu-row"><span class="menu-name">Tarte Normande</span><span class="menu-price">8 &euro;</span></div>
+              <p class="menu-desc">Pommes AOP, cannelle, p&acirc;te bris&eacute;e maison, calvados au service</p>
+              <span class="menu-badge">Signature</span>
+            </div>
+          </div>
+          <div class="menu-card rv d1">
+            <img class="menu-img" src="https://images.unsplash.com/photo-1488477181946-6428a0291777?w=600&q=80&auto=format&fit=crop" alt="Mousse" loading="lazy">
+            <div class="menu-body">
+              <div class="menu-row"><span class="menu-name">Mousse au Chocolat</span><span class="menu-price">7 &euro;</span></div>
+              <p class="menu-desc">Chocolat Valrhona 70%, oeufs fermiers, cr&egrave;me fouett&eacute;e</p>
+            </div>
+          </div>
+          <div class="menu-card rv d2">
+            <img class="menu-img" src="https://images.unsplash.com/photo-1535141192574-5d4897c12636?w=600&q=80&auto=format&fit=crop" alt="Fromages" loading="lazy">
+            <div class="menu-body">
+              <div class="menu-row"><span class="menu-name">Plateau Normand</span><span class="menu-price">11 &euro;</span></div>
+              <p class="menu-desc">Camembert AOC, livarot, neufch&acirc;tel — pain au levain et beurre sal&eacute;</p>
+              <span class="menu-badge">Artisan</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="s-apropos" id="apropos">
+    <div class="container">
+      <div class="apropos-grid rv">
+        <div class="apropos-txt">
+          <span class="a-label">Notre histoire</span>
+          <div class="vert-line"></div>
+          <h2 class="a-title">Une brasserie<br>authentique &agrave; <em>Caen</em></h2>
+          <p class="a-p">Les Dunes, c&rsquo;est l&rsquo;histoire d&rsquo;une famille passionn&eacute;e par la cuisine normande. Depuis plus de 15 ans, nous accueillons nos h&ocirc;tes autour d&rsquo;une table sincere, faite de produits locaux soigneusement choisis.</p>
+          <p class="a-p">Chaque recette est une transmission &mdash; les moules mari&egrave;res de grand-m&egrave;re, la tarte aux pommes du dimanche, l&rsquo;andouille de Vire qui embaume la cuisine. Une cuisine de coeur qui parle de Normandie.</p>
+          <div class="stats">
+            <div><span class="stat-n">15</span><span class="stat-l">Ann&eacute;es</span></div>
+            <div><span class="stat-n">4.7</span><span class="stat-l">Note Google</span></div>
+            <div><span class="stat-n">100%</span><span class="stat-l">Normand</span></div>
+          </div>
+        </div>
+        <div class="apropos-img-side">
+          <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80&auto=format&fit=crop" alt="Interieur Les Dunes" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="s-galerie" id="galerie">
+    <div class="container">
+      <div class="s-header">
+        <span class="s-label rv">Notre ambiance</span>
+        <h2 class="s-title rv">La Brasserie <em>en images</em></h2>
+      </div>
+      <div class="galerie-grid rv">
+        <div class="galerie-item tall">
+          <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=600&q=80&auto=format&fit=crop" alt="Salle" loading="lazy">
+        </div>
+        <div class="galerie-item">
+          <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=600&q=80&auto=format&fit=crop" alt="Plat" loading="lazy">
+        </div>
+        <div class="galerie-item">
+          <img src="https://images.unsplash.com/photo-1607532941433-304659e8198a?w=600&q=80&auto=format&fit=crop" alt="Entree" loading="lazy">
+        </div>
+        <div class="galerie-item">
+          <img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=600&q=80&auto=format&fit=crop" alt="Grille" loading="lazy">
+        </div>
+        <div class="galerie-item">
+          <img src="https://images.unsplash.com/photo-1488477181946-6428a0291777?w=600&q=80&auto=format&fit=crop" alt="Dessert" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="s-avis" id="avis">
+    <div class="container">
+      <div class="s-header">
+        <span class="s-label rv">Ce qu&rsquo;on dit de nous</span>
+        <h2 class="s-title rv">Avis <em>clients</em></h2>
+        <div class="rating-pill rv d1" style="display:inline-flex;margin-bottom:0;background:rgba(139,46,46,.18);border:1px solid rgba(139,46,46,.35)">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <span>4.7 / 5 &middot; 218 avis Google</span>
+        </div>
+      </div>
+      <div class="avis-grid">
+        <div class="avis-card rv">
+          <div class="avis-q">&ldquo;</div>
+          <p class="avis-txt">Une vraie brasserie normande comme on en voit plus. Les moules sont excellentes, le service chaleureux. On se sent comme &agrave; la maison !</p>
+          <div class="avis-f"><div class="avis-av">PL</div><div><div class="avis-n">Pierre L.</div><div class="avis-meta">Client r&eacute;gulier</div><div class="avis-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div></div></div>
+        </div>
+        <div class="avis-card rv d1">
+          <div class="avis-q">&ldquo;</div>
+          <p class="avis-txt">L&rsquo;entrec&ocirc;te sauce camembert est une r&eacute;v&eacute;lation ! Un plat simple mais parfaitement ex&eacute;cut&eacute;. Prix tr&egrave;s corrects pour Caen centre.</p>
+          <div class="avis-f"><div class="avis-av">MF</div><div><div class="avis-n">Marie F.</div><div class="avis-meta">Via Google Maps</div><div class="avis-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div></div></div>
+        </div>
+        <div class="avis-card rv d2">
+          <div class="avis-q">&ldquo;</div>
+          <p class="avis-txt">D&icirc;ner d&rsquo;entreprise parfait. Equipe &agrave; l&rsquo;&eacute;coute, menu adapt&eacute;, ambiance conviviale. Nous reviendrons pour les prochains &eacute;v&eacute;nements !</p>
+          <div class="avis-f"><div class="avis-av">CD</div><div><div class="avis-n">Claire D.</div><div class="avis-meta">Repas d&rsquo;entreprise</div><div class="avis-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="s-contact" id="contact">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-map rv">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d42002.41!2d-0.3812!3d49.1829!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x480a4f34247e62a7%3A0x40f0d03b53f338cb!2sCaen!5e0!3m2!1sfr!2sfr!4v1700000002!5m2!1sfr!2sfr" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Carte Les Dunes Caen"></iframe>
+        </div>
+        <div class="rv d1">
+          <h3 class="c-title">Nous trouver</h3>
+          <div class="c-item"><div class="c-icon">&#128205;</div><div><div class="c-label">Adresse</div><div class="c-val">8 Rue des Acacias, 14000 Caen</div></div></div>
+          <div class="c-item"><div class="c-icon">&#128222;</div><div><div class="c-label">T&eacute;l&eacute;phone</div><div class="c-val"><a href="tel:0231000001">02 31 00 00 01</a></div></div></div>
+          <div class="c-item" style="border-bottom:none"><div class="c-icon">&#128336;</div>
+            <div><div class="c-label">Horaires</div>
+              <div class="hgrid">
+                <span class="hday">Lundi</span><span class="htime">Ferm&eacute;</span>
+                <span class="hday">Mar &mdash; Jeu</span><span class="htime">12h &ndash; 14h30 &middot; 19h &ndash; 22h</span>
+                <span class="hday">Ven &mdash; Sam</span><span class="htime">12h &ndash; 15h &middot; 19h &ndash; 23h</span>
+                <span class="hday">Dimanche</span><span class="htime">12h &ndash; 15h</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="f-grid">
+        <div><div class="f-logo"><em>Les</em> Dunes</div><p class="f-desc">Brasserie normande au coeur de Caen. Cuisine authentique, produits locaux, ambiance conviviale depuis 2009.</p></div>
+        <div><div class="f-col-title">Navigation</div><ul class="f-links"><li><a href="#menu">La Carte</a></li><li><a href="#apropos">Notre Histoire</a></li><li><a href="#galerie">Galerie</a></li><li><a href="#contact">Contact</a></li></ul></div>
+        <div><div class="f-col-title">Services</div><ul class="f-links"><li><a href="#">Privatisation</a></li><li><a href="#">Menus groupes</a></li><li><a href="#">Terrasse</a></li><li><a href="#">Carte des vins</a></li></ul></div>
+      </div>
+      <div class="f-bottom">
+        <span>&copy; 2026 Les Dunes &middot; Brasserie Normande &middot; Caen</span>
+        <span>Site cr&eacute;&eacute; par <a href="https://adigicom.com" target="_blank">ADIGICOM</a> &mdash; adigicom.com</span>
+      </div>
+    </div>
+  </footer>
+
+  <a href="tel:0231000001" class="mobile-cta">&#128222; Appeler pour r&eacute;server</a>
+
+  <script>
+    const nb=document.getElementById('navbar');
+    window.addEventListener('scroll',()=>nb.classList.toggle('scrolled',scrollY>80));
+    function switchTab(e,id){
+      document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+      document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
+      e.currentTarget.classList.add('active');
+      document.getElementById('tab-'+id).classList.add('active');
+    }
+    const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');io.unobserve(e.target)}}),{threshold:.1});
+    document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+  </script>
+</body>
+</html>

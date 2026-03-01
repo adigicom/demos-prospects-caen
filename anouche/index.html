@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Anouche &mdash; Restaurant M&eacute;diterran&eacute;en &middot; Caen</title>
+  <meta name="description" content="Anouche, cuisine méditerranéenne et fusion au coeur de Caen. Saveurs d'Orient et de mer.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    /* DESIGN A — VARIANTE EMERAUDE — ANOUCHE
+       Fond noir chaud, accent emeraude #4A8C6E, layout hero SPLIT VERTICAL (50/50)
+       Style: cuisine mediterraneenne / fusion, lumineuse, moderne */
+    :root{
+      --bg:      #0B0F0D;
+      --bg2:     #131A16;
+      --bg-card: #1A2420;
+      --acc:     #4A8C6E;
+      --acc2:    #C9A84C;
+      --acc-lt:  #6EAF90;
+      --txt:     #F0F5F2;
+      --txt-m:   #809080;
+      --border:  rgba(74,140,110,.22);
+      --fh:      'Playfair Display', serif;
+      --fb:      'Inter', sans-serif;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:var(--fb);background:var(--bg);color:var(--txt);font-size:16px;line-height:1.7;overflow-x:hidden}
+    img{display:block;max-width:100%}
+    a{text-decoration:none;color:inherit;cursor:pointer}
+    button{cursor:pointer}
+
+    /* BANNIERE */
+    .banner{background:var(--acc);color:#fff;text-align:center;padding:9px 20px;font-size:13px;font-weight:600;letter-spacing:.03em;position:sticky;top:0;z-index:9999}
+    .banner a{color:#fff;text-decoration:underline;font-weight:700}
+
+    /* NAV */
+    .nav{position:fixed;top:40px;left:0;right:0;z-index:100;padding:0 48px;display:flex;align-items:center;justify-content:space-between;height:80px;transition:background .4s,top .4s}
+    .nav.scrolled{background:rgba(11,15,13,.94);backdrop-filter:blur(14px);top:0;border-bottom:1px solid var(--border)}
+    .nav-logo{font-family:var(--fh);font-size:26px;font-weight:700;color:var(--txt);letter-spacing:.02em}
+    .nav-logo span{color:var(--acc-lt)}
+    .nav-links{display:flex;list-style:none;gap:36px;align-items:center}
+    .nav-links a{font-size:12px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--txt-m);transition:color .2s}
+    .nav-links a:hover{color:var(--txt)}
+    .nav-cta{padding:10px 22px;border:1px solid var(--acc) !important;color:var(--acc-lt) !important;border-radius:100px;font-size:11px !important;letter-spacing:.1em !important;font-weight:600 !important;text-transform:uppercase;transition:background .2s,color .2s !important}
+    .nav-cta:hover{background:var(--acc) !important;color:#fff !important;border-color:var(--acc) !important}
+    .burger{display:none;flex-direction:column;gap:5px;background:none;border:none;padding:8px}
+    .burger span{display:block;width:24px;height:2px;background:var(--txt)}
+
+    /* HERO — SPLIT 50/50 VERTICAL */
+    .hero{position:relative;height:100vh;min-height:600px;display:flex;overflow:hidden}
+    /* Partie gauche: texte sur fond sombre */
+    .hero-left{width:50%;background:var(--bg);display:flex;align-items:center;padding:140px 64px 80px;position:relative;z-index:2}
+    .hero-left::after{content:'';position:absolute;right:-1px;top:0;bottom:0;width:1px;background:linear-gradient(to bottom,transparent,var(--acc),transparent)}
+    /* Partie droite: photo */
+    .hero-right{width:50%;position:relative;overflow:hidden}
+    .hero-right img{width:100%;height:100%;object-fit:cover;transform:scale(1.08);animation:hzoom 9s ease-out forwards}
+    .hero-right::before{content:'';position:absolute;inset:0;background:linear-gradient(to right,rgba(11,15,13,.6) 0%,transparent 50%);z-index:1}
+    .hero-right::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(11,15,13,.4) 0%,transparent 70%);z-index:1}
+    @keyframes hzoom{to{transform:scale(1)}}
+    .hero-inner{max-width:500px}
+    .hero-eyebrow{font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--acc-lt);margin-bottom:20px;display:flex;align-items:center;gap:12px;opacity:0;animation:fu .8s .3s ease forwards}
+    .eyebrow-line{width:32px;height:1px;background:var(--acc-lt)}
+    .hero-title{font-family:var(--fh);font-size:clamp(56px,8vw,88px);font-weight:700;line-height:.9;letter-spacing:-.01em;margin-bottom:16px;opacity:0;animation:fu .8s .5s ease forwards}
+    .hero-title span{display:block;font-weight:400;font-style:italic;font-size:.65em;color:var(--acc-lt);line-height:1.4}
+    .hero-sub{font-size:16px;font-weight:300;color:rgba(240,245,242,.7);line-height:1.7;margin-bottom:32px;opacity:0;animation:fu .8s .7s ease forwards}
+    .rating-pill{display:inline-flex;align-items:center;gap:10px;padding:10px 20px;background:rgba(74,140,110,.12);backdrop-filter:blur(8px);border:1px solid rgba(74,140,110,.3);border-radius:100px;font-size:14px;margin-bottom:36px;opacity:0;animation:fu .8s .9s ease forwards}
+    .stars{color:var(--acc2);letter-spacing:2px}
+    .hero-btns{display:flex;gap:14px;flex-wrap:wrap;opacity:0;animation:fu .8s 1.1s ease forwards}
+    .btn-green{padding:15px 32px;background:var(--acc);color:#fff;font-family:var(--fb);font-weight:600;font-size:13px;letter-spacing:.08em;text-transform:uppercase;border-radius:100px;border:none;transition:background .2s,transform .2s;box-shadow:0 4px 20px rgba(74,140,110,.35)}
+    .btn-green:hover{background:var(--acc-lt);transform:translateY(-2px)}
+    .btn-out2{padding:14px 32px;background:transparent;color:var(--txt);font-family:var(--fb);font-weight:500;font-size:13px;letter-spacing:.08em;text-transform:uppercase;border-radius:100px;border:1px solid rgba(240,245,242,.25);transition:border-color .2s}
+    .btn-out2:hover{border-color:rgba(240,245,242,.6)}
+    /* Decorations hero-right */
+    .hero-tag-float{position:absolute;bottom:40px;right:40px;z-index:2;background:rgba(11,15,13,.75);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:12px;padding:16px 20px;text-align:center}
+    .htf-n{font-family:var(--fh);font-size:32px;font-weight:700;color:var(--acc-lt);line-height:1}
+    .htf-t{font-size:11px;color:var(--txt-m);text-transform:uppercase;letter-spacing:.1em;margin-top:4px}
+    @keyframes fu{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+
+    /* CONTAINER */
+    .container{max-width:1200px;margin:0 auto;padding:0 48px}
+
+    /* DIVIDER */
+    .divider{width:60px;height:2px;background:var(--acc);margin:0 auto 32px}
+    .divider.left{margin:0 0 32px}
+
+    /* BANDEAU */
+    .bandeau{background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:14px 0}
+    .bandeau-inner{display:flex;justify-content:center;gap:56px;flex-wrap:wrap}
+    .bandeau-item{color:var(--acc-lt);font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;display:flex;align-items:center;gap:8px}
+    .bandeau-item::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--acc);flex-shrink:0}
+
+    /* SECTIONS */
+    .s-menu{padding:96px 0}
+    .s-apropos{padding:96px 0;background:var(--bg2)}
+    .s-specialites{padding:96px 0}
+    .s-avis{padding:96px 0;background:var(--bg2)}
+    .s-contact{padding:96px 0}
+
+    .s-header{text-align:center;margin-bottom:56px}
+    .s-label{font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--acc-lt);margin-bottom:12px;display:block}
+    .s-title{font-family:var(--fh);font-size:clamp(36px,5vw,54px);font-weight:400;line-height:1.1;color:var(--txt);margin-bottom:12px}
+    .s-title em{font-style:italic;color:var(--acc-lt)}
+    .s-sub{color:var(--txt-m);font-size:15px;max-width:480px;margin:0 auto}
+
+    /* TABS */
+    .tabs{display:flex;justify-content:center;gap:4px;margin:0 auto 44px;background:var(--bg2);padding:6px;border-radius:100px;max-width:440px}
+    .tab-btn{flex:1;padding:10px 16px;background:transparent;border:none;color:var(--txt-m);font-size:13px;font-weight:500;letter-spacing:.04em;border-radius:100px;transition:all .2s}
+    .tab-btn.active{background:var(--acc);color:#fff;font-weight:600}
+    .tab-panel{display:none}.tab-panel.active{display:block}
+
+    /* MENU — cards style moderne avec coins ronds */
+    .menu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+    .menu-card{border-radius:20px;overflow:hidden;background:var(--bg-card);border:1px solid var(--border);transition:transform .3s,box-shadow .3s}
+    .menu-card:hover{transform:translateY(-6px);box-shadow:0 12px 40px rgba(74,140,110,.2)}
+    .menu-img{width:100%;aspect-ratio:4/3;object-fit:cover;transition:transform .4s}
+    .menu-card:hover .menu-img{transform:scale(1.06)}
+    .menu-body{padding:20px}
+    .menu-row{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:8px}
+    .menu-name{font-family:var(--fh);font-size:20px;font-weight:600;color:var(--txt);line-height:1.2}
+    .menu-price{font-size:16px;font-weight:600;color:var(--acc2);white-space:nowrap}
+    .menu-desc{font-size:13px;color:var(--txt-m);line-height:1.6;margin-bottom:12px}
+    .menu-badge{display:inline-block;padding:3px 10px;background:rgba(74,140,110,.15);border:1px solid rgba(74,140,110,.3);color:var(--acc-lt);font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;border-radius:100px}
+
+    /* A PROPOS — layout 60/40 avec grand texte et detail decoration */
+    .apropos-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+    .a-label{font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--acc-lt);margin-bottom:12px;display:block}
+    .a-title{font-family:var(--fh);font-size:clamp(32px,4vw,50px);font-weight:400;line-height:1.1;color:var(--txt);margin-bottom:24px}
+    .a-title em{font-style:italic;color:var(--acc-lt)}
+    .a-p{color:var(--txt-m);font-size:15px;margin-bottom:18px;line-height:1.8}
+    .stats{display:flex;gap:36px;margin-top:40px;padding-top:40px;border-top:1px solid var(--border);flex-wrap:wrap}
+    .stat-n{font-family:var(--fh);font-size:40px;font-weight:700;color:var(--acc-lt);line-height:1;display:block}
+    .stat-l{font-size:11px;color:var(--txt-m);letter-spacing:.08em;text-transform:uppercase;margin-top:4px;display:block}
+    .img-pair{position:relative;height:520px}
+    .img-big{position:absolute;top:0;right:0;width:78%;height:420px;object-fit:cover;border-radius:20px}
+    .img-small{position:absolute;bottom:0;left:0;width:52%;height:260px;object-fit:cover;border-radius:20px;border:4px solid var(--bg2)}
+
+    /* SPECIALITES — bento grid asymetrique */
+    .bento{display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:280px 280px;gap:16px}
+    .bento-item{position:relative;overflow:hidden;border-radius:20px;background:var(--bg-card)}
+    .bento-item.wide{grid-column:span 2}
+    .bento-item.tall{grid-row:span 2}
+    .bento-item img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+    .bento-item:hover img{transform:scale(1.06)}
+    .bento-overlay{position:absolute;bottom:0;left:0;right:0;padding:20px;background:linear-gradient(to top,rgba(11,15,13,.9),transparent);z-index:1}
+    .bento-title{font-family:var(--fh);font-size:20px;font-weight:600;color:var(--txt)}
+    .bento-price{font-size:15px;font-weight:600;color:var(--acc2)}
+
+    /* AVIS */
+    .avis-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+    .avis-card{background:var(--bg-card);border:1px solid var(--border);border-radius:20px;padding:32px}
+    .avis-q{font-family:var(--fh);font-size:64px;color:var(--acc);line-height:.6;margin-bottom:20px;opacity:.4}
+    .avis-txt{font-size:15px;color:var(--txt-m);line-height:1.7;margin-bottom:24px;font-style:italic}
+    .avis-f{display:flex;align-items:center;gap:12px}
+    .avis-av{width:44px;height:44px;background:linear-gradient(135deg,var(--acc),#1e5540);border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;color:#fff;flex-shrink:0}
+    .avis-n{font-weight:600;font-size:14px}
+    .avis-meta{font-size:12px;color:var(--txt-m)}
+    .avis-stars{color:var(--acc2);font-size:12px;letter-spacing:2px}
+
+    /* CONTACT */
+    .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
+    .contact-map{border-radius:20px;overflow:hidden;height:380px;border:1px solid var(--border)}
+    .contact-map iframe{width:100%;height:100%;border:0;display:block}
+    .c-title{font-family:var(--fh);font-size:32px;font-weight:400;margin-bottom:32px;color:var(--txt)}
+    .c-item{display:flex;align-items:flex-start;gap:16px;margin-bottom:24px;padding-bottom:24px;border-bottom:1px solid var(--border)}
+    .c-icon{width:40px;height:40px;background:rgba(74,140,110,.12);border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:18px}
+    .c-label{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--txt-m);margin-bottom:4px}
+    .c-val{font-weight:500;font-size:15px}
+    .c-val a{color:var(--acc-lt)}
+    .hgrid{display:grid;grid-template-columns:1fr 1fr;gap:4px 24px;margin-top:8px}
+    .hday{font-size:13px;color:var(--txt-m)}
+    .htime{font-size:13px;font-weight:500;color:var(--txt);text-align:right}
+
+    /* FOOTER */
+    footer{background:#060806;padding:56px 0 32px;border-top:1px solid var(--border)}
+    .f-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:48px;margin-bottom:48px}
+    .f-logo{font-family:var(--fh);font-size:28px;font-weight:700;color:var(--txt);margin-bottom:12px}
+    .f-logo span{color:var(--acc-lt)}
+    .f-desc{font-size:14px;color:var(--txt-m);line-height:1.7;max-width:280px}
+    .f-col-title{font-size:11px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--txt);margin-bottom:20px}
+    .f-links{list-style:none;display:flex;flex-direction:column;gap:10px}
+    .f-links a{font-size:14px;color:var(--txt-m);transition:color .2s}
+    .f-links a:hover{color:var(--acc-lt)}
+    .f-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:32px;border-top:1px solid var(--border);font-size:12px;color:var(--txt-m);flex-wrap:wrap;gap:12px}
+    .f-bottom a{color:var(--acc-lt)}
+
+    /* CTA MOBILE */
+    .mobile-cta{display:none}
+    @media(max-width:768px){
+      .mobile-cta{display:block;position:fixed;bottom:0;left:0;right:0;padding:16px 20px;background:var(--acc);color:#fff;font-weight:700;font-size:16px;text-align:center;z-index:999;border:none}
+    }
+
+    /* SCROLL REVEAL */
+    .rv{opacity:0;transform:translateY(32px);transition:opacity .7s ease,transform .7s ease}
+    .rv.vis{opacity:1;transform:translateY(0)}
+    .d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}
+
+    /* RESPONSIVE */
+    @media(max-width:1024px){
+      .container{padding:0 32px}
+      .hero-left{padding:120px 32px 60px;width:55%}
+      .hero-right{width:45%}
+      .menu-grid{grid-template-columns:repeat(2,1fr)}
+      .apropos-grid{grid-template-columns:1fr}
+      .img-pair{height:320px}
+      .img-big{width:80%;height:280px}
+      .img-small{width:55%;height:200px}
+      .bento{grid-template-columns:repeat(2,1fr);grid-template-rows:240px 240px}
+      .bento-item.wide{grid-column:span 2}
+      .bento-item.tall{grid-row:span 1}
+      .f-grid{grid-template-columns:1fr 1fr}
+    }
+    @media(max-width:768px){
+      .nav{padding:0 20px}
+      .nav-links{display:none}
+      .burger{display:flex}
+      .container{padding:0 20px}
+      .hero{flex-direction:column}
+      .hero-left{width:100%;padding:120px 20px 40px}
+      .hero-right{width:100%;height:280px;flex-shrink:0}
+      .hero-tag-float{display:none}
+      .s-menu,.s-apropos,.s-specialites,.s-avis,.s-contact{padding:56px 0}
+      .menu-grid,.avis-grid{grid-template-columns:1fr}
+      .contact-grid{grid-template-columns:1fr}
+      .bento{grid-template-columns:1fr;grid-template-rows:auto}
+      .bento-item,.bento-item.wide,.bento-item.tall{height:220px;grid-column:span 1;grid-row:span 1}
+      .f-grid{grid-template-columns:1fr}
+      .f-bottom{flex-direction:column;text-align:center}
+      body{padding-bottom:60px}
+    }
+  </style>
+</head>
+<body>
+
+  <div class="banner">
+    Site demo ADIGICOM &mdash; Votre site web professionnel &agrave; partir de 490 &euro;&nbsp;|&nbsp;
+    <a href="https://adigicom.com" target="_blank">Demander un devis gratuit</a>
+  </div>
+
+  <nav class="nav" id="navbar">
+    <div class="nav-logo">Anouche<span>.</span></div>
+    <ul class="nav-links">
+      <li><a href="#menu">La Carte</a></li>
+      <li><a href="#apropos">Notre &Acirc;me</a></li>
+      <li><a href="#specialites">Sp&eacute;cialit&eacute;s</a></li>
+      <li><a href="#avis">Avis</a></li>
+      <li><a href="tel:0231000002" class="nav-cta">R&eacute;server</a></li>
+    </ul>
+    <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </nav>
+
+  <!-- HERO SPLIT VERTICAL -->
+  <section class="hero">
+    <div class="hero-left">
+      <div class="hero-inner">
+        <span class="hero-eyebrow"><span class="eyebrow-line"></span>Cuisine M&eacute;diterran&eacute;enne &middot; Caen</span>
+        <h1 class="hero-title">
+          Anouche
+          <span>Saveurs de M&eacute;diterran&eacute;e</span>
+        </h1>
+        <p class="hero-sub">Une invitation au voyage &agrave; travers les saveurs d&rsquo;Orient et de Mer. Ingr&eacute;dients frais, &eacute;pices authentiques, cuisine vivante.</p>
+        <div class="rating-pill">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <span>4.9 / 5 &middot; 412 avis Google</span>
+        </div>
+        <div class="hero-btns">
+          <a href="tel:0231000002" class="btn-green">R&eacute;server une table</a>
+          <a href="#menu" class="btn-out2">D&eacute;couvrir la carte</a>
+        </div>
+      </div>
+    </div>
+    <div class="hero-right">
+      <img src="https://images.unsplash.com/photo-1552566626-52f8b828add9?w=1200&q=85&auto=format&fit=crop" alt="Ambiance Anouche">
+      <div class="hero-tag-float">
+        <div class="htf-n">4.9/5</div>
+        <div class="htf-t">412 avis</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BANDEAU -->
+  <div class="bandeau">
+    <div class="bandeau-inner">
+      <span class="bandeau-item">Ouvert 7j/7</span>
+      <span class="bandeau-item">Ingr&eacute;dients frais</span>
+      <span class="bandeau-item">V&eacute;g&eacute;tarien possible</span>
+      <span class="bandeau-item">Cave &agrave; vins s&eacute;lectionn&eacute;e</span>
+    </div>
+  </div>
+
+  <section class="s-menu" id="menu">
+    <div class="container">
+      <div class="s-header">
+        <span class="s-label rv">Notre cuisine</span>
+        <h2 class="s-title rv">La Carte <em>d&rsquo;Anouche</em></h2>
+        <p class="s-sub rv d1">Mezze, plats en sauce, grillades &mdash; chaque assiette raconte un voyage.</p>
+      </div>
+      <div class="tabs rv">
+        <button class="tab-btn active" onclick="switchTab(event,'mezze')">Mezze</button>
+        <button class="tab-btn" onclick="switchTab(event,'plats')">Plats</button>
+        <button class="tab-btn" onclick="switchTab(event,'desserts')">Desserts</button>
+      </div>
+
+      <div class="tab-panel active" id="tab-mezze">
+        <div class="menu-grid">
+          <div class="menu-card rv">
+            <img class="menu-img" src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=600&q=80&auto=format&fit=crop" alt="Mezze" loading="lazy">
+            <div class="menu-body">
+              <div class="menu-row"><span class="menu-name">Plateau Mezze</span><span class="menu-price">16 &euro;</span></div>
+              <p class="menu-desc">Houmous, moutabal, taboul&eacute;, feuilles de vigne, fromage halloumi</p>
+              <span class="menu-badge">Partage</span>
+            </div>
+          </div>
+          <div class="menu-card rv d1">
+            <img class="menu-img" src="https://images.unsplash.com/photo-1482049016688-2d3e1b311543?w=600&q=80&auto=format&fit=crop" alt="Houmous" loading="lazy">
+            <div class="menu-body">
+              <div class="menu-row"><span class="menu-name">Houmous &agrave; l&rsquo;Aneth</span><span class="menu-price">9 &euro;</span></div>
+              <p class="menu-desc">Houmous maison, huile d&rsquo;olive, za&rsquo;atar, graines de p&oacute;in toast&eacute;</p>
+            </div>
+          </div>
+          <div class="menu-card rv d2">
+            <img class="menu-img" src="https://images.unsplash.com/photo-1601050690597-df0568f70950?w=600&q=80&auto=format&fit=crop" alt="Samboussek" loading="lazy">
+            <div class="menu-body">
+              <div class="menu-row"><span class="menu-name">Samboussek</span><span class="menu-price">11 &euro;</span></div>
+              <p class="menu-desc">Chaussons croustillants, farce viande hachu&eacute;e, pignons, sauce yaourt</p>
+              <span class="menu-badge">Signature</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-panel" id="tab-plats">
+        <div class="menu-grid">
+          <div class="menu-card rv">
+            <img class="menu-img" src="https://images.unsplash.com/photo-1574484284002-952d92456975?w=600&q=80&auto=format&fit=crop" alt="Agneau" loading="lazy">
+            <div class="menu-body">
+              <div class="menu-row"><span class="menu-name">Agneau aux &Eacute;pices</span><span class="menu-price">29 &euro;</span></div>
+              <p class="menu-desc">Epaule d&rsquo;agneau confite, ras-el-hanout, semoule aux h&eacute;rbes, citron confit</p>
+              <span class="menu-badge">Maison</span>
+            </div>
+          </div>
+          <div class="menu-card rv d1">
+            <img class="menu-img" src="https://images.unsplash.com/photo-1563379926898-05f4575a45d8?w=600&q=80&auto=format&fit=crop" alt="Poisson" loading="lazy">
+            <div class="menu-body">
+              <div class="menu-row"><span class="menu-name">Dorade en Chermoula</span><span class="menu-price">27 &euro;</span></div>
+              <p class="menu-desc">Dorade r&ocirc;tie entiere, marinade chermoula, l&eacute;gumes grilles, pommes de terre</p>
+              <span class="menu-badge">Coup de coeur</span>
+            </div>
+          </div>
+          <div class="menu-card rv d2">
+            <img class="menu-img" src="https://images.unsplash.com/photo-1551248429-40975aa4de74?w=600&q=80&auto=format&fit=crop" alt="Vegetarien" loading="lazy">
+            <div class="menu-body">
+              <div class="menu-row"><span class="menu-name">Tajine V&eacute;g&eacute;tal</span><span class="menu-price">20 &euro;</span></div>
+              <p class="menu-desc">L&eacute;gumes de saison, pois chiches, olives, citron confit &mdash; 100% v&eacute;g&eacute;tarien</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-panel" id="tab-desserts">
+        <div class="menu-grid">
+          <div class="menu-card rv">
+            <img class="menu-img" src="https://images.unsplash.com/photo-1579954115545-a95591f28bfc?w=600&q=80&auto=format&fit=crop" alt="Baklava" loading="lazy">
+            <div class="menu-body">
+              <div class="menu-row"><span class="menu-name">Baklava Maison</span><span class="menu-price">8 &euro;</span></div>
+              <p class="menu-desc">Feuilles de filo, pistaches, miel &agrave; la fleur d&rsquo;oranger, sirop de rose</p>
+              <span class="menu-badge">Signature</span>
+            </div>
+          </div>
+          <div class="menu-card rv d1">
+            <img class="menu-img" src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=600&q=80&auto=format&fit=crop" alt="Riz au lait" loading="lazy">
+            <div class="menu-body">
+              <div class="menu-row"><span class="menu-name">Riz au Lait Oriental</span><span class="menu-price">7 &euro;</span></div>
+              <p class="menu-desc">Riz crémeux, eau de fleur d&rsquo;oranger, pistaches, cannelle, grenades</p>
+            </div>
+          </div>
+          <div class="menu-card rv d2">
+            <img class="menu-img" src="https://images.unsplash.com/photo-1499028344343-cd173ffc68a9?w=600&q=80&auto=format&fit=crop" alt="Café" loading="lazy">
+            <div class="menu-body">
+              <div class="menu-row"><span class="menu-name">Caf&eacute; Oriental</span><span class="menu-price">4 &euro;</span></div>
+              <p class="menu-desc">Caf&eacute; turc &agrave; la cardamome, servi avec loukoums maison</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="s-apropos" id="apropos">
+    <div class="container">
+      <div class="apropos-grid">
+        <div class="rv">
+          <span class="a-label">Notre &acirc;me</span>
+          <div class="divider left"></div>
+          <h2 class="a-title">Une cuisine<br><em>de voyage</em></h2>
+          <p class="a-p">Anouche est n&eacute;e d&rsquo;une passion pour les saveurs m&eacute;diterran&eacute;ennes. Chaque recette est un souvenir de voyage, un &eacute;change culinaire entre les cultures du Bassin m&eacute;diterran&eacute;en.</p>
+          <p class="a-p">Nous travaillons avec des &eacute;piceries sp&eacute;cialis&eacute;es, des producteurs de proximit&eacute; et importons certaines &eacute;pices directement. Une cuisine authentique, sans compromis sur la qualit&eacute;.</p>
+          <div class="stats">
+            <div><span class="stat-n">8</span><span class="stat-l">Ann&eacute;es</span></div>
+            <div><span class="stat-n">4.9</span><span class="stat-l">Note Google</span></div>
+            <div><span class="stat-n">100%</span><span class="stat-l">Fait maison</span></div>
+          </div>
+        </div>
+        <div class="img-pair rv d1">
+          <img class="img-big" src="https://images.unsplash.com/photo-1424847651672-bf20a4b0982b?w=800&q=80&auto=format&fit=crop" alt="Cuisine Anouche" loading="lazy">
+          <img class="img-small" src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=600&q=80&auto=format&fit=crop" alt="Mezze Anouche" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="s-specialites" id="specialites">
+    <div class="container">
+      <div class="s-header">
+        <span class="s-label rv">En images</span>
+        <h2 class="s-title rv">Nos <em>sp&eacute;cialit&eacute;s</em></h2>
+      </div>
+      <div class="bento rv">
+        <div class="bento-item tall">
+          <img src="https://images.unsplash.com/photo-1574484284002-952d92456975?w=600&q=80&auto=format&fit=crop" alt="Tajine" loading="lazy">
+          <div class="bento-overlay"><div class="bento-title">Tajine d&rsquo;Agneau</div><div class="bento-price">29 &euro;</div></div>
+        </div>
+        <div class="bento-item wide">
+          <img src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=900&q=80&auto=format&fit=crop" alt="Mezze" loading="lazy">
+          <div class="bento-overlay"><div class="bento-title">Plateau Mezze</div><div class="bento-price">16 &euro;</div></div>
+        </div>
+        <div class="bento-item">
+          <img src="https://images.unsplash.com/photo-1579954115545-a95591f28bfc?w=600&q=80&auto=format&fit=crop" alt="Baklava" loading="lazy">
+          <div class="bento-overlay"><div class="bento-title">Baklava Maison</div><div class="bento-price">8 &euro;</div></div>
+        </div>
+        <div class="bento-item">
+          <img src="https://images.unsplash.com/photo-1552566626-52f8b828add9?w=600&q=80&auto=format&fit=crop" alt="Salle" loading="lazy">
+          <div class="bento-overlay"><div class="bento-title">Notre salle</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="s-avis" id="avis">
+    <div class="container">
+      <div class="s-header">
+        <span class="s-label rv">Nos clients</span>
+        <h2 class="s-title rv">Ce qu&rsquo;ils <em>disent</em></h2>
+        <div class="rating-pill rv d1" style="display:inline-flex;margin-bottom:0">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <span>4.9 / 5 &middot; 412 avis Google</span>
+        </div>
+      </div>
+      <div class="avis-grid">
+        <div class="avis-card rv">
+          <div class="avis-q">&ldquo;</div>
+          <p class="avis-txt">Un voyage culinaire extraordinaire &agrave; Caen ! Le tajine d&rsquo;agneau &eacute;tait fondant, les saveurs authentiques. On se croirait au Maroc !</p>
+          <div class="avis-f"><div class="avis-av">SA</div><div><div class="avis-n">Sarah A.</div><div class="avis-meta">Via Google Maps</div><div class="avis-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div></div></div>
+        </div>
+        <div class="avis-card rv d1">
+          <div class="avis-q">&ldquo;</div>
+          <p class="avis-txt">Le plateau mezze est g&eacute;n&eacute;reux et d&eacute;licieux. Parfait pour partager. L&rsquo;accueil est chaleureux, l&rsquo;ambiance unique. On reviendra !</p>
+          <div class="avis-f"><div class="avis-av">KM</div><div><div class="avis-n">Karim M.</div><div class="avis-meta">Client r&eacute;gulier</div><div class="avis-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div></div></div>
+        </div>
+        <div class="avis-card rv d2">
+          <div class="avis-q">&ldquo;</div>
+          <p class="avis-txt">Les baklava maison sont une r&eacute;v&eacute;lation. Finesse et authenticit&eacute; dans chaque bouchee. Le meilleur restaurant oriental de Normandie.</p>
+          <div class="avis-f"><div class="avis-av">HB</div><div><div class="avis-n">H&eacute;l&egrave;ne B.</div><div class="avis-meta">Via Google Maps</div><div class="avis-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="s-contact" id="contact">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-map rv">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d42002.41!2d-0.3812!3d49.1829!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x480a4f34247e62a7%3A0x40f0d03b53f338cb!2sCaen!5e0!3m2!1sfr!2sfr!4v1700000003!5m2!1sfr!2sfr" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Carte Anouche Caen"></iframe>
+        </div>
+        <div class="rv d1">
+          <h3 class="c-title">Nous trouver</h3>
+          <div class="c-item"><div class="c-icon">&#128205;</div><div><div class="c-label">Adresse</div><div class="c-val">24 Rue des &Acirc;tres, 14000 Caen</div></div></div>
+          <div class="c-item"><div class="c-icon">&#128222;</div><div><div class="c-label">T&eacute;l&eacute;phone</div><div class="c-val"><a href="tel:0231000002">02 31 00 00 02</a></div></div></div>
+          <div class="c-item" style="border-bottom:none"><div class="c-icon">&#128336;</div>
+            <div><div class="c-label">Horaires</div>
+              <div class="hgrid">
+                <span class="hday">Lundi</span><span class="htime">Ferm&eacute;</span>
+                <span class="hday">Mar &mdash; Dim</span><span class="htime">12h &ndash; 14h30 &middot; 19h &ndash; 22h30</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="f-grid">
+        <div><div class="f-logo">Anouche<span>.</span></div><p class="f-desc">Restaurant m&eacute;diterran&eacute;en &agrave; Caen. Cuisine du voyage, ingr&eacute;dients frais, saveurs authentiques.</p></div>
+        <div><div class="f-col-title">Navigation</div><ul class="f-links"><li><a href="#menu">La Carte</a></li><li><a href="#apropos">Notre &Acirc;me</a></li><li><a href="#specialites">Sp&eacute;cialit&eacute;s</a></li><li><a href="#contact">Contact</a></li></ul></div>
+        <div><div class="f-col-title">Services</div><ul class="f-links"><li><a href="#">Privatisation</a></li><li><a href="#">Menus groupes</a></li><li><a href="#">V&eacute;g&eacute;tarien</a></li><li><a href="#">Cave &agrave; vins</a></li></ul></div>
+      </div>
+      <div class="f-bottom">
+        <span>&copy; 2026 Anouche &middot; Cuisine M&eacute;diterran&eacute;enne &middot; Caen</span>
+        <span>Site cr&eacute;&eacute; par <a href="https://adigicom.com" target="_blank">ADIGICOM</a> &mdash; adigicom.com</span>
+      </div>
+    </div>
+  </footer>
+
+  <a href="tel:0231000002" class="mobile-cta">&#128222; Appeler pour r&eacute;server</a>
+
+  <script>
+    const nb=document.getElementById('navbar');
+    window.addEventListener('scroll',()=>nb.classList.toggle('scrolled',scrollY>80));
+    function switchTab(e,id){
+      document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+      document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
+      e.currentTarget.classList.add('active');
+      document.getElementById('tab-'+id).classList.add('active');
+    }
+    const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');io.unobserve(e.target)}}),{threshold:.1});
+    document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+  </script>
+</body>
+</html>

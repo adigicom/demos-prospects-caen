@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Le Petit-Corps — Plombier a Caen. Intervention rapide, devis gratuit, qualite garantie. Votre artisan plombier de confiance a Caen." />
+  <title>Le Petit-Corps — Plombier a Caen</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- BANNIERE DEMO ADIGICOM -->
+  <div class="demo-banner">
+    Demo gratuite par ADIGICOM pour Le Petit-Corps &mdash;
+    <a href="tel:+33767719994">07 67 71 99 94</a>
+    &nbsp;|&nbsp;
+    <a href="https://adigicom.com" target="_blank" rel="noopener">adigicom.com</a>
+  </div>
+
+  <!-- NAV -->
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="#" class="nav__logo">Le Petit-Corps</a>
+      <button class="nav__burger" id="burger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav__links" id="navLinks">
+        <li><a href="#apropos">A propos</a></li>
+        <li><a href="#menu">Services</a></li>
+        <li><a href="#avis">Avis</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#contact" class="nav__cta">Devis gratuit</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    
+    <div class="hero__bg">
+      <img
+        src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=1600&q=80&auto=format&fit=crop"
+        alt="Le Petit-Corps"
+        class="hero__img"
+        loading="eager"
+      />
+      <div class="hero__overlay"></div>
+    </div>
+    <div class="hero__content reveal">
+      <span class="hero__tag">Plomberie & Chauffage — Caen</span>
+      <h1 class="hero__title">Le<br><em>Petit-Corps</em></h1>
+      <p class="hero__sub">Intervention rapide, devis gratuit, qualite garantie.<br>Votre artisan plombier de confiance a Caen.</p>
+      <div class="hero__actions">
+        <a href="#contact" class="btn btn--gold">Devis gratuit</a>
+        <a href="#menu" class="btn btn--ghost">Nos services</a>
+      </div>
+        <div class="hero__badges">
+          <div class="hero__badge">Devis gratuit</div>
+          <div class="hero__badge">Intervention rapide</div>
+          <div class="hero__badge">Artisan certifie</div>
+        </div>
+    </div>
+    <div class="hero__scroll"><span></span></div>
+  </section>
+
+  <!-- BANDEAU -->
+  <div class="bandeau">
+    <div class="bandeau__inner">
+      <span>Intervention rapide</span>
+            <span class="sep">·</span>
+      <span>Devis gratuit</span>
+            <span class="sep">·</span>
+      <span>Artisan certifie RGE</span>
+            <span class="sep">·</span>
+      <span>Urgences 24h</span>
+      
+    </div>
+  </div>
+
+  <!-- A PROPOS -->
+  <section class="apropos section" id="apropos">
+    <div class="container">
+      <div class="apropos__grid">
+        <div class="apropos__img-wrap reveal">
+          <img
+            src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80&auto=format&fit=crop"
+            alt="Le Petit-Corps"
+            class="apropos__img"
+            loading="lazy"
+          />
+          <div class="apropos__badge">
+            <strong>Note</strong>
+            <span>2.9</span>
+          </div>
+        </div>
+        <div class="apropos__text reveal">
+          <span class="label">Notre expertise</span>
+          <h2 class="h2">Votre plombier<br>de <em>confiance</em></h2>
+          <p>Artisan plombier qualifie, nous intervenons rapidement sur Caen et ses alentours pour tous vos travaux de plomberie, chauffage et sanitaires. Devis gratuit sous 24h, intervention le jour meme en urgence.</p>
+          <p>Certifies RGE, nous vous accompagnons aussi dans vos projets de renovation energetique : remplacement chaudiere, installation pompe a chaleur, isolation. Des aides financieres peuvent s'appliquer.</p>
+          <div class="apropos__stats">
+            <div class="stat">
+              <strong>2.9</strong>
+              <span>Note Google</span>
+            </div>
+            <div class="stat">
+              <strong>28+</strong>
+              <span>Avis clients</span>
+            </div>
+            <div class="stat">
+              <strong>RGE</strong>
+              <span>Certifie</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="menu section" id="menu">
+    <div class="container">
+      <div class="section__header reveal">
+        <span class="label">Ce qu'on repare</span>
+        <h2 class="h2">Nos Interventions</h2>
+        <p class="section__sub">Depannage, installation, renovation — nous intervenons sur tous vos besoins de plomberie.</p>
+      </div>
+      <div class="menu__tabs reveal">
+        <button class="menu__tab active" data-tab="depannage">Depannage</button>
+        <button class="menu__tab" data-tab="installation">Installation</button>
+        <button class="menu__tab" data-tab="renovation">Renovation</button>
+      </div>
+      <div class="menu__grid" id="menuGrid">
+        <div class="menu__panel active" data-panel="depannage">
+          <div class="menu__card reveal">
+            <div class="menu__card-img" style="background-image: url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80&auto=format&fit=crop')"></div>
+            <div class="menu__card-body">
+              <div class="menu__card-top">
+                <h3>Fuite d'eau</h3>
+                <span class="price">Devis gratuit</span>
+              </div>
+              <p>Recherche et reparation de fuites visibles ou cachees, sous dalle</p>
+              <span class="menu__tag">Urgences</span>
+            </div>
+          </div>
+          <div class="menu__card reveal">
+            <div class="menu__card-img" style="background-image: url('https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=600&q=80&auto=format&fit=crop')"></div>
+            <div class="menu__card-body">
+              <div class="menu__card-top">
+                <h3>Debouchage</h3>
+                <span class="price">Devis gratuit</span>
+              </div>
+              <p>Evier, WC, douche, canalisation — debouchage haute pression</p>
+            </div>
+          </div>
+          <div class="menu__card reveal">
+            <div class="menu__card-img" style="background-image: url('https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=600&q=80&auto=format&fit=crop')"></div>
+            <div class="menu__card-body">
+              <div class="menu__card-top">
+                <h3>Chauffe-eau en panne</h3>
+                <span class="price">Devis gratuit</span>
+              </div>
+              <p>Diagnostic, remplacement resistance ou thermostat, changement ballon</p>
+              <span class="menu__tag">Rapide</span>
+            </div>
+          </div>
+        </div>
+        <div class="menu__panel" data-panel="installation">
+          <div class="menu__card reveal">
+            <div class="menu__card-img" style="background-image: url('https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=600&q=80&auto=format&fit=crop')"></div>
+            <div class="menu__card-body">
+              <div class="menu__card-top">
+                <h3>Salle de bain complete</h3>
+                <span class="price">Sur devis</span>
+              </div>
+              <p>Installation baignoire, douche, lavabo, WC, carrelage inclus</p>
+            </div>
+          </div>
+          <div class="menu__card reveal">
+            <div class="menu__card-img" style="background-image: url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80&auto=format&fit=crop')"></div>
+            <div class="menu__card-body">
+              <div class="menu__card-top">
+                <h3>Chaudiere gaz</h3>
+                <span class="price">Sur devis</span>
+              </div>
+              <p>Installation et mise en service chaudiere gaz condensation, garantie 2 ans</p>
+              <span class="menu__tag">RGE</span>
+            </div>
+          </div>
+          <div class="menu__card reveal">
+            <div class="menu__card-img" style="background-image: url('https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=600&q=80&auto=format&fit=crop')"></div>
+            <div class="menu__card-body">
+              <div class="menu__card-top">
+                <h3>Pompe a chaleur</h3>
+                <span class="price">Sur devis</span>
+              </div>
+              <p>PAC air/eau, economie jusqu'a 70% sur vos factures, aides disponibles</p>
+              <span class="menu__tag">Aide Etat</span>
+            </div>
+          </div>
+        </div>
+        <div class="menu__panel" data-panel="renovation">
+          <div class="menu__card reveal">
+            <div class="menu__card-img" style="background-image: url('https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=600&q=80&auto=format&fit=crop')"></div>
+            <div class="menu__card-body">
+              <div class="menu__card-top">
+                <h3>Renovation salle de bain</h3>
+                <span class="price">Sur devis</span>
+              </div>
+              <p>Conception, demolition, plomberie, carrelage, electricite et finitions</p>
+            </div>
+          </div>
+          <div class="menu__card reveal">
+            <div class="menu__card-img" style="background-image: url('https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600&q=80&auto=format&fit=crop')"></div>
+            <div class="menu__card-body">
+              <div class="menu__card-top">
+                <h3>Rafraichissement cuisine</h3>
+                <span class="price">Sur devis</span>
+              </div>
+              <p>Remplacement evier, robinetterie, raccordement electromenager</p>
+            </div>
+          </div>
+          <div class="menu__card reveal">
+            <div class="menu__card-img" style="background-image: url('https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=600&q=80&auto=format&fit=crop')"></div>
+            <div class="menu__card-body">
+              <div class="menu__card-top">
+                <h3>Plancher chauffant</h3>
+                <span class="price">Sur devis</span>
+              </div>
+              <p>Installation plancher chauffant hydraulique, compatible pompe a chaleur</p>
+              <span class="menu__tag">Economique</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="menu__cta reveal">
+        <a href="#contact" class="btn btn--gold">Devis gratuit</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- AVIS -->
+  <section class="avis section" id="avis">
+    <div class="container">
+      <div class="section__header reveal">
+        <span class="label">Ce qu'ils en disent</span>
+        <h2 class="h2">Avis Clients</h2>
+      </div>
+      <div class="avis__grid">
+        <div class="avis__card reveal">
+          <div class="stars"><span>★</span><span>★</span><span style="opacity:.5">★</span><span style="opacity:.25">★</span><span style="opacity:.25">★</span></div>
+          <p class="avis__text">"Intervention en moins de 2h un dimanche ! Tres professionnel, propre et efficace. La fuite est reparee, prix tres correct. Je recommande !"</p>
+          <div class="avis__author">
+            <div class="avis__avatar">FB</div>
+            <div>
+              <strong>Frederic B.</strong>
+              <span>Depannage fuite</span>
+            </div>
+          </div>
+        </div>
+        <div class="avis__card reveal">
+          <div class="stars"><span>★</span><span>★</span><span style="opacity:.5">★</span><span style="opacity:.25">★</span><span style="opacity:.25">★</span></div>
+          <p class="avis__text">"Renovation complete de notre salle de bain en 5 jours. Resultat impeccable, delais tenus. Equipe serieuse et respectueuse."</p>
+          <div class="avis__author">
+            <div class="avis__avatar">ML</div>
+            <div>
+              <strong>Martine L.</strong>
+              <span>Renovation salle de bain</span>
+            </div>
+          </div>
+        </div>
+        <div class="avis__card reveal">
+          <div class="stars"><span>★</span><span>★</span><span style="opacity:.5">★</span><span style="opacity:.25">★</span><span style="opacity:.25">★</span></div>
+          <p class="avis__text">"Installation pompe a chaleur parfaite. Il a gere toutes les demarches d'aide de l'Etat. Facture divisee par 3 !"</p>
+          <div class="avis__author">
+            <div class="avis__avatar">PD</div>
+            <div>
+              <strong>Patrick D.</strong>
+              <span>Installation PAC</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact section" id="contact">
+    <div class="container">
+      <div class="section__header reveal">
+        <span class="label">Nous trouver</span>
+        <h2 class="h2">Horaires &amp; Contact</h2>
+      </div>
+      <div class="contact__grid">
+        <div class="contact__infos reveal">
+          <div class="contact__block">
+            <div class="contact__icon">
+              <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div>
+              <strong>Adresse</strong>
+              <span>41 Rue Pasteur, 14120 Mondeville</span>
+            </div>
+          </div>
+          <div class="contact__block">
+            <div class="contact__icon">
+              <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.42 2 2 0 0 1 3.6 1.25h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.84a16 16 0 0 0 5.25 5.25l.97-.97a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            </div>
+            <div>
+              <strong>Telephone</strong>
+              <a href="tel:+33231848576">+33 2 31 84 85 76</a>
+            </div>
+          </div>
+          <div class="horaires">
+            <h3>Horaires d'ouverture</h3>
+            <div class="horaires__grid">
+              <div class="horaire__row">
+                <span>Contactez-nous</span>
+                <span>pour les horaires</span>
+              </div>
+            </div>
+          </div>
+          <a href="tel:+33231848576" class="btn btn--gold"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.42 2 2 0 0 1 3.6 1.25h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.84a16 16 0 0 0 5.25 5.25l.97-.97a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>Appeler maintenant</a>
+        </div>
+        <div class="contact__map reveal">
+          <div class="map__placeholder">
+            <div class="map__inner">
+              <svg width="40" height="40" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <p>Le Petit-Corps</p>
+              <span>41 Rue Pasteur, 14120 Mondeville</span>
+              <a href="https://maps.google.com/?q=41+Rue+Pasteur,+14120+Mondeville" target="_blank" rel="noopener" class="btn btn--ghost btn--sm">Ouvrir dans Maps</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <div class="footer__logo">Le Petit-Corps</div>
+          <p>Artisan plombier a Caen. Depannage, installation, renovation — intervention rapide et devis gratuit.</p>
+          <div class="footer__socials">
+            <a href="#" aria-label="Facebook" class="social">
+              <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            </a>
+            <a href="#" aria-label="Instagram" class="social">
+              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="footer__col">
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="#apropos">A propos</a></li>
+            <li><a href="#menu">Nos Interventions</a></li>
+            <li><a href="#avis">Avis clients</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="#">Depannage urgence</a></li>
+            <li><a href="#">Renovation</a></li>
+            <li><a href="#">Aides financieres</a></li>
+            <li><a href="#">Devis en ligne</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="tel:+33231848576">+33 2 31 84 85 76</a></li>
+            <li>41 Rue Pasteur, 14120 Mondeville</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>&copy; 2026 Le Petit-Corps. Tous droits reserves.</span>
+        <a href="https://adigicom.com" target="_blank" rel="noopener" class="footer__adigicom">
+          Site cree par <strong>ADIGICOM</strong>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Pasta i Basta - Caen — Restaurant a Caen. Une cuisine authentique et raffinee. Produits locaux, saveurs uniques, cadre chaleureux." />
+  <title>Pasta i Basta - Caen — Restaurant a Caen</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- BANNIERE DEMO ADIGICOM -->
+  <div class="demo-banner">
+    Demo gratuite par ADIGICOM pour Pasta i Basta - Caen &mdash;
+    <a href="tel:+33767719994">07 67 71 99 94</a>
+    &nbsp;|&nbsp;
+    <a href="https://adigicom.com" target="_blank" rel="noopener">adigicom.com</a>
+  </div>
+
+  <!-- NAV -->
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="#" class="nav__logo">Pasta i Basta - Caen</a>
+      <button class="nav__burger" id="burger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav__links" id="navLinks">
+        <li><a href="#apropos">A propos</a></li>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#avis">Avis</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#contact" class="nav__cta">Reserver</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="hero__bg">
+      <img
+        src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1600&q=80&auto=format&fit=crop"
+        alt="Pasta i Basta - Caen"
+        class="hero__img"
+        loading="eager"
+      />
+      <div class="hero__overlay"></div>
+    </div>
+    <div class="hero__content reveal">
+      <span class="hero__tag">Restaurant — Caen, Normandie</span>
+      <h1 class="hero__title">Pasta<br><em>i Basta - Caen</em></h1>
+      <p class="hero__sub">Une cuisine authentique et raffinee.<br>Produits locaux, saveurs uniques, cadre chaleureux.</p>
+      <div class="hero__actions">
+        <a href="#contact" class="btn btn--gold">Reserver une table</a>
+        <a href="#menu" class="btn btn--ghost">Voir la carte</a>
+      </div>
+    </div>
+    <div class="hero__scroll"><span></span></div>
+  </section>
+
+  <!-- BANDEAU -->
+  <div class="bandeau">
+    <div class="bandeau__inner">
+      <span>Ouvert 7j/7</span>
+            <span class="sep">·</span>
+      <span>Produits locaux &amp; de saison</span>
+            <span class="sep">·</span>
+      <span>Terrasse en ete</span>
+            <span class="sep">·</span>
+      <span>Privatisation possible</span>
+      
+    </div>
+  </div>
+
+  <!-- A PROPOS -->
+  <section class="apropos section" id="apropos">
+    <div class="container">
+      <div class="apropos__grid">
+        <div class="apropos__img-wrap reveal">
+          <img
+            src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800&q=80&auto=format&fit=crop"
+            alt="Pasta i Basta - Caen"
+            class="apropos__img"
+            loading="lazy"
+          />
+          <div class="apropos__badge">
+            <strong>Note</strong>
+            <span>4.8</span>
+          </div>
+        </div>
+        <div class="apropos__text reveal">
+          <span class="label">Notre histoire</span>
+          <h2 class="h2">Une table au coeur<br>de <em>Caen</em></h2>
+          <p>Fondee avec passion, notre table vous propose de decouvrir les saveurs de notre terroir normand. Chaque assiette est preparee avec soin, en privilegiant les producteurs locaux et les produits de saison.</p>
+          <p>Situe au coeur de Caen, notre etablissement vous accueille dans un cadre chaleureux et contemporain, ideal pour un repas en famille, entre amis ou en amoureux.</p>
+          <div class="apropos__stats">
+            <div class="stat">
+              <strong>4.8</strong>
+              <span>Note Google</span>
+            </div>
+            <div class="stat">
+              <strong>192+</strong>
+              <span>Avis clients</span>
+            </div>
+            <div class="stat">
+              <strong>100%</strong>
+              <span>Local &amp; frais</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="menu section" id="menu">
+    <div class="container">
+      <div class="section__header reveal">
+        <span class="label">Notre cuisine</span>
+        <h2 class="h2">La Carte</h2>
+        <p class="section__sub">Une selection de nos specialites, renouvelee chaque saison.</p>
+      </div>
+      <div class="menu__tabs reveal">
+        <button class="menu__tab active" data-tab="entrees">Entrees</button>
+        <button class="menu__tab" data-tab="plats">Plats</button>
+        <button class="menu__tab" data-tab="desserts">Desserts</button>
+      </div>
+      <div class="menu__grid" id="menuGrid">
+        <div class="menu__panel active" data-panel="entrees">
+          <div class="menu__card reveal">
+            <div class="menu__card-img" style="background-image: url('https://images.unsplash.com/photo-1607532941433-304659e8198a?w=600&q=80&auto=format&fit=crop')"></div>
+            <div class="menu__card-body">
+              <div class="menu__card-top">
+                <h3>Coquilles Saint-Jacques</h3>
+                <span class="price">18 €</span>
+              </div>
+              <p>Poelees au beurre demi-sel, veloute de butternut, tuile de parmesan</p>
+              <span class="menu__tag">Coup de coeur</span>
+            </div>
+          </div>
+          <div class="menu__card reveal">
+            <div class="menu__card-img" style="background-image: url('https://images.unsplash.com/photo-1547592166-23ac45744acd?w=600&q=80&auto=format&fit=crop')"></div>
+            <div class="menu__card-body">
+              <div class="menu__card-top">
+                <h3>Soupe de Poisson</h3>
+                <span class="price">14 €</span>
+              </div>
+              <p>Bisque maison, rouille safranee, croutons a l'ail</p>
+            </div>
+          </div>
+          <div class="menu__card reveal">
+            <div class="menu__card-img" style="background-image: url('https://images.unsplash.com/photo-1662116765994-1e4200c43589?w=600&q=80&auto=format&fit=crop')"></div>
+            <div class="menu__card-body">
+              <div class="menu__card-top">
+                <h3>Foie Gras Maison</h3>
+                <span class="price">22 €</span>
+              </div>
+              <p>Terrine de foie gras, chutney de pommes, brioche toastee</p>
+              <span class="menu__tag">Signature</span>
+            </div>
+          </div>
+        </div>
+        <div class="menu__panel" data-panel="plats">
+          <div class="menu__card reveal">
+            <div class="menu__card-img" style="background-image: url('https://images.unsplash.com/photo-1544025162-d76694265947?w=600&q=80&auto=format&fit=crop')"></div>
+            <div class="menu__card-body">
+              <div class="menu__card-top">
+                <h3>Cote de Boeuf</h3>
+                <span class="price">38 €</span>
+              </div>
+              <p>800g, beurre maitre d'hotel, gratin dauphinois, haricots verts</p>
+              <span class="menu__tag">Coup de coeur</span>
+            </div>
+          </div>
+          <div class="menu__card reveal">
+            <div class="menu__card-img" style="background-image: url('https://images.unsplash.com/photo-1519984388953-d2406bc725e1?w=600&q=80&auto=format&fit=crop')"></div>
+            <div class="menu__card-body">
+              <div class="menu__card-top">
+                <h3>Sole Meuniere</h3>
+                <span class="price">32 €</span>
+              </div>
+              <p>Sole entiere, beurre noisette, capres, citron, puree maison</p>
+              <span class="menu__tag">Signature</span>
+            </div>
+          </div>
+          <div class="menu__card reveal">
+            <div class="menu__card-img" style="background-image: url('https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=600&q=80&auto=format&fit=crop')"></div>
+            <div class="menu__card-body">
+              <div class="menu__card-top">
+                <h3>Poulet Vallee d'Auge</h3>
+                <span class="price">26 €</span>
+              </div>
+              <p>Supreme de poulet fermier, sauce creme calvados, pommes sautees</p>
+            </div>
+          </div>
+        </div>
+        <div class="menu__panel" data-panel="desserts">
+          <div class="menu__card reveal">
+            <div class="menu__card-img" style="background-image: url('https://images.unsplash.com/photo-1470124182917-cc6e71b22ecc?w=600&q=80&auto=format&fit=crop')"></div>
+            <div class="menu__card-body">
+              <div class="menu__card-top">
+                <h3>Tarte Tatin Normande</h3>
+                <span class="price">11 €</span>
+              </div>
+              <p>Pommes caramelisees, pate feuilletee, glace vanille bourbon</p>
+              <span class="menu__tag">Coup de coeur</span>
+            </div>
+          </div>
+          <div class="menu__card reveal">
+            <div class="menu__card-img" style="background-image: url('https://images.unsplash.com/photo-1488477181946-6428a0291777?w=600&q=80&auto=format&fit=crop')"></div>
+            <div class="menu__card-body">
+              <div class="menu__card-top">
+                <h3>Fondant au Chocolat</h3>
+                <span class="price">9 €</span>
+              </div>
+              <p>Coeur coulant, creme anglaise a la vanille de Madagascar</p>
+            </div>
+          </div>
+          <div class="menu__card reveal">
+            <div class="menu__card-img" style="background-image: url('https://images.unsplash.com/photo-1505253716362-afaea1d3d1af?w=600&q=80&auto=format&fit=crop')"></div>
+            <div class="menu__card-body">
+              <div class="menu__card-top">
+                <h3>Assiette de Fromages</h3>
+                <span class="price">13 €</span>
+              </div>
+              <p>Selection de fromages normands : camembert, livarot, pont-l'eveque</p>
+              <span class="menu__tag">Signature</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="menu__cta reveal">
+        <a href="#contact" class="btn btn--gold">Reserver une table</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- AVIS -->
+  <section class="avis section" id="avis">
+    <div class="container">
+      <div class="section__header reveal">
+        <span class="label">Ce qu'ils en disent</span>
+        <h2 class="h2">Avis Clients</h2>
+      </div>
+      <div class="avis__grid">
+        <div class="avis__card reveal">
+          <div class="stars"><span>★</span><span>★</span><span>★</span><span>★</span><span style="opacity:.5">★</span></div>
+          <p class="avis__text">"Une experience gastronomique exceptionnelle. Le service est irreprochable, les plats sont delicieux et le cadre est magnifique !"</p>
+          <div class="avis__author">
+            <div class="avis__avatar">ML</div>
+            <div>
+              <strong>Marie-Louise B.</strong>
+              <span>Cliente fidele depuis 2020</span>
+            </div>
+          </div>
+        </div>
+        <div class="avis__card reveal">
+          <div class="stars"><span>★</span><span>★</span><span>★</span><span>★</span><span style="opacity:.5">★</span></div>
+          <p class="avis__text">"Le meilleur restaurant de Caen selon moi. La carte est variee et les prix sont honnorates pour la qualite proposee."</p>
+          <div class="avis__author">
+            <div class="avis__avatar">TM</div>
+            <div>
+              <strong>Thomas M.</strong>
+              <span>Via Google Maps</span>
+            </div>
+          </div>
+        </div>
+        <div class="avis__card reveal">
+          <div class="stars"><span>★</span><span>★</span><span>★</span><span>★</span><span style="opacity:.5">★</span></div>
+          <p class="avis__text">"Nous avons privatise la salle pour un anniversaire. Organisation parfaite, menu sur-mesure. Tout le monde a adore. Merci !"</p>
+          <div class="avis__author">
+            <div class="avis__avatar">SC</div>
+            <div>
+              <strong>Sophie C.</strong>
+              <span>Evenement privatise</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact section" id="contact">
+    <div class="container">
+      <div class="section__header reveal">
+        <span class="label">Nous trouver</span>
+        <h2 class="h2">Horaires &amp; Contact</h2>
+      </div>
+      <div class="contact__grid">
+        <div class="contact__infos reveal">
+          <div class="contact__block">
+            <div class="contact__icon">
+              <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div>
+              <strong>Adresse</strong>
+              <span>128 Rue Saint-Pierre, 14000 Caen</span>
+            </div>
+          </div>
+          <div class="contact__block">
+            <div class="contact__icon">
+              <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.42 2 2 0 0 1 3.6 1.25h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.84a16 16 0 0 0 5.25 5.25l.97-.97a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            </div>
+            <div>
+              <strong>Telephone</strong>
+              <a href="tel:+33651542042">+33 6 51 54 20 42</a>
+            </div>
+          </div>
+          <div class="horaires">
+            <h3>Horaires d'ouverture</h3>
+            <div class="horaires__grid">
+              <div class="horaire__row">
+                <span>Lun-Ven</span>
+                <span>12h-14h30 et 19h-22h30</span>
+              </div>
+              <div class="horaire__row">
+                <span>Sam</span>
+                <span>12h-15h et 19h-23h</span>
+              </div>
+            </div>
+          </div>
+          <a href="tel:+33651542042" class="btn btn--gold"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.42 2 2 0 0 1 3.6 1.25h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.84a16 16 0 0 0 5.25 5.25l.97-.97a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>Appeler maintenant</a>
+        </div>
+        <div class="contact__map reveal">
+          <div class="map__placeholder">
+            <div class="map__inner">
+              <svg width="40" height="40" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <p>Pasta i Basta - Caen</p>
+              <span>128 Rue Saint-Pierre, 14000 Caen</span>
+              <a href="https://maps.google.com/?q=128+Rue+Saint-Pierre,+14000+Caen" target="_blank" rel="noopener" class="btn btn--ghost btn--sm">Ouvrir dans Maps</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <div class="footer__logo">Pasta i Basta - Caen</div>
+          <p>Restaurant gastronomique au coeur de Caen. Cuisine authentique, produits locaux, saveurs normandes.</p>
+          <div class="footer__socials">
+            <a href="#" aria-label="Facebook" class="social">
+              <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            </a>
+            <a href="#" aria-label="Instagram" class="social">
+              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="footer__col">
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="#apropos">A propos</a></li>
+            <li><a href="#menu">La Carte</a></li>
+            <li><a href="#avis">Avis clients</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="#">Privatisation</a></li>
+            <li><a href="#">Carte des vins</a></li>
+            <li><a href="#">Menus groupes</a></li>
+            <li><a href="#">Bons cadeaux</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="tel:+33651542042">+33 6 51 54 20 42</a></li>
+            <li>128 Rue Saint-Pierre, 14000 Caen</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>&copy; 2026 Pasta i Basta - Caen. Tous droits reserves.</span>
+        <a href="https://adigicom.com" target="_blank" rel="noopener" class="footer__adigicom">
+          Site cree par <strong>ADIGICOM</strong>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

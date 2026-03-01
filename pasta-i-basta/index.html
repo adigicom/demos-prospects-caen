@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pasta i Basta &mdash; Trattoria Italienne &middot; Caen</title>
+  <meta name="description" content="Pasta i Basta, trattoria italienne authentique à Caen. Pâtes fraîches maison, vins italiens, ambiance chaleureuse.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    /* DESIGN A — VARIANTE BISTROT ITALIEN
+       Fond blanc casse #FAF8F4, accent terracotta #C05C2C, accents rouge tomate
+       Style: trattoria lumineuse, chaleureuse, moderne - LAYOUT HERO = texte droite, deco gauche */
+    :root{
+      --bg:      #FAF8F4;
+      --bg2:     #F2EDE5;
+      --bg-dark: #2C1A0E;
+      --bg-card: #FFFFFF;
+      --acc:     #C05C2C;
+      --acc2:    #8B1A1A;
+      --acc-lt:  #E07A4A;
+      --txt:     #1A0E08;
+      --txt-m:   #7A5C44;
+      --border:  rgba(192,92,44,.15);
+      --shadow:  0 4px 24px rgba(26,14,8,.08);
+      --fh:      'Playfair Display', serif;
+      --fb:      'Inter', sans-serif;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:var(--fb);background:var(--bg);color:var(--txt);font-size:16px;line-height:1.7;overflow-x:hidden}
+    img{display:block;max-width:100%}
+    a{text-decoration:none;color:inherit;cursor:pointer}
+    button{cursor:pointer}
+
+    /* BANNIERE */
+    .banner{background:var(--acc);color:#fff;text-align:center;padding:9px 20px;font-size:13px;font-weight:600;letter-spacing:.03em;position:sticky;top:0;z-index:9999}
+    .banner a{color:#fff;text-decoration:underline;font-weight:700}
+
+    /* NAV — clair avec logo terracotta */
+    .nav{position:fixed;top:40px;left:0;right:0;z-index:100;padding:0 48px;display:flex;align-items:center;justify-content:space-between;height:80px;transition:background .4s,top .4s,box-shadow .4s}
+    .nav.scrolled{background:rgba(250,248,244,.96);backdrop-filter:blur(12px);top:0;box-shadow:0 1px 0 var(--border)}
+    .nav-logo{font-family:var(--fh);font-size:22px;font-weight:700;color:var(--acc);letter-spacing:.02em}
+    .nav-logo em{font-style:italic;color:var(--acc2)}
+    .nav-links{display:flex;list-style:none;gap:36px;align-items:center}
+    .nav-links a{font-size:12px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--txt-m);transition:color .2s}
+    .nav-links a:hover{color:var(--acc)}
+    .nav-cta{padding:10px 22px;background:var(--acc) !important;color:#fff !important;border-radius:6px;font-size:12px !important;letter-spacing:.08em !important;font-weight:600 !important;text-transform:uppercase;transition:background .2s !important}
+    .nav-cta:hover{background:var(--acc-lt) !important}
+    .burger{display:none;flex-direction:column;gap:5px;background:none;border:none;padding:8px}
+    .burger span{display:block;width:24px;height:2px;background:var(--txt)}
+
+    /* HERO — COMPOSITION ASYMETRIQUE
+       Fond clair, image a gauche (grand cercle decoupe), texte a droite */
+    .hero{min-height:100vh;display:flex;align-items:center;background:var(--bg);position:relative;overflow:hidden;padding-top:120px}
+    /* Decoration de fond: motif */
+    .hero::before{content:'';position:absolute;top:-100px;right:-100px;width:600px;height:600px;background:rgba(192,92,44,.05);border-radius:50%;pointer-events:none}
+    .hero::after{content:'';position:absolute;bottom:-80px;left:10%;width:400px;height:400px;background:rgba(139,26,26,.04);border-radius:50%;pointer-events:none}
+    .hero-container{max-width:1200px;margin:0 auto;padding:0 48px 80px;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+    /* Gauche: collage de photos avec formes */
+    .hero-visual{position:relative;height:560px}
+    .h-img-main{position:absolute;top:0;left:0;right:60px;height:420px;object-fit:cover;border-radius:48px 48px 120px 48px;box-shadow:0 24px 64px rgba(192,92,44,.2)}
+    .h-img-sub{position:absolute;bottom:0;right:0;width:200px;height:200px;object-fit:cover;border-radius:50%;border:6px solid var(--bg);box-shadow:0 8px 32px rgba(26,14,8,.12)}
+    .h-badge{position:absolute;top:32px;right:-16px;background:#fff;border-radius:16px;padding:16px 20px;box-shadow:0 8px 32px rgba(26,14,8,.12);text-align:center;border:1px solid var(--border)}
+    .h-badge-n{font-family:var(--fh);font-size:28px;font-weight:700;color:var(--acc);line-height:1}
+    .h-badge-t{font-size:11px;color:var(--txt-m);text-transform:uppercase;letter-spacing:.08em;margin-top:4px}
+    .h-deco-circle{position:absolute;bottom:60px;left:-16px;width:80px;height:80px;border:3px solid var(--acc);border-radius:50%;opacity:.3}
+    /* Droite: texte */
+    .hero-txt{}
+    .hero-tag{font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--acc);margin-bottom:20px;display:block;opacity:0;animation:fu .8s .3s ease forwards}
+    .hero-title{font-family:var(--fh);font-size:clamp(52px,7vw,80px);font-weight:700;line-height:.95;letter-spacing:-.01em;margin-bottom:12px;color:var(--txt);opacity:0;animation:fu .8s .5s ease forwards}
+    .hero-title em{font-style:italic;color:var(--acc)}
+    .hero-tagline{font-family:var(--fh);font-style:italic;font-size:22px;font-weight:400;color:var(--acc-lt);margin-bottom:24px;display:block;opacity:0;animation:fu .8s .65s ease forwards}
+    .hero-sub{font-size:16px;font-weight:300;color:var(--txt-m);line-height:1.7;margin-bottom:32px;max-width:440px;opacity:0;animation:fu .8s .8s ease forwards}
+    .rating-pill{display:inline-flex;align-items:center;gap:10px;padding:10px 20px;background:#fff;border:1px solid var(--border);border-radius:100px;font-size:14px;margin-bottom:36px;opacity:0;animation:fu .8s 1s ease forwards;box-shadow:var(--shadow)}
+    .stars{color:var(--acc);letter-spacing:2px}
+    .hero-btns{display:flex;gap:14px;flex-wrap:wrap;opacity:0;animation:fu .8s 1.2s ease forwards}
+    .btn-terra{padding:16px 36px;background:var(--acc);color:#fff;font-family:var(--fb);font-weight:600;font-size:13px;letter-spacing:.08em;text-transform:uppercase;border-radius:8px;border:none;transition:background .2s,transform .2s;box-shadow:0 4px 20px rgba(192,92,44,.3)}
+    .btn-terra:hover{background:var(--acc-lt);transform:translateY(-2px)}
+    .btn-out{padding:15px 36px;background:transparent;color:var(--acc);font-family:var(--fb);font-weight:600;font-size:13px;letter-spacing:.08em;text-transform:uppercase;border-radius:8px;border:2px solid var(--acc);transition:background .2s,color .2s}
+    .btn-out:hover{background:var(--acc);color:#fff}
+    /* Trust icons */
+    .hero-trust{display:flex;gap:32px;margin-top:36px;padding-top:32px;border-top:1px solid var(--border);opacity:0;animation:fu .8s 1.4s ease forwards}
+    .trust-item{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--txt-m);font-weight:500}
+    .trust-icon{font-size:20px}
+    @keyframes fu{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+
+    /* CONTAINER */
+    .container{max-width:1200px;margin:0 auto;padding:0 48px}
+
+    /* DIVIDER */
+    .divider{width:60px;height:2px;background:var(--acc);margin:0 auto 32px}
+    .divider.left{margin:0 0 32px}
+
+    /* RUBAN BANDEAU */
+    .ruban{background:var(--bg-dark);padding:14px 0;overflow:hidden}
+    .ruban-inner{display:flex;gap:80px;animation:scroll-l 20s linear infinite;white-space:nowrap}
+    @keyframes scroll-l{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+    .ruban-item{color:rgba(255,255,255,.7);font-size:13px;font-weight:500;letter-spacing:.08em;display:flex;align-items:center;gap:16px;flex-shrink:0}
+    .ruban-item::before{content:'✦';color:var(--acc-lt);font-size:10px}
+
+    /* SECTIONS */
+    .s-menu{padding:96px 0;background:var(--bg2)}
+    .s-apropos{padding:96px 0}
+    .s-pasta{padding:96px 0;background:var(--bg-dark)}
+    .s-avis{padding:96px 0;background:var(--bg2)}
+    .s-contact{padding:96px 0}
+
+    .s-header{text-align:center;margin-bottom:56px}
+    .s-label{font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--acc);margin-bottom:12px;display:block}
+    .s-title{font-family:var(--fh);font-size:clamp(36px,5vw,54px);font-weight:400;line-height:1.1;color:var(--txt);margin-bottom:12px}
+    .s-title.white{color:#fff}
+    .s-title em{font-style:italic;color:var(--acc-lt)}
+    .s-sub{color:var(--txt-m);font-size:15px;max-width:480px;margin:0 auto}
+    .s-sub.light{color:rgba(255,255,255,.6)}
+
+    /* TABS */
+    .tabs{display:flex;justify-content:center;gap:4px;margin:0 auto 44px;background:rgba(192,92,44,.08);padding:6px;border-radius:12px;max-width:440px}
+    .tab-btn{flex:1;padding:10px 16px;background:transparent;border:none;color:var(--txt-m);font-size:13px;font-weight:500;letter-spacing:.04em;border-radius:8px;transition:all .2s}
+    .tab-btn.active{background:var(--acc);color:#fff;font-weight:600}
+    .tab-panel{display:none}.tab-panel.active{display:block}
+
+    /* MENU GRID — cartes claires avec accent */
+    .menu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+    .menu-card{border-radius:20px;overflow:hidden;background:var(--bg-card);box-shadow:var(--shadow);transition:transform .3s,box-shadow .3s}
+    .menu-card:hover{transform:translateY(-6px);box-shadow:0 16px 48px rgba(192,92,44,.16)}
+    .menu-img{width:100%;aspect-ratio:4/3;object-fit:cover;transition:transform .4s}
+    .menu-card:hover .menu-img{transform:scale(1.05)}
+    .menu-body{padding:20px}
+    .menu-row{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:8px}
+    .menu-name{font-family:var(--fh);font-size:20px;font-weight:600;color:var(--txt);line-height:1.2}
+    .menu-price{font-size:16px;font-weight:700;color:var(--acc);white-space:nowrap}
+    .menu-desc{font-size:13px;color:var(--txt-m);line-height:1.6;margin-bottom:12px}
+    .menu-badge{display:inline-block;padding:3px 10px;background:rgba(192,92,44,.1);border:1px solid rgba(192,92,44,.25);color:var(--acc);font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;border-radius:100px}
+
+    /* A PROPOS */
+    .apropos-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+    .a-label{font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--acc);margin-bottom:12px;display:block}
+    .a-title{font-family:var(--fh);font-size:clamp(32px,4vw,50px);font-weight:400;line-height:1.1;color:var(--txt);margin-bottom:24px}
+    .a-title em{font-style:italic;color:var(--acc-lt)}
+    .a-p{color:var(--txt-m);font-size:15px;margin-bottom:18px;line-height:1.8}
+    .stats{display:flex;gap:40px;margin-top:40px;padding-top:40px;border-top:1px solid var(--border)}
+    .stat-n{font-family:var(--fh);font-size:42px;font-weight:700;color:var(--acc);line-height:1;display:block}
+    .stat-l{font-size:11px;color:var(--txt-m);letter-spacing:.08em;text-transform:uppercase;margin-top:4px;display:block}
+    .a-img{width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:48px 48px 16px 120px}
+
+    /* PASTA SPECIALS — section sombre avec grid carte pasta */
+    .pasta-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+    .pasta-card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:24px;text-align:center;transition:background .3s,transform .3s}
+    .pasta-card:hover{background:rgba(192,92,44,.15);transform:translateY(-4px)}
+    .pasta-icon{font-size:40px;margin-bottom:16px}
+    .pasta-name{font-family:var(--fh);font-size:18px;font-weight:600;color:#fff;margin-bottom:8px}
+    .pasta-desc{font-size:13px;color:rgba(255,255,255,.5);line-height:1.5;margin-bottom:12px}
+    .pasta-price{font-size:16px;font-weight:700;color:var(--acc-lt)}
+
+    /* AVIS */
+    .avis-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+    .avis-card{background:var(--bg-card);border:1px solid var(--border);border-radius:20px;padding:32px;box-shadow:var(--shadow)}
+    .avis-q{font-family:var(--fh);font-size:64px;color:var(--acc);line-height:.6;margin-bottom:20px;opacity:.35}
+    .avis-txt{font-size:15px;color:var(--txt-m);line-height:1.7;margin-bottom:24px;font-style:italic}
+    .avis-f{display:flex;align-items:center;gap:12px}
+    .avis-av{width:44px;height:44px;background:linear-gradient(135deg,var(--acc),var(--acc2));border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;color:#fff;flex-shrink:0}
+    .avis-n{font-weight:600;font-size:14px;color:var(--txt)}
+    .avis-meta{font-size:12px;color:var(--txt-m)}
+    .avis-stars{color:var(--acc);font-size:12px;letter-spacing:2px}
+
+    /* CONTACT */
+    .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
+    .contact-map{border-radius:20px;overflow:hidden;height:380px;border:1px solid var(--border);box-shadow:var(--shadow)}
+    .contact-map iframe{width:100%;height:100%;border:0;display:block}
+    .c-title{font-family:var(--fh);font-size:32px;font-weight:400;margin-bottom:32px;color:var(--txt)}
+    .c-item{display:flex;align-items:flex-start;gap:16px;margin-bottom:24px;padding-bottom:24px;border-bottom:1px solid var(--border)}
+    .c-icon{width:40px;height:40px;background:rgba(192,92,44,.1);border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:18px}
+    .c-label{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--txt-m);margin-bottom:4px}
+    .c-val{font-weight:500;font-size:15px;color:var(--txt)}
+    .c-val a{color:var(--acc)}
+    .hgrid{display:grid;grid-template-columns:1fr 1fr;gap:4px 24px;margin-top:8px}
+    .hday{font-size:13px;color:var(--txt-m)}
+    .htime{font-size:13px;font-weight:500;color:var(--txt);text-align:right}
+
+    /* FOOTER */
+    footer{background:var(--bg-dark);padding:56px 0 32px}
+    .f-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:48px;margin-bottom:48px}
+    .f-logo{font-family:var(--fh);font-size:26px;font-weight:700;color:var(--acc-lt);margin-bottom:12px}
+    .f-logo em{font-style:italic}
+    .f-desc{font-size:14px;color:rgba(255,255,255,.45);line-height:1.7;max-width:280px}
+    .f-col-title{font-size:11px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.6);margin-bottom:20px}
+    .f-links{list-style:none;display:flex;flex-direction:column;gap:10px}
+    .f-links a{font-size:14px;color:rgba(255,255,255,.4);transition:color .2s}
+    .f-links a:hover{color:var(--acc-lt)}
+    .f-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:32px;border-top:1px solid rgba(255,255,255,.08);font-size:12px;color:rgba(255,255,255,.35);flex-wrap:wrap;gap:12px}
+    .f-bottom a{color:var(--acc-lt)}
+
+    /* CTA MOBILE */
+    .mobile-cta{display:none}
+    @media(max-width:768px){
+      .mobile-cta{display:block;position:fixed;bottom:0;left:0;right:0;padding:16px 20px;background:var(--acc);color:#fff;font-weight:700;font-size:16px;text-align:center;z-index:999;border:none}
+    }
+
+    /* SCROLL REVEAL */
+    .rv{opacity:0;transform:translateY(32px);transition:opacity .7s ease,transform .7s ease}
+    .rv.vis{opacity:1;transform:translateY(0)}
+    .d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}
+
+    /* RESPONSIVE */
+    @media(max-width:1024px){
+      .container{padding:0 32px}
+      .hero-container{padding:0 32px 60px;grid-template-columns:1fr;gap:48px}
+      .hero-visual{height:360px}
+      .h-img-main{right:0;height:280px;border-radius:24px}
+      .h-img-sub{width:140px;height:140px}
+      .menu-grid{grid-template-columns:repeat(2,1fr)}
+      .pasta-grid{grid-template-columns:repeat(2,1fr)}
+      .apropos-grid{grid-template-columns:1fr}
+      .a-img{aspect-ratio:16/9;border-radius:16px}
+      .f-grid{grid-template-columns:1fr 1fr}
+    }
+    @media(max-width:768px){
+      .nav{padding:0 20px}
+      .nav-links{display:none}
+      .burger{display:flex}
+      .container{padding:0 20px}
+      .hero-container{padding:0 20px 48px}
+      .s-menu,.s-apropos,.s-pasta,.s-avis,.s-contact{padding:56px 0}
+      .menu-grid,.avis-grid{grid-template-columns:1fr}
+      .pasta-grid{grid-template-columns:1fr 1fr}
+      .contact-grid{grid-template-columns:1fr}
+      .f-grid{grid-template-columns:1fr}
+      .f-bottom{flex-direction:column;text-align:center}
+      .hero-trust{gap:16px;flex-wrap:wrap}
+      body{padding-bottom:60px}
+    }
+  </style>
+</head>
+<body>
+
+  <div class="banner">
+    Site demo ADIGICOM &mdash; Votre site web professionnel &agrave; partir de 490 &euro;&nbsp;|&nbsp;
+    <a href="https://adigicom.com" target="_blank">Demander un devis gratuit</a>
+  </div>
+
+  <nav class="nav" id="navbar">
+    <div class="nav-logo">Pasta <em>i</em> Basta</div>
+    <ul class="nav-links">
+      <li><a href="#menu">La Carte</a></li>
+      <li><a href="#apropos">Notre Histoire</a></li>
+      <li><a href="#pasta">Sp&eacute;cialit&eacute;s</a></li>
+      <li><a href="#avis">Avis</a></li>
+      <li><a href="tel:0231000003" class="nav-cta">R&eacute;server</a></li>
+    </ul>
+    <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </nav>
+
+  <!-- HERO ASYMETRIQUE — fond clair -->
+  <section class="hero">
+    <div class="hero-container">
+      <!-- Gauche: visuel -->
+      <div class="hero-visual rv">
+        <img class="h-img-main" src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=900&q=85&auto=format&fit=crop" alt="Ambiance Pasta i Basta">
+        <img class="h-img-sub" src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?w=400&q=80&auto=format&fit=crop" alt="Pasta fraiche">
+        <div class="h-badge">
+          <div class="h-badge-n">&#9733; 4.8</div>
+          <div class="h-badge-t">312 avis</div>
+        </div>
+        <div class="h-deco-circle"></div>
+      </div>
+      <!-- Droite: texte -->
+      <div class="hero-txt">
+        <span class="hero-tag">Trattoria Italienne &middot; Caen</span>
+        <h1 class="hero-title">Pasta<br><em>i Basta</em></h1>
+        <span class="hero-tagline">P&acirc;tes fra&icirc;ches maison &mdash; Vrai gout d&rsquo;Italie</span>
+        <p class="hero-sub">Depuis 2016, nous pr&eacute;parons nos p&acirc;tes chaque matin. Farine de bl&eacute; dur, oeufs de ferme, recettes de nonna. La cuisine italienne dans toute son authenticit&eacute;.</p>
+        <div class="rating-pill">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <span>4.8 / 5 &middot; 312 avis Google</span>
+        </div>
+        <div class="hero-btns">
+          <a href="tel:0231000003" class="btn-terra">R&eacute;server une table</a>
+          <a href="#menu" class="btn-out">Voir la carte</a>
+        </div>
+        <div class="hero-trust">
+          <span class="trust-item"><span class="trust-icon">&#127837;</span>P&acirc;tes fra&icirc;ches</span>
+          <span class="trust-item"><span class="trust-icon">&#127863;</span>Vins italiens</span>
+          <span class="trust-item"><span class="trust-icon">&#11088;</span>4.8 Google</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RUBAN DEFILANT -->
+  <div class="ruban">
+    <div class="ruban-inner">
+      <span class="ruban-item">P&acirc;tes fra&icirc;ches maison</span>
+      <span class="ruban-item">Vins italiens s&eacute;lectionn&eacute;s</span>
+      <span class="ruban-item">Ouvert 7j/7</span>
+      <span class="ruban-item">Recettes traditionnelles</span>
+      <span class="ruban-item">Produits d&rsquo;importation</span>
+      <span class="ruban-item">P&acirc;tes fra&icirc;ches maison</span>
+      <span class="ruban-item">Vins italiens s&eacute;lectionn&eacute;s</span>
+      <span class="ruban-item">Ouvert 7j/7</span>
+      <span class="ruban-item">Recettes traditionnelles</span>
+      <span class="ruban-item">Produits d&rsquo;importation</span>
+    </div>
+  </div>
+
+  <section class="s-menu" id="menu">
+    <div class="container">
+      <div class="s-header">
+        <span class="s-label rv">La cucina</span>
+        <h2 class="s-title rv">La Carte <em>du Chef</em></h2>
+        <p class="s-sub rv d1">Antipasti, pasta, secondi &mdash; une cuisine sincere qui respecte la tradition.</p>
+      </div>
+      <div class="tabs rv">
+        <button class="tab-btn active" onclick="switchTab(event,'antipasti')">Antipasti</button>
+        <button class="tab-btn" onclick="switchTab(event,'pasta')">Pasta</button>
+        <button class="tab-btn" onclick="switchTab(event,'dolci')">Dolci</button>
+      </div>
+
+      <div class="tab-panel active" id="tab-antipasti">
+        <div class="menu-grid">
+          <div class="menu-card rv">
+            <img class="menu-img" src="https://images.unsplash.com/photo-1551248429-40975aa4de74?w=600&q=80&auto=format&fit=crop" alt="Bruschetta" loading="lazy">
+            <div class="menu-body">
+              <div class="menu-row"><span class="menu-name">Bruschetta al Pomodoro</span><span class="menu-price">9 &euro;</span></div>
+              <p class="menu-desc">Pain grille, tomates fraiche, basilic, ail, huile d&rsquo;olive extra vierge AOP</p>
+              <span class="menu-badge">Classique</span>
+            </div>
+          </div>
+          <div class="menu-card rv d1">
+            <img class="menu-img" src="https://images.unsplash.com/photo-1506280754576-f6fa8a873550?w=600&q=80&auto=format&fit=crop" alt="Burrata" loading="lazy">
+            <div class="menu-body">
+              <div class="menu-row"><span class="menu-name">Burrata di Puglia</span><span class="menu-price">14 &euro;</span></div>
+              <p class="menu-desc">Burrata enti&egrave;re, roquette, tomates cerises, jambon San Daniele, miel de truffe</p>
+              <span class="menu-badge">Coup de coeur</span>
+            </div>
+          </div>
+          <div class="menu-card rv d2">
+            <img class="menu-img" src="https://images.unsplash.com/photo-1517093157656-b9eccef91cb1?w=600&q=80&auto=format&fit=crop" alt="Carpaccio" loading="lazy">
+            <div class="menu-body">
+              <div class="menu-row"><span class="menu-name">Carpaccio di Manzo</span><span class="menu-price">16 &euro;</span></div>
+              <p class="menu-desc">Fines tranches de boeuf, copeaux de parmesan 24 mois, roquette, citron</p>
+              <span class="menu-badge">Signature</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-panel" id="tab-pasta">
+        <div class="menu-grid">
+          <div class="menu-card rv">
+            <img class="menu-img" src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?w=600&q=80&auto=format&fit=crop" alt="Carbonara" loading="lazy">
+            <div class="menu-body">
+              <div class="menu-row"><span class="menu-name">Spaghetti alla Carbonara</span><span class="menu-price">17 &euro;</span></div>
+              <p class="menu-desc">Guanciale, jaune d&rsquo;oeuf, Pecorino Romano, poivre noir &mdash; vraie recette romaine</p>
+              <span class="menu-badge">Best-seller</span>
+            </div>
+          </div>
+          <div class="menu-card rv d1">
+            <img class="menu-img" src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=600&q=80&auto=format&fit=crop" alt="Lasagne" loading="lazy">
+            <div class="menu-body">
+              <div class="menu-row"><span class="menu-name">Lasagne della Nonna</span><span class="menu-price">18 &euro;</span></div>
+              <p class="menu-desc">Ragu bolognese mijoter 4h, bechamel onctueuse, p&acirc;te fra&icirc;che faite maison</p>
+              <span class="menu-badge">Signature</span>
+            </div>
+          </div>
+          <div class="menu-card rv d2">
+            <img class="menu-img" src="https://images.unsplash.com/photo-1556761175-4b46a572b786?w=600&q=80&auto=format&fit=crop" alt="Penne" loading="lazy">
+            <div class="menu-body">
+              <div class="menu-row"><span class="menu-name">Penne all&rsquo;Arrabbiata</span><span class="menu-price">14 &euro;</span></div>
+              <p class="menu-desc">Sauce tomate piment&eacute;e, ail, basilic, huile d&rsquo;olive &mdash; piment au choix</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-panel" id="tab-dolci">
+        <div class="menu-grid">
+          <div class="menu-card rv">
+            <img class="menu-img" src="https://images.unsplash.com/photo-1541783245831-57d6fb0926d3?w=600&q=80&auto=format&fit=crop" alt="Tiramisu" loading="lazy">
+            <div class="menu-body">
+              <div class="menu-row"><span class="menu-name">Tiramis&ugrave; Maison</span><span class="menu-price">8 &euro;</span></div>
+              <p class="menu-desc">Mascarpone, biscuits savoiards, espresso fort, cacao en poudre</p>
+              <span class="menu-badge">Indispensable</span>
+            </div>
+          </div>
+          <div class="menu-card rv d1">
+            <img class="menu-img" src="https://images.unsplash.com/photo-1488477181946-6428a0291777?w=600&q=80&auto=format&fit=crop" alt="Panna cotta" loading="lazy">
+            <div class="menu-body">
+              <div class="menu-row"><span class="menu-name">Panna Cotta</span><span class="menu-price">7 &euro;</span></div>
+              <p class="menu-desc">Creme vanille, coulis de fruits rouges frais, pistaches grillees</p>
+            </div>
+          </div>
+          <div class="menu-card rv d2">
+            <img class="menu-img" src="https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=600&q=80&auto=format&fit=crop" alt="Gelato" loading="lazy">
+            <div class="menu-body">
+              <div class="menu-row"><span class="menu-name">Gelato Artisanal</span><span class="menu-price">6 &euro;</span></div>
+              <p class="menu-desc">3 boules au choix : pistache, chocolat, fraise, citron &mdash; fabrication artisanale</p>
+              <span class="menu-badge">Frais</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="s-apropos" id="apropos">
+    <div class="container">
+      <div class="apropos-grid">
+        <div class="rv">
+          <img class="a-img" src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80&auto=format&fit=crop" alt="Ambiance Pasta i Basta" loading="lazy">
+        </div>
+        <div class="rv d1">
+          <span class="a-label">La nostra storia</span>
+          <div class="divider left"></div>
+          <h2 class="a-title">Une trattoria<br>au coeur de <em>Caen</em></h2>
+          <p class="a-p">En 2016, Marco a quitt&eacute; Naples avec ses recettes de famille et une passion intacte pour la pasta. Son r&ecirc;ve : ouvrir &agrave; Caen la trattoria qu&rsquo;il imaginait &mdash; simple, authentique, g&eacute;n&eacute;reuse.</p>
+          <p class="a-p">Chaque matin, il p&eacute;trit la p&acirc;te &agrave; la main. Chaque soir, la salle se remplit. Dix ans plus tard, &ldquo;Pasta i Basta&rdquo; est devenu une institution caennaise.</p>
+          <div class="stats">
+            <div><span class="stat-n">10</span><span class="stat-l">Ann&eacute;es</span></div>
+            <div><span class="stat-n">4.8</span><span class="stat-l">Note Google</span></div>
+            <div><span class="stat-n">100%</span><span class="stat-l">Fra&icirc;ches</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION SOMBRE PASTA -->
+  <section class="s-pasta" id="pasta">
+    <div class="container">
+      <div class="s-header">
+        <span class="s-label rv" style="color:rgba(224,122,74,.8)">Nos sp&eacute;cialit&eacute;s</span>
+        <h2 class="s-title white rv">La Pasta <em>maison</em></h2>
+        <p class="s-sub light rv d1">Quatre formes de p&acirc;tes fra&icirc;ches pr&eacute;par&eacute;es chaque matin.</p>
+      </div>
+      <div class="pasta-grid">
+        <div class="pasta-card rv">
+          <div class="pasta-icon">&#127837;</div>
+          <div class="pasta-name">Spaghetti</div>
+          <div class="pasta-desc">L&rsquo;iconique. Longs, fins, parfaits pour carbonara et vongole.</div>
+          <div class="pasta-price">Fra&icirc;ches du jour</div>
+        </div>
+        <div class="pasta-card rv d1">
+          <div class="pasta-icon">&#127849;</div>
+          <div class="pasta-name">Tagliatelle</div>
+          <div class="pasta-desc">Larges et plates, id&eacute;ales pour le ragu bolognese.</div>
+          <div class="pasta-price">Fra&icirc;ches du jour</div>
+        </div>
+        <div class="pasta-card rv d2">
+          <div class="pasta-icon">&#128374;</div>
+          <div class="pasta-name">Ravioli</div>
+          <div class="pasta-desc">Farcies ricotta-&eacute;pinards ou viande, sauce tomate ou beurre sauge.</div>
+          <div class="pasta-price">Fra&icirc;ches du jour</div>
+        </div>
+        <div class="pasta-card rv d3">
+          <div class="pasta-icon">&#128247;</div>
+          <div class="pasta-name">Lasagne</div>
+          <div class="pasta-desc">7 couches, p&acirc;te fra&icirc;che, ragu 4h, bechamel maison.</div>
+          <div class="pasta-price">Fra&icirc;ches du jour</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="s-avis" id="avis">
+    <div class="container">
+      <div class="s-header">
+        <span class="s-label rv">Paroles de clients</span>
+        <h2 class="s-title rv">Ils <em>adorent</em> Pasta i Basta</h2>
+        <div class="rating-pill rv d1" style="display:inline-flex;margin-bottom:0">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <span>4.8 / 5 &middot; 312 avis Google</span>
+        </div>
+      </div>
+      <div class="avis-grid">
+        <div class="avis-card rv">
+          <div class="avis-q">&ldquo;</div>
+          <p class="avis-txt">La meilleure carbonara de ma vie. Sans cr&egrave;me ! Enfin une vraie recette romaine &agrave; Caen. Les p&acirc;tes sont homemade, c&rsquo;est parfait.</p>
+          <div class="avis-f"><div class="avis-av">RL</div><div><div class="avis-n">Roberto L.</div><div class="avis-meta">Via Google Maps</div><div class="avis-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div></div></div>
+        </div>
+        <div class="avis-card rv d1">
+          <div class="avis-q">&ldquo;</div>
+          <p class="avis-txt">Le tiramis&ugrave; est une tuerie, la burrata divine. Ambiance d&eacute;tendue, service sympa. Un vrai coin d&rsquo;Italie &agrave; Caen !</p>
+          <div class="avis-f"><div class="avis-av">AM</div><div><div class="avis-n">Am&eacute;lie M.</div><div class="avis-meta">Cliente r&eacute;guli&egrave;re</div><div class="avis-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div></div></div>
+        </div>
+        <div class="avis-card rv d2">
+          <div class="avis-q">&ldquo;</div>
+          <p class="avis-txt">Repas d&rsquo;&eacute;quipe m&eacute;morable. Marco est venu nous saluer, a conseill&eacute; les plats &mdash; une exp&eacute;rience vraiment chaleureuse.</p>
+          <div class="avis-f"><div class="avis-av">PD</div><div><div class="avis-n">Pascal D.</div><div class="avis-meta">Repas professionnel</div><div class="avis-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="s-contact" id="contact">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-map rv">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d42002.41!2d-0.3812!3d49.1829!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x480a4f34247e62a7%3A0x40f0d03b53f338cb!2sCaen!5e0!3m2!1sfr!2sfr!4v1700000004!5m2!1sfr!2sfr" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Carte Pasta i Basta Caen"></iframe>
+        </div>
+        <div class="rv d1">
+          <h3 class="c-title">Nous trouver</h3>
+          <div class="c-item"><div class="c-icon">&#128205;</div><div><div class="c-label">Adresse</div><div class="c-val">18 Rue Saint-Jean, 14000 Caen</div></div></div>
+          <div class="c-item"><div class="c-icon">&#128222;</div><div><div class="c-label">T&eacute;l&eacute;phone</div><div class="c-val"><a href="tel:0231000003">02 31 00 00 03</a></div></div></div>
+          <div class="c-item" style="border-bottom:none"><div class="c-icon">&#128336;</div>
+            <div><div class="c-label">Horaires</div>
+              <div class="hgrid">
+                <span class="hday">Lundi</span><span class="htime">Ferm&eacute;</span>
+                <span class="hday">Mar &mdash; Sam</span><span class="htime">12h &ndash; 14h &middot; 19h &ndash; 22h30</span>
+                <span class="hday">Dimanche</span><span class="htime">12h &ndash; 15h</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="f-grid">
+        <div><div class="f-logo">Pasta <em>i Basta</em></div><p class="f-desc">Trattoria italienne &agrave; Caen depuis 2016. P&acirc;tes fra&icirc;ches maison, vins italiens, authenticit&eacute; garantie.</p></div>
+        <div><div class="f-col-title">Navigation</div><ul class="f-links"><li><a href="#menu">La Carte</a></li><li><a href="#apropos">Notre Histoire</a></li><li><a href="#pasta">Sp&eacute;cialit&eacute;s</a></li><li><a href="#contact">Contact</a></li></ul></div>
+        <div><div class="f-col-title">Services</div><ul class="f-links"><li><a href="#">P&acirc;tes &agrave; emporter</a></li><li><a href="#">Privatisation</a></li><li><a href="#">Vins &agrave; emporter</a></li><li><a href="#">Bons cadeaux</a></li></ul></div>
+      </div>
+      <div class="f-bottom">
+        <span>&copy; 2026 Pasta i Basta &middot; Trattoria Italienne &middot; Caen</span>
+        <span>Site cr&eacute;&eacute; par <a href="https://adigicom.com" target="_blank">ADIGICOM</a> &mdash; adigicom.com</span>
+      </div>
+    </div>
+  </footer>
+
+  <a href="tel:0231000003" class="mobile-cta">&#128222; Appeler pour r&eacute;server</a>
+
+  <script>
+    const nb=document.getElementById('navbar');
+    window.addEventListener('scroll',()=>nb.classList.toggle('scrolled',scrollY>80));
+    function switchTab(e,id){
+      document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+      document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
+      e.currentTarget.classList.add('active');
+      document.getElementById('tab-'+id).classList.add('active');
+    }
+    const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');io.unobserve(e.target)}}),{threshold:.1});
+    document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+  </script>
+</body>
+</html>

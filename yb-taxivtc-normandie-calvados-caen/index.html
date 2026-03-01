@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="YB TAXI/VTC Normandie Calvados Caen — VTC a Caen. Confort, ponctualite et discretion — votre chauffeur prive a Caen. Reservation simple, tarif fixe." />
+  <title>YB TAXI/VTC Normandie Calvados Caen — VTC a Caen</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- BANNIERE DEMO ADIGICOM -->
+  <div class="demo-banner">
+    Demo gratuite par ADIGICOM pour YB TAXI/VTC Normandie Calvados Caen &mdash;
+    <a href="tel:+33767719994">07 67 71 99 94</a>
+    &nbsp;|&nbsp;
+    <a href="https://adigicom.com" target="_blank" rel="noopener">adigicom.com</a>
+  </div>
+
+  <!-- NAV -->
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="#" class="nav__logo">YB TAXI/VTC Normandie Calvados Caen</a>
+      <button class="nav__burger" id="burger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav__links" id="navLinks">
+        <li><a href="#apropos">A propos</a></li>
+        <li><a href="#menu">Tarifs</a></li>
+        <li><a href="#avis">Avis</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#contact" class="nav__cta">Reserver</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    
+    <div class="hero__bg">
+      <img
+        src="https://images.unsplash.com/photo-1549924231-f129b911e442?w=1600&q=80&auto=format&fit=crop"
+        alt="YB TAXI/VTC Normandie Calvados Caen"
+        class="hero__img"
+        loading="eager"
+      />
+      <div class="hero__overlay"></div>
+    </div>
+    <div class="hero__content reveal">
+      <span class="hero__tag">VTC & Taxi — Caen, Normandie</span>
+      <h1 class="hero__title">YB<br><em>TAXI/VTC Normandie Calvados Caen</em></h1>
+      <p class="hero__sub">Confort, ponctualite et discretion — votre chauffeur prive a Caen.<br>Reservation simple, tarif fixe.</p>
+      <div class="hero__actions">
+        <a href="#contact" class="btn btn--gold">Reserver une course</a>
+        <a href="#menu" class="btn btn--ghost">Nos tarifs</a>
+      </div>
+    </div>
+    <div class="hero__scroll"><span></span></div>
+  </section>
+
+  <!-- BANDEAU -->
+  <div class="bandeau">
+    <div class="bandeau__inner">
+      <span>Reservation 24h/7j</span>
+            <span class="sep">·</span>
+      <span>Tarif fixe garanti</span>
+            <span class="sep">·</span>
+      <span>Vehicules premium</span>
+            <span class="sep">·</span>
+      <span>Chauffeur diplome</span>
+      
+    </div>
+  </div>
+
+  <!-- A PROPOS -->
+  <section class="apropos section" id="apropos">
+    <div class="container">
+      <div class="apropos__grid">
+        <div class="apropos__img-wrap reveal">
+          <img
+            src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80&auto=format&fit=crop"
+            alt="YB TAXI/VTC Normandie Calvados Caen"
+            class="apropos__img"
+            loading="lazy"
+          />
+          <div class="apropos__badge">
+            <strong>Note</strong>
+            <span>4.8</span>
+          </div>
+        </div>
+        <div class="apropos__text reveal">
+          <span class="label">Votre chauffeur</span>
+          <h2 class="h2">Le transport<br><em>premium</em> a Caen</h2>
+          <p>Chauffeur VTC certifie, je vous propose un service de transport haut de gamme, disponible 7j/7 et 24h/24. Vehicules recents et confortables, climatises, bonne musique ou silence selon votre preference.</p>
+          <p>Navettes aeroport Caen-Carpiquet et Paris CDG/Orly, transferts gare, sorties soirees, mariages, evenements d'entreprise. Tarif fixe communique avant la course, sans surprise.</p>
+          <div class="apropos__stats">
+            <div class="stat">
+              <strong>4.8</strong>
+              <span>Note Google</span>
+            </div>
+            <div class="stat">
+              <strong>0+</strong>
+              <span>Avis clients</span>
+            </div>
+            <div class="stat">
+              <strong>24h/7j</strong>
+              <span>Disponible</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="menu section" id="menu">
+    <div class="container">
+      <div class="section__header reveal">
+        <span class="label">Nos services</span>
+        <h2 class="h2">Nos Courses</h2>
+        <p class="section__sub">Aeroport, gare, longue distance — des trajets confortables au tarif transparent.</p>
+      </div>
+      <div class="menu__tabs reveal">
+        <button class="menu__tab active" data-tab="local">Caen & local</button>
+        <button class="menu__tab" data-tab="aeroport">Aeroport</button>
+        <button class="menu__tab" data-tab="evenement">Evenements</button>
+      </div>
+      <div class="menu__grid" id="menuGrid">
+        <div class="menu__panel active" data-panel="local">
+          <div class="menu__card reveal">
+            <div class="menu__card-img" style="background-image: url('https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=600&q=80&auto=format&fit=crop')"></div>
+            <div class="menu__card-body">
+              <div class="menu__card-top">
+                <h3>Course ville Caen</h3>
+                <span class="price">A partir de 15 €</span>
+              </div>
+              <p>Prise en charge et depots dans tout Caen et l'agglomeration</p>
+            </div>
+          </div>
+          <div class="menu__card reveal">
+            <div class="menu__card-img" style="background-image: url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80&auto=format&fit=crop')"></div>
+            <div class="menu__card-body">
+              <div class="menu__card-top">
+                <h3>Longue distance</h3>
+                <span class="price">Tarif fixe</span>
+              </div>
+              <p>Paris, Rennes, Rouen, Le Havre — tarif devis avant depart</p>
+            </div>
+          </div>
+          <div class="menu__card reveal">
+            <div class="menu__card-img" style="background-image: url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=600&q=80&auto=format&fit=crop')"></div>
+            <div class="menu__card-body">
+              <div class="menu__card-top">
+                <h3>Mise a disposition</h3>
+                <span class="price">75 €/h</span>
+              </div>
+              <p>Chauffeur prive pour la journee ou demi-journee</p>
+              <span class="menu__tag">Entreprise</span>
+            </div>
+          </div>
+        </div>
+        <div class="menu__panel" data-panel="aeroport">
+          <div class="menu__card reveal">
+            <div class="menu__card-img" style="background-image: url('https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=600&q=80&auto=format&fit=crop')"></div>
+            <div class="menu__card-body">
+              <div class="menu__card-top">
+                <h3>Caen - CDG/Orly</h3>
+                <span class="price">A partir de 180 €</span>
+              </div>
+              <p>Navette Paris aeroport, vehicule berline premium, confort garanti</p>
+              <span class="menu__tag">Best-seller</span>
+            </div>
+          </div>
+          <div class="menu__card reveal">
+            <div class="menu__card-img" style="background-image: url('https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=600&q=80&auto=format&fit=crop')"></div>
+            <div class="menu__card-body">
+              <div class="menu__card-top">
+                <h3>Caen - Caen Carpiquet</h3>
+                <span class="price">A partir de 35 €</span>
+              </div>
+              <p>Transfert aeroport local, bagages inclus, retours assures</p>
+            </div>
+          </div>
+          <div class="menu__card reveal">
+            <div class="menu__card-img" style="background-image: url('https://images.unsplash.com/photo-1549924231-f129b911e442?w=600&q=80&auto=format&fit=crop')"></div>
+            <div class="menu__card-body">
+              <div class="menu__card-top">
+                <h3>Attente vol</h3>
+                <span class="price">15 €/30min</span>
+              </div>
+              <p>Suivi du vol en temps reel, pas de frais si retard avion</p>
+              <span class="menu__tag">Serein</span>
+            </div>
+          </div>
+        </div>
+        <div class="menu__panel" data-panel="evenement">
+          <div class="menu__card reveal">
+            <div class="menu__card-img" style="background-image: url('https://images.unsplash.com/photo-1519741497674-611481863552?w=600&q=80&auto=format&fit=crop')"></div>
+            <div class="menu__card-body">
+              <div class="menu__card-top">
+                <h3>Mariage</h3>
+                <span class="price">Sur devis</span>
+              </div>
+              <p>Decoration vehicule, champagne, tapis rouge — package complet</p>
+              <span class="menu__tag">Special</span>
+            </div>
+          </div>
+          <div class="menu__card reveal">
+            <div class="menu__card-img" style="background-image: url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=600&q=80&auto=format&fit=crop')"></div>
+            <div class="menu__card-body">
+              <div class="menu__card-top">
+                <h3>Soiree & Nuit</h3>
+                <span class="price">A partir de 25 €</span>
+              </div>
+              <p>Retour soiree securise, aller-retour, disponible jusqu'au matin</p>
+            </div>
+          </div>
+          <div class="menu__card reveal">
+            <div class="menu__card-img" style="background-image: url('https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=600&q=80&auto=format&fit=crop')"></div>
+            <div class="menu__card-body">
+              <div class="menu__card-top">
+                <h3>Entreprise</h3>
+                <span class="price">Sur devis</span>
+              </div>
+              <p>Transport equipes, clients, seminaires, contrats a l'annee</p>
+              <span class="menu__tag">Pro</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="menu__cta reveal">
+        <a href="#contact" class="btn btn--gold">Reserver une course</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- AVIS -->
+  <section class="avis section" id="avis">
+    <div class="container">
+      <div class="section__header reveal">
+        <span class="label">Ce qu'ils en disent</span>
+        <h2 class="h2">Avis Clients</h2>
+      </div>
+      <div class="avis__grid">
+        <div class="avis__card reveal">
+          <div class="stars"><span>★</span><span>★</span><span>★</span><span>★</span><span style="opacity:.5">★</span></div>
+          <p class="avis__text">"Ponctuel, vehicule impeccable, tres discret. Je prends toujours ce service pour mes deplacement pro. Parfait du debut a la fin."</p>
+          <div class="avis__author">
+            <div class="avis__avatar">AL</div>
+            <div>
+              <strong>Antoine L.</strong>
+              <span>Navette CDG</span>
+            </div>
+          </div>
+        </div>
+        <div class="avis__card reveal">
+          <div class="stars"><span>★</span><span>★</span><span>★</span><span>★</span><span style="opacity:.5">★</span></div>
+          <p class="avis__text">"Vehicule orne de fleurs, chauffeur en costume. Un moment magnifique pour notre mariage. Merci pour le champagne !"</p>
+          <div class="avis__author">
+            <div class="avis__avatar">SB</div>
+            <div>
+              <strong>Sylvie B.</strong>
+              <span>Mariage</span>
+            </div>
+          </div>
+        </div>
+        <div class="avis__card reveal">
+          <div class="stars"><span>★</span><span>★</span><span>★</span><span>★</span><span style="opacity:.5">★</span></div>
+          <p class="avis__text">"Nous utilisons ce service pour tous nos deplacements d'entreprise. Toujours a l'heure, professionnel. Contrat annuel renouvelable."</p>
+          <div class="avis__author">
+            <div class="avis__avatar">EM</div>
+            <div>
+              <strong>Eric M.</strong>
+              <span>Contrat entreprise</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact section" id="contact">
+    <div class="container">
+      <div class="section__header reveal">
+        <span class="label">Nous trouver</span>
+        <h2 class="h2">Horaires &amp; Contact</h2>
+      </div>
+      <div class="contact__grid">
+        <div class="contact__infos reveal">
+          <div class="contact__block">
+            <div class="contact__icon">
+              <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div>
+              <strong>Adresse</strong>
+              <span>38 Rue de Beaulieu, 14000 Caen</span>
+            </div>
+          </div>
+          <div class="contact__block">
+            <div class="contact__icon">
+              <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.42 2 2 0 0 1 3.6 1.25h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.84a16 16 0 0 0 5.25 5.25l.97-.97a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            </div>
+            <div>
+              <strong>Telephone</strong>
+              <a href="tel:+33768411671">+33 7 68 41 16 71</a>
+            </div>
+          </div>
+          <div class="horaires">
+            <h3>Horaires d'ouverture</h3>
+            <div class="horaires__grid">
+              <div class="horaire__row">
+                <span>Contactez-nous</span>
+                <span>pour les horaires</span>
+              </div>
+            </div>
+          </div>
+          <a href="tel:+33768411671" class="btn btn--gold"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.42 2 2 0 0 1 3.6 1.25h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.84a16 16 0 0 0 5.25 5.25l.97-.97a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>Appeler maintenant</a>
+        </div>
+        <div class="contact__map reveal">
+          <div class="map__placeholder">
+            <div class="map__inner">
+              <svg width="40" height="40" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <p>YB TAXI/VTC Normandie Calvados Caen</p>
+              <span>38 Rue de Beaulieu, 14000 Caen</span>
+              <a href="https://maps.google.com/?q=38+Rue+de+Beaulieu,+14000+Caen" target="_blank" rel="noopener" class="btn btn--ghost btn--sm">Ouvrir dans Maps</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <div class="footer__logo">YB TAXI/VTC Normandie Calvados Caen</div>
+          <p>Chauffeur VTC prive a Caen. Aeroport, gare, soirees — vehicule premium, tarif fixe, disponible 24h/7j.</p>
+          <div class="footer__socials">
+            <a href="#" aria-label="Facebook" class="social">
+              <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            </a>
+            <a href="#" aria-label="Instagram" class="social">
+              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="footer__col">
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="#apropos">A propos</a></li>
+            <li><a href="#menu">Nos Courses</a></li>
+            <li><a href="#avis">Avis clients</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="#">Navette aeroport</a></li>
+            <li><a href="#">Mariage</a></li>
+            <li><a href="#">Entreprise</a></li>
+            <li><a href="#contact">Reserver</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="tel:+33768411671">+33 7 68 41 16 71</a></li>
+            <li>38 Rue de Beaulieu, 14000 Caen</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>&copy; 2026 YB TAXI/VTC Normandie Calvados Caen. Tous droits reserves.</span>
+        <a href="https://adigicom.com" target="_blank" rel="noopener" class="footer__adigicom">
+          Site cree par <strong>ADIGICOM</strong>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Garage Multi Groupe &mdash; M&eacute;canique Auto &middot; Caen</title>
+  <meta name="description" content="Garage Multi Groupe, votre garage de confiance à Caen. Entretien, réparation, carrosserie toutes marques. Devis gratuit.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    /* DESIGN C — PRO CONFIANCE — GARAGE MULTI GROUPE
+       Fond blanc, accent marine #1E3A5F + rouge #E53E3E, Montserrat Bold
+       Trust bar, service cards avec border-left hover, CTA urgence rouge */
+    :root{
+      --bg:      #FFFFFF;
+      --bg2:     #F4F5F7;
+      --bg-dark: #0F172A;
+      --bg-card: #FFFFFF;
+      --marine:  #1E3A5F;
+      --rouge:   #E53E3E;
+      --rouge-lt:#FC6565;
+      --amber:   #F6AD55;
+      --txt:     #0F172A;
+      --txt-m:   #64748B;
+      --border:  #E2E8F0;
+      --shadow:  0 4px 24px rgba(15,23,42,.08);
+      --fh:      'Montserrat', sans-serif;
+      --fb:      'Inter', sans-serif;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:var(--fb);background:var(--bg);color:var(--txt);font-size:16px;line-height:1.7;overflow-x:hidden}
+    img{display:block;max-width:100%}
+    a{text-decoration:none;color:inherit;cursor:pointer}
+    button{cursor:pointer}
+
+    /* BANNIERE */
+    .banner{background:var(--rouge);color:#fff;text-align:center;padding:9px 20px;font-size:13px;font-weight:600;letter-spacing:.03em;position:sticky;top:0;z-index:9999}
+    .banner a{color:#fff;text-decoration:underline;font-weight:700}
+
+    /* NAV — sombre */
+    .nav{position:fixed;top:40px;left:0;right:0;z-index:100;padding:0 48px;display:flex;align-items:center;justify-content:space-between;height:72px;transition:background .4s,top .4s}
+    .nav.at-top{background:rgba(15,23,42,.85);backdrop-filter:blur(12px)}
+    .nav.scrolled{background:var(--bg-dark);top:0}
+    .nav-logo{font-family:var(--fh);font-size:18px;font-weight:800;color:#fff;letter-spacing:.04em;text-transform:uppercase}
+    .nav-logo span{color:var(--rouge)}
+    .nav-tel{display:flex;align-items:center;gap:8px;color:#fff;font-size:14px;font-weight:600}
+    .nav-tel-icon{color:var(--rouge)}
+    .nav-links{display:flex;list-style:none;gap:28px;align-items:center}
+    .nav-links a{font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.65);transition:color .2s}
+    .nav-links a:hover{color:#fff}
+    .nav-cta{padding:10px 20px;background:var(--rouge) !important;color:#fff !important;border-radius:6px;font-size:12px !important;letter-spacing:.08em !important;font-weight:700 !important;text-transform:uppercase;transition:background .2s !important;box-shadow:0 4px 16px rgba(229,62,62,.3)}
+    .nav-cta:hover{background:var(--rouge-lt) !important}
+    .burger{display:none;flex-direction:column;gap:5px;background:none;border:none;padding:8px}
+    .burger span{display:block;width:24px;height:2px;background:#fff}
+
+    /* HERO — fond sombre, photo voiture, overlay marine */
+    .hero{position:relative;height:80vh;min-height:560px;display:flex;flex-direction:column;justify-content:center;overflow:hidden}
+    .hero-bg{position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=1800&q=85&auto=format&fit=crop') center/cover;animation:hzoom 8s ease-out forwards}
+    @keyframes hzoom{from{transform:scale(1.06)}to{transform:scale(1)}}
+    .hero-ov{position:absolute;inset:0;background:linear-gradient(135deg,rgba(30,58,95,.88) 0%,rgba(15,23,42,.75) 100%)}
+    .hero-cnt{position:relative;z-index:2;padding:0 48px;max-width:800px}
+    .hero-eyebrow{font-size:12px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--rouge);margin-bottom:16px;display:block;opacity:0;animation:fu .7s .3s ease forwards}
+    .hero-title{font-family:var(--fh);font-size:clamp(36px,6vw,68px);font-weight:900;line-height:1;letter-spacing:.02em;text-transform:uppercase;color:#fff;margin-bottom:8px;opacity:0;animation:fu .7s .5s ease forwards}
+    .hero-title span{color:var(--rouge)}
+    .hero-subtitle{font-family:var(--fh);font-size:clamp(20px,3vw,30px);font-weight:700;color:rgba(255,255,255,.65);text-transform:uppercase;letter-spacing:.08em;margin-bottom:28px;opacity:0;animation:fu .7s .65s ease forwards}
+    .hero-sub{font-size:16px;font-weight:400;color:rgba(255,255,255,.7);line-height:1.7;margin-bottom:32px;max-width:560px;opacity:0;animation:fu .7s .8s ease forwards}
+    .rating-pill{display:inline-flex;align-items:center;gap:10px;padding:9px 18px;background:rgba(255,255,255,.1);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.15);border-radius:6px;font-size:13px;color:#fff;margin-bottom:32px;opacity:0;animation:fu .7s 1s ease forwards}
+    .stars{color:var(--amber);letter-spacing:2px}
+    .hero-btns{display:flex;gap:14px;flex-wrap:wrap;opacity:0;animation:fu .7s 1.1s ease forwards}
+    .btn-rouge{padding:16px 36px;background:var(--rouge);color:#fff;font-family:var(--fh);font-weight:700;font-size:13px;letter-spacing:.1em;text-transform:uppercase;border-radius:6px;border:none;transition:background .2s,transform .2s,box-shadow .2s;box-shadow:0 4px 20px rgba(229,62,62,.4)}
+    .btn-rouge:hover{background:var(--rouge-lt);transform:translateY(-2px);box-shadow:0 6px 28px rgba(229,62,62,.55)}
+    .btn-out-w{padding:15px 36px;background:transparent;color:#fff;font-family:var(--fh);font-weight:700;font-size:13px;letter-spacing:.1em;text-transform:uppercase;border-radius:6px;border:2px solid rgba(255,255,255,.4);transition:border-color .2s,background .2s}
+    .btn-out-w:hover{border-color:#fff;background:rgba(255,255,255,.08)}
+    @keyframes fu{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+
+    /* TRUST BAR */
+    .trust-bar{background:var(--marine);padding:18px 0}
+    .trust-inner{max-width:1200px;margin:0 auto;padding:0 48px;display:flex;justify-content:center;gap:56px;flex-wrap:wrap}
+    .trust-item{display:flex;align-items:center;gap:10px;color:#fff;font-family:var(--fh);font-weight:700;font-size:13px;letter-spacing:.06em;text-transform:uppercase}
+    .trust-icon{width:32px;height:32px;background:rgba(255,255,255,.12);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
+
+    /* CONTAINER */
+    .container{max-width:1200px;margin:0 auto;padding:0 48px}
+
+    /* SECTIONS */
+    .s-services{padding:96px 0;background:var(--bg2)}
+    .s-process{padding:96px 0}
+    .s-apropos{padding:96px 0;background:var(--bg-dark);color:#fff}
+    .s-marques{padding:72px 0;background:var(--bg2)}
+    .s-avis{padding:96px 0}
+    .s-contact{padding:96px 0;background:var(--bg2)}
+
+    .s-header{text-align:center;margin-bottom:56px}
+    .s-label{font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--rouge);margin-bottom:12px;display:block}
+    .s-label.light{color:var(--rouge-lt)}
+    .s-title{font-family:var(--fh);font-size:clamp(28px,4vw,44px);font-weight:800;text-transform:uppercase;letter-spacing:.03em;color:var(--txt);margin-bottom:12px}
+    .s-title.white{color:#fff}
+    .s-sub{color:var(--txt-m);font-size:15px;max-width:520px;margin:0 auto}
+    .s-sub.light{color:rgba(255,255,255,.5)}
+
+    /* DIVIDER */
+    .divider{width:48px;height:4px;background:var(--rouge);margin:0 auto 32px;border-radius:2px}
+    .divider.left{margin:0 0 24px}
+    .divider.marine{background:var(--marine)}
+
+    /* SERVICES GRID */
+    .services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+    .service-card{background:var(--bg-card);border-radius:12px;padding:32px 24px;border:1px solid var(--border);box-shadow:var(--shadow);transition:border-color .3s,transform .3s,box-shadow .3s;position:relative;overflow:hidden}
+    .service-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--border);transition:background .3s}
+    .service-card:hover{border-color:var(--rouge);transform:translateY(-4px);box-shadow:0 12px 40px rgba(15,23,42,.12)}
+    .service-card:hover::before{background:var(--rouge)}
+    .s-icon{width:56px;height:56px;background:rgba(229,62,62,.08);border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:20px;font-size:24px;transition:background .3s}
+    .service-card:hover .s-icon{background:rgba(229,62,62,.15)}
+    .s-name{font-family:var(--fh);font-size:17px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:var(--txt);margin-bottom:10px}
+    .s-desc{font-size:13px;color:var(--txt-m);line-height:1.6;margin-bottom:16px}
+    .s-link{font-size:12px;font-weight:700;color:var(--rouge);letter-spacing:.08em;text-transform:uppercase;display:flex;align-items:center;gap:6px}
+    .s-link::after{content:'→'}
+
+    /* PROCESSUS */
+    .process-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;position:relative}
+    .process-grid::before{content:'';position:absolute;top:40px;left:20%;right:20%;height:2px;background:linear-gradient(to right,var(--rouge),var(--marine));pointer-events:none}
+    .process-item{text-align:center;padding:0 32px}
+    .p-num{width:80px;height:80px;background:var(--marine);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--fh);font-size:28px;font-weight:900;color:#fff;margin:0 auto 24px;position:relative;z-index:1;border:4px solid var(--bg)}
+    .process-item:nth-child(2) .p-num{background:var(--rouge)}
+    .p-title{font-family:var(--fh);font-size:16px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--txt);margin-bottom:8px}
+    .p-desc{font-size:13px;color:var(--txt-m);line-height:1.6}
+
+    /* A PROPOS dark */
+    .apropos-dark{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+    .apropos-img-d{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:12px}
+    .ad-label{font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--rouge-lt);margin-bottom:12px;display:block}
+    .ad-title{font-family:var(--fh);font-size:clamp(28px,4vw,44px);font-weight:900;text-transform:uppercase;color:#fff;margin-bottom:24px;line-height:1.1}
+    .ad-p{font-size:15px;color:rgba(255,255,255,.6);line-height:1.8;margin-bottom:20px}
+    .ad-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:40px;padding-top:40px;border-top:1px solid rgba(255,255,255,.1)}
+    .ad-stat-n{font-family:var(--fh);font-size:36px;font-weight:900;color:var(--rouge);line-height:1;display:block}
+    .ad-stat-l{font-size:11px;color:rgba(255,255,255,.45);letter-spacing:.08em;text-transform:uppercase;margin-top:4px;display:block}
+    /* badges certifs */
+    .cert-badges{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+    .cert-badge{display:inline-flex;align-items:center;gap:6px;padding:6px 14px;background:rgba(246,173,85,.12);border:1px solid rgba(246,173,85,.25);border-radius:6px;color:var(--amber);font-family:var(--fh);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em}
+
+    /* MARQUES */
+    .marques-grid{display:flex;justify-content:center;align-items:center;gap:48px;flex-wrap:wrap}
+    .marque-item{font-family:var(--fh);font-size:16px;font-weight:800;color:var(--txt-m);letter-spacing:.06em;text-transform:uppercase;opacity:.6;transition:opacity .2s}
+    .marque-item:hover{opacity:1;color:var(--marine)}
+
+    /* AVIS */
+    .avis-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+    .avis-card{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:28px;box-shadow:var(--shadow)}
+    .avis-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}
+    .avis-stars{color:var(--amber);font-size:14px;letter-spacing:2px}
+    .avis-date{font-size:11px;color:var(--txt-m)}
+    .avis-txt{font-size:14px;color:var(--txt-m);line-height:1.7;margin-bottom:20px}
+    .avis-f{display:flex;align-items:center;gap:12px}
+    .avis-av{width:44px;height:44px;background:linear-gradient(135deg,var(--marine),#0a1f3a);border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;color:#fff;flex-shrink:0}
+    .avis-n{font-weight:600;font-size:14px;color:var(--txt)}
+    .avis-meta{font-size:12px;color:var(--txt-m)}
+
+    /* CONTACT */
+    .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
+    .contact-map{border-radius:12px;overflow:hidden;height:380px;border:1px solid var(--border);box-shadow:var(--shadow)}
+    .contact-map iframe{width:100%;height:100%;border:0;display:block}
+    .c-title{font-family:var(--fh);font-size:24px;font-weight:800;text-transform:uppercase;margin-bottom:32px;color:var(--txt)}
+    .c-item{display:flex;align-items:flex-start;gap:16px;margin-bottom:24px;padding-bottom:24px;border-bottom:1px solid var(--border)}
+    .c-icon{width:44px;height:44px;background:rgba(30,58,95,.08);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:20px}
+    .c-label{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--txt-m);margin-bottom:4px;font-weight:600}
+    .c-val{font-weight:600;font-size:15px;color:var(--txt)}
+    .c-val a{color:var(--rouge)}
+    .hgrid{display:grid;grid-template-columns:1fr 1fr;gap:4px 24px;margin-top:8px}
+    .hday{font-size:13px;color:var(--txt-m)}
+    .htime{font-size:13px;font-weight:500;color:var(--txt);text-align:right}
+    /* Formulaire devis */
+    .devis-form{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:32px;box-shadow:var(--shadow);margin-top:0}
+    .devis-title{font-family:var(--fh);font-size:18px;font-weight:800;text-transform:uppercase;letter-spacing:.04em;margin-bottom:20px;color:var(--txt)}
+    .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
+    .form-input{width:100%;padding:12px 16px;border:1px solid var(--border);border-radius:8px;font-size:14px;font-family:var(--fb);color:var(--txt);outline:none;transition:border-color .2s;background:var(--bg2)}
+    .form-input:focus{border-color:var(--marine)}
+    .form-input::placeholder{color:var(--txt-m)}
+
+    /* FOOTER */
+    footer{background:var(--bg-dark);padding:56px 0 32px}
+    .f-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:48px;margin-bottom:48px}
+    .f-logo{font-family:var(--fh);font-size:18px;font-weight:900;color:#fff;text-transform:uppercase;letter-spacing:.05em;margin-bottom:12px}
+    .f-logo span{color:var(--rouge)}
+    .f-desc{font-size:13px;color:rgba(255,255,255,.4);line-height:1.7;max-width:280px}
+    .f-col-title{font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:20px}
+    .f-links{list-style:none;display:flex;flex-direction:column;gap:10px}
+    .f-links a{font-size:13px;color:rgba(255,255,255,.35);transition:color .2s}
+    .f-links a:hover{color:var(--rouge-lt)}
+    .f-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:32px;border-top:1px solid rgba(255,255,255,.08);font-size:12px;color:rgba(255,255,255,.3);flex-wrap:wrap;gap:12px}
+    .f-bottom a{color:var(--rouge-lt)}
+
+    /* CTA MOBILE */
+    .mobile-cta{display:none}
+    @media(max-width:768px){
+      .mobile-cta{display:block;position:fixed;bottom:0;left:0;right:0;padding:16px 20px;background:var(--rouge);color:#fff;font-weight:700;font-size:16px;text-align:center;z-index:999;border:none;font-family:var(--fh);letter-spacing:.05em;text-transform:uppercase}
+    }
+
+    /* SCROLL REVEAL */
+    .rv{opacity:0;transform:translateY(32px);transition:opacity .7s ease,transform .7s ease}
+    .rv.vis{opacity:1;transform:translateY(0)}
+    .d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}
+
+    /* RESPONSIVE */
+    @media(max-width:1024px){
+      .container{padding:0 32px}
+      .trust-inner{padding:0 32px;gap:28px}
+      .hero-cnt{padding:0 32px;max-width:100%}
+      .services-grid{grid-template-columns:repeat(2,1fr)}
+      .apropos-dark{grid-template-columns:1fr}
+      .apropos-img-d{aspect-ratio:16/9}
+      .contact-grid{grid-template-columns:1fr}
+      .f-grid{grid-template-columns:1fr 1fr}
+    }
+    @media(max-width:768px){
+      .nav{padding:0 20px}
+      .nav-links{display:none}
+      .nav-tel{display:none}
+      .burger{display:flex}
+      .container{padding:0 20px}
+      .hero-cnt{padding:0 20px}
+      .trust-inner{padding:0 20px;gap:16px}
+      .s-services,.s-process,.s-apropos,.s-avis,.s-contact{padding:56px 0}
+      .services-grid,.avis-grid{grid-template-columns:1fr}
+      .process-grid{grid-template-columns:1fr;gap:40px}
+      .process-grid::before{display:none}
+      .ad-stats{grid-template-columns:1fr 1fr}
+      .form-row{grid-template-columns:1fr}
+      .f-grid{grid-template-columns:1fr}
+      .f-bottom{flex-direction:column;text-align:center}
+      body{padding-bottom:60px}
+    }
+  </style>
+</head>
+<body>
+
+  <div class="banner">
+    Site demo ADIGICOM &mdash; Votre site web professionnel &agrave; partir de 490 &euro;&nbsp;|&nbsp;
+    <a href="https://adigicom.com" target="_blank">Demander un devis gratuit</a>
+  </div>
+
+  <nav class="nav at-top" id="navbar">
+    <div class="nav-logo">Garage <span>Multi</span> Groupe</div>
+    <ul class="nav-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#engagement">Notre Garage</a></li>
+      <li><a href="#avis">Avis</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="nav-tel"><span class="nav-tel-icon">&#128222;</span> 02 31 00 00 04</div>
+    <a href="tel:0231000004" class="nav-cta">Devis gratuit</a>
+    <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-ov"></div>
+    <div class="hero-cnt">
+      <span class="hero-eyebrow">Expertise auto depuis 1998</span>
+      <h1 class="hero-title">Votre Garage<br><span>De Confiance</span></h1>
+      <p class="hero-subtitle">A Caen</p>
+      <p class="hero-sub">R&eacute;paration, entretien et carrosserie pour toutes marques. D&eacute;vis gratuit sous 24h, v&eacute;hicule de pr&ecirc;t disponible.</p>
+      <div class="rating-pill">
+        <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+        <span>4.8 / 5 &middot; 312 avis Google</span>
+      </div>
+      <div class="hero-btns">
+        <a href="tel:0231000004" class="btn-rouge">D&eacute;vis gratuit maintenant</a>
+        <a href="#services" class="btn-out-w">Nos services</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST BAR -->
+  <div class="trust-bar">
+    <div class="trust-inner">
+      <span class="trust-item"><span class="trust-icon">&#10003;</span>Agr&eacute;&eacute; constructeurs</span>
+      <span class="trust-item"><span class="trust-icon">&#128336;</span>+25 ans d&rsquo;exp&eacute;rience</span>
+      <span class="trust-item"><span class="trust-icon">&#128737;</span>Garantie 1 an</span>
+      <span class="trust-item"><span class="trust-icon">&#9889;</span>Devis sous 24h</span>
+    </div>
+  </div>
+
+  <section class="s-services" id="services">
+    <div class="container">
+      <div class="s-header">
+        <span class="s-label rv">Notre atelier</span>
+        <div class="divider rv"></div>
+        <h2 class="s-title rv">Nos Services</h2>
+        <p class="s-sub rv d1">De la r&eacute;vision compl&egrave;te &agrave; la carrosserie, nous prenons en charge l&rsquo;ensemble des op&eacute;rations pour votre v&eacute;hicule.</p>
+      </div>
+      <div class="services-grid">
+        <div class="service-card rv">
+          <div class="s-icon">&#128295;</div>
+          <div class="s-name">R&eacute;vision compl&egrave;te</div>
+          <p class="s-desc">Vidange, filtres air/carburant/huile, contr&ocirc;le 30 points, rapport complet inclus. Toutes marques, pi&egrave;ces d&rsquo;origine.</p>
+          <span class="s-link">A partir de 89 &euro;</span>
+        </div>
+        <div class="service-card rv d1">
+          <div class="s-icon">&#128663;</div>
+          <div class="s-name">Freins &amp; S&eacute;curit&eacute;</div>
+          <p class="s-desc">Remplacement plaquettes, disques, &eacute;triers &mdash; toutes marques. Garantie 1 an sur pi&egrave;ces et main d&rsquo;oeuvre.</p>
+          <span class="s-link">A partir de 79 &euro;</span>
+        </div>
+        <div class="service-card rv d2">
+          <div class="s-icon">&#10052;</div>
+          <div class="s-name">Climatisation</div>
+          <p class="s-desc">Recharge gaz R134a ou R1234yf, contr&ocirc;le &eacute;tanch&eacute;it&eacute;, nettoyage circuit, remplacement filtre habitacle.</p>
+          <span class="s-link">A partir de 59 &euro;</span>
+        </div>
+        <div class="service-card rv">
+          <div class="s-icon">&#9881;</div>
+          <div class="s-name">Distribution</div>
+          <p class="s-desc">Courroie de distribution, pompe &agrave; eau, galets &mdash; intervention compl&egrave;te. Garantie constructeur respect&eacute;e.</p>
+          <span class="s-link">Devis gratuit</span>
+        </div>
+        <div class="service-card rv d1">
+          <div class="s-icon">&#128247;</div>
+          <div class="s-name">Carrosserie</div>
+          <p class="s-desc">D&eacute;bosselage PDR, peinture bicouche, remplacement pare-chocs. Cabine de peinture, garantie 5 ans.</p>
+          <span class="s-link">Devis gratuit</span>
+        </div>
+        <div class="service-card rv d2">
+          <div class="s-icon">&#128270;</div>
+          <div class="s-name">Diagnostic &eacute;lectronique</div>
+          <p class="s-desc">Valise de diagnostic multi-marques, lecture et effacement des codes d&rsquo;erreur, reprogrammation calculateurs.</p>
+          <span class="s-link">A partir de 49 &euro;</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESSUS -->
+  <section class="s-process">
+    <div class="container">
+      <div class="s-header">
+        <span class="s-label rv">Comment ca marche</span>
+        <div class="divider rv"></div>
+        <h2 class="s-title rv">Simple &amp; Transparent</h2>
+      </div>
+      <div class="process-grid rv">
+        <div class="process-item">
+          <div class="p-num">1</div>
+          <div class="p-title">Appelez ou &eacute;crivez</div>
+          <p class="p-desc">Contactez-nous par t&eacute;l&eacute;phone ou formulaire. Nous r&eacute;pondons sous 2h en jours ouvrables.</p>
+        </div>
+        <div class="process-item">
+          <div class="p-num">2</div>
+          <div class="p-title">D&eacute;vis gratuit</div>
+          <p class="p-desc">Votre devis d&eacute;taill&eacute; est pr&ecirc;t sous 24h. Pi&egrave;ces + main d&rsquo;oeuvre, sans surprise &agrave; la facturation.</p>
+        </div>
+        <div class="process-item">
+          <div class="p-num">3</div>
+          <div class="p-title">R&eacute;paration garantie</div>
+          <p class="p-desc">Votre v&eacute;hicule est pris en charge. V&eacute;hicule de pr&ecirc;t disponible. Garantie 1 an pi&egrave;ces et main d&rsquo;oeuvre.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- A PROPOS DARK -->
+  <section class="s-apropos" id="engagement">
+    <div class="container">
+      <div class="apropos-dark">
+        <div class="rv">
+          <img class="apropos-img-d" src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=800&q=80&auto=format&fit=crop" alt="Atelier Garage Multi Groupe" loading="lazy">
+        </div>
+        <div class="rv d1">
+          <span class="ad-label">Notre engagement</span>
+          <div class="divider left" style="background:var(--rouge)"></div>
+          <h2 class="ad-title">D&eacute;vis gratuit<br>sous 24h</h2>
+          <p class="ad-p">Depuis 1998, le Garage Multi Groupe est une r&eacute;f&eacute;rence pour l&rsquo;entretien et la r&eacute;paration automobile &agrave; Caen. Nos m&eacute;caniciens qualifi&eacute;s prennent en charge tous types de v&eacute;hicules &mdash; utilitaires, berlines, SUV, electriques.</p>
+          <p class="ad-p">Nous utilisons exclusivement des pi&egrave;ces d&rsquo;origine ou &eacute;quivalentes, avec une garantie constructeur int&eacute;gralement respect&eacute;e.</p>
+          <div class="cert-badges">
+            <span class="cert-badge">&#9733; Agr&eacute;&eacute;</span>
+            <span class="cert-badge">&#128737; Garantie 1 an</span>
+            <span class="cert-badge">&#9851; ECO-cert</span>
+          </div>
+          <div class="ad-stats">
+            <div><span class="ad-stat-n">25+</span><span class="ad-stat-l">Ann&eacute;es</span></div>
+            <div><span class="ad-stat-n">4.8</span><span class="ad-stat-l">Google</span></div>
+            <div><span class="ad-stat-n">3000+</span><span class="ad-stat-l">V&eacute;hicules/an</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MARQUES -->
+  <section class="s-marques">
+    <div class="container">
+      <div class="s-header" style="margin-bottom:32px">
+        <span class="s-label rv">Toutes marques</span>
+        <h2 class="s-title rv" style="font-size:clamp(22px,3vw,32px)">Marques trait&eacute;es</h2>
+      </div>
+      <div class="marques-grid rv">
+        <span class="marque-item">Renault</span>
+        <span class="marque-item">Peugeot</span>
+        <span class="marque-item">Citro&euml;n</span>
+        <span class="marque-item">Volkswagen</span>
+        <span class="marque-item">BMW</span>
+        <span class="marque-item">Mercedes</span>
+        <span class="marque-item">Toyota</span>
+        <span class="marque-item">Ford</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="s-avis" id="avis">
+    <div class="container">
+      <div class="s-header">
+        <span class="s-label rv">Paroles de clients</span>
+        <div class="divider rv"></div>
+        <h2 class="s-title rv">Ils nous font confiance</h2>
+        <div class="rating-pill rv d1" style="display:inline-flex;margin-bottom:0;background:#fff;border:1px solid var(--border);color:var(--txt)">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <span>4.8 / 5 &middot; 312 avis Google</span>
+        </div>
+      </div>
+      <div class="avis-grid">
+        <div class="avis-card rv">
+          <div class="avis-top"><span class="avis-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span><span class="avis-date">F&eacute;vrier 2026</span></div>
+          <p class="avis-txt">Excellent garage ! D&eacute;vis clair, prix honn&ecirc;tes, v&eacute;hicule rendu propre. Les freins sont impeccables. Je reviendrai sans h&eacute;siter.</p>
+          <div class="avis-f"><div class="avis-av">MR</div><div><div class="avis-n">Michel R.</div><div class="avis-meta">R&eacute;vision + freins</div></div></div>
+        </div>
+        <div class="avis-card rv d1">
+          <div class="avis-top"><span class="avis-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span><span class="avis-date">Janvier 2026</span></div>
+          <p class="avis-txt">Panne prise en charge le jour m&ecirc;me. Diagnostic rapide, r&eacute;paration en 48h. V&eacute;hicule de pr&ecirc;t fourni. Tr&egrave;s professionnel.</p>
+          <div class="avis-f"><div class="avis-av">CD</div><div><div class="avis-n">Christine D.</div><div class="avis-meta">Panne moteur</div></div></div>
+        </div>
+        <div class="avis-card rv d2">
+          <div class="avis-top"><span class="avis-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span><span class="avis-date">D&eacute;cembre 2025</span></div>
+          <p class="avis-txt">Accrochage r&eacute;par&eacute;e parfaitement, on ne voit absolument rien. Peinture assortie. Travail de qualit&eacute;, prix raisonnable.</p>
+          <div class="avis-f"><div class="avis-av">AB</div><div><div class="avis-n">Antoine B.</div><div class="avis-meta">Carrosserie</div></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="s-contact" id="contact">
+    <div class="container">
+      <div class="contact-grid">
+        <div>
+          <div class="devis-form rv">
+            <div class="devis-title">Demander un devis</div>
+            <div class="form-row">
+              <input class="form-input" type="text" placeholder="Votre nom">
+              <input class="form-input" type="tel" placeholder="T&eacute;l&eacute;phone">
+            </div>
+            <div class="form-row">
+              <input class="form-input" type="text" placeholder="Marque du v&eacute;hicule">
+              <input class="form-input" type="text" placeholder="Type de r&eacute;paration">
+            </div>
+            <a href="tel:0231000004" class="btn-rouge" style="display:block;text-align:center;margin-top:4px;padding:14px 24px">Appeler maintenant</a>
+          </div>
+        </div>
+        <div class="rv d1">
+          <h3 class="c-title">Nous trouver</h3>
+          <div class="c-item"><div class="c-icon">&#128205;</div><div><div class="c-label">Adresse</div><div class="c-val">45 Avenue de la Paix, 14000 Caen</div></div></div>
+          <div class="c-item"><div class="c-icon">&#128222;</div><div><div class="c-label">T&eacute;l&eacute;phone</div><div class="c-val"><a href="tel:0231000004">02 31 00 00 04</a></div></div></div>
+          <div class="c-item" style="border-bottom:none"><div class="c-icon">&#128336;</div>
+            <div><div class="c-label">Horaires atelier</div>
+              <div class="hgrid">
+                <span class="hday">Lun &mdash; Ven</span><span class="htime">8h &ndash; 12h &middot; 14h &ndash; 18h</span>
+                <span class="hday">Samedi</span><span class="htime">8h &ndash; 12h</span>
+                <span class="hday">Dimanche</span><span class="htime">Ferm&eacute;</span>
+              </div>
+            </div>
+          </div>
+          <div class="contact-map rv" style="margin-top:24px">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d42002.41!2d-0.3812!3d49.1829!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x480a4f34247e62a7%3A0x40f0d03b53f338cb!2sCaen!5e0!3m2!1sfr!2sfr!4v1700000005!5m2!1sfr!2sfr" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Carte Garage Multi Groupe"></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="f-grid">
+        <div><div class="f-logo">Garage <span>Multi</span> Groupe</div><p class="f-desc">Garage m&eacute;canique &agrave; Caen depuis 1998. Entretien, r&eacute;paration et carrosserie &mdash; toutes marques, d&eacute;vis gratuit.</p></div>
+        <div><div class="f-col-title">Services</div><ul class="f-links"><li><a href="#services">R&eacute;vision</a></li><li><a href="#services">Carrosserie</a></li><li><a href="#services">Climatisation</a></li><li><a href="#contact">Devis</a></li></ul></div>
+        <div><div class="f-col-title">Informations</div><ul class="f-links"><li><a href="#engagement">Notre garage</a></li><li><a href="#avis">Avis clients</a></li><li><a href="#contact">Nous trouver</a></li><li><a href="tel:0231000004">02 31 00 00 04</a></li></ul></div>
+      </div>
+      <div class="f-bottom">
+        <span>&copy; 2026 Garage Multi Groupe &middot; M&eacute;canique Auto &middot; Caen</span>
+        <span>Site cr&eacute;&eacute; par <a href="https://adigicom.com" target="_blank">ADIGICOM</a> &mdash; adigicom.com</span>
+      </div>
+    </div>
+  </footer>
+
+  <a href="tel:0231000004" class="mobile-cta">D&eacute;vis gratuit &mdash; Appeler</a>
+
+  <script>
+    const nb=document.getElementById('navbar');
+    window.addEventListener('scroll',()=>{
+      if(scrollY>80){nb.classList.add('scrolled');nb.classList.remove('at-top')}
+      else{nb.classList.remove('scrolled');nb.classList.add('at-top')}
+    });
+    const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');io.unobserve(e.target)}}),{threshold:.1});
+    document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+  </script>
+</body>
+</html>

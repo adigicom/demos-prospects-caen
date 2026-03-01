@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Boulangerie Calou &mdash; Artisanale &middot; Caen</title>
+  <meta name="description" content="Boulangerie Calou, pains et viennoiseries artisanaux à Caen. Farine locale, four à bois, recettes traditionnelles.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    /* DESIGN B — ARTISANAL CHALEUREUX — BOULANGERIE CALOU
+       Fond creme #FBF7F2, accent terracotta #B5622A, Nunito / Lora
+       Hero split-screen, shapes organiques, product cards, trust badges */
+    :root{
+      --bg:      #FBF7F2;
+      --bg2:     #F2EBE0;
+      --bg-card: #FFFFFF;
+      --bg-dark: #2C1A0E;
+      --acc:     #B5622A;
+      --acc2:    #E8C882;
+      --acc-lt:  #D4844E;
+      --acc-dk:  #8A4510;
+      --txt:     #2C1A0E;
+      --txt-m:   #7A5C44;
+      --border:  rgba(181,98,42,.15);
+      --shadow:  0 4px 20px rgba(44,26,14,.08);
+      --shadow-h:0 12px 40px rgba(44,26,14,.14);
+      --fh:      'Lora', serif;
+      --fs:      'Nunito', sans-serif;
+      --fb:      'Inter', sans-serif;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:var(--fb);background:var(--bg);color:var(--txt);font-size:16px;line-height:1.7;overflow-x:hidden}
+    img{display:block;max-width:100%}
+    a{text-decoration:none;color:inherit;cursor:pointer}
+    button{cursor:pointer}
+
+    /* BANNIERE */
+    .banner{background:var(--acc);color:#fff;text-align:center;padding:9px 20px;font-size:13px;font-weight:600;letter-spacing:.03em;position:sticky;top:0;z-index:9999}
+    .banner a{color:#fff;text-decoration:underline;font-weight:700}
+
+    /* NAV — clair */
+    .nav{position:fixed;top:40px;left:0;right:0;z-index:100;padding:0 48px;display:flex;align-items:center;justify-content:space-between;height:72px;transition:background .4s,top .4s,box-shadow .4s}
+    .nav.scrolled{background:rgba(251,247,242,.97);backdrop-filter:blur(12px);top:0;box-shadow:0 1px 0 var(--border)}
+    .nav-logo{font-family:var(--fh);font-size:24px;font-weight:700;color:var(--acc);letter-spacing:.01em}
+    .nav-logo em{font-style:italic;color:var(--acc-lt)}
+    .nav-links{display:flex;list-style:none;gap:32px;align-items:center}
+    .nav-links a{font-size:13px;font-weight:600;color:var(--txt-m);transition:color .2s}
+    .nav-links a:hover{color:var(--acc)}
+    .nav-cta{padding:10px 22px;background:var(--acc) !important;color:#fff !important;border-radius:12px;font-size:13px !important;font-weight:700 !important;transition:background .2s !important}
+    .nav-cta:hover{background:var(--acc-lt) !important}
+    .burger{display:none;flex-direction:column;gap:5px;background:none;border:none;padding:8px}
+    .burger span{display:block;width:24px;height:2px;background:var(--txt)}
+
+    /* HERO SPLIT-SCREEN */
+    .hero{min-height:100vh;display:flex;align-items:center;background:var(--bg);padding-top:112px;position:relative;overflow:hidden}
+    /* Cercle decoratif de fond */
+    .hero::before{content:'';position:absolute;top:-200px;right:-200px;width:700px;height:700px;background:rgba(181,98,42,.05);border-radius:50%;pointer-events:none}
+    .hero::after{content:'';position:absolute;bottom:-100px;left:-100px;width:400px;height:400px;background:rgba(232,200,130,.08);border-radius:50%;pointer-events:none}
+    .hero-inner{max-width:1200px;margin:0 auto;padding:0 48px 80px;display:grid;grid-template-columns:55% 45%;gap:64px;align-items:center}
+    /* Gauche: texte */
+    .hero-txt{}
+    .hero-tag{font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--acc);margin-bottom:16px;display:flex;align-items:center;gap:12px;opacity:0;animation:fu .8s .3s ease forwards}
+    .tag-dot{width:8px;height:8px;background:var(--acc);border-radius:50%;flex-shrink:0}
+    .hero-title{font-family:var(--fh);font-size:clamp(44px,7vw,76px);font-weight:700;line-height:.95;letter-spacing:-.01em;margin-bottom:16px;color:var(--txt);opacity:0;animation:fu .8s .5s ease forwards}
+    .hero-title em{font-style:italic;color:var(--acc)}
+    .hero-sub{font-size:17px;font-weight:400;color:var(--txt-m);line-height:1.7;margin-bottom:28px;opacity:0;animation:fu .8s .7s ease forwards}
+    .rating-pill{display:inline-flex;align-items:center;gap:10px;padding:10px 20px;background:rgba(181,98,42,.06);border:1px solid var(--border);border-radius:100px;font-size:14px;margin-bottom:32px;opacity:0;animation:fu .8s .9s ease forwards;font-weight:600}
+    .stars{color:var(--acc2);letter-spacing:2px;font-size:16px}
+    .hero-btns{display:flex;gap:14px;flex-wrap:wrap;opacity:0;animation:fu .8s 1.1s ease forwards}
+    .btn-terra{padding:15px 32px;background:var(--acc);color:#fff;font-family:var(--fs);font-weight:700;font-size:14px;border-radius:12px;border:none;transition:background .2s,transform .15s;box-shadow:0 4px 20px rgba(181,98,42,.3)}
+    .btn-terra:hover{background:var(--acc-lt);transform:translateY(-2px)}
+    .btn-out{padding:14px 32px;background:transparent;color:var(--acc);font-family:var(--fs);font-weight:600;font-size:14px;border-radius:12px;border:2px solid var(--acc);transition:background .2s,color .2s}
+    .btn-out:hover{background:var(--acc);color:#fff}
+    /* Trust badges */
+    .trust-badges{display:flex;gap:12px;flex-wrap:wrap;margin-top:32px;opacity:0;animation:fu .8s 1.3s ease forwards}
+    .tbadge{display:inline-flex;align-items:center;gap:8px;padding:8px 16px;background:var(--bg2);border:1px solid var(--border);border-radius:100px;font-size:13px;font-weight:600;color:var(--txt);font-family:var(--fs)}
+    .tbadge-icon{font-size:16px}
+    /* Droite: image avec forme organique */
+    .hero-visual{position:relative}
+    .hero-img{width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:48px 48px 120px 48px;box-shadow:0 24px 64px rgba(44,26,14,.15);opacity:0;animation:fu .8s .6s ease forwards}
+    /* Floating tag sur l'image */
+    .hero-float{position:absolute;bottom:32px;left:-28px;background:var(--bg-card);border-radius:20px;padding:16px 20px;box-shadow:var(--shadow-h);border:1px solid var(--border);opacity:0;animation:fu .8s 1.2s ease forwards}
+    .hf-top{display:flex;align-items:center;gap:10px;margin-bottom:4px}
+    .hf-icon{font-size:28px}
+    .hf-n{font-family:var(--fh);font-size:22px;font-weight:700;color:var(--acc);line-height:1}
+    .hf-t{font-size:11px;color:var(--txt-m);text-transform:uppercase;letter-spacing:.08em}
+    /* Floating badge horaires */
+    .hero-float2{position:absolute;top:24px;right:-24px;background:var(--acc);border-radius:16px;padding:12px 16px;color:#fff;text-align:center;opacity:0;animation:fu .8s 1.5s ease forwards}
+    .hf2-t{font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;opacity:.8}
+    .hf2-n{font-family:var(--fh);font-size:18px;font-weight:700}
+    @keyframes fu{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+
+    /* RUBAN INFO */
+    .ruban{background:var(--bg-dark);padding:12px 0}
+    .ruban-inner{display:flex;justify-content:center;gap:64px;flex-wrap:wrap;max-width:1200px;margin:0 auto;padding:0 48px}
+    .ruban-item{color:rgba(255,255,255,.7);font-size:13px;font-weight:500;letter-spacing:.06em;display:flex;align-items:center;gap:8px}
+    .ruban-item span{color:var(--acc2)}
+
+    /* CONTAINER */
+    .container{max-width:1200px;margin:0 auto;padding:0 48px}
+
+    /* SECTIONS */
+    .s-produits{padding:96px 0;background:var(--bg2)}
+    .s-savoir{padding:96px 0}
+    .s-apropos{padding:96px 0;background:var(--bg2)}
+    .s-avis{padding:96px 0}
+    .s-contact{padding:96px 0;background:var(--bg2)}
+
+    .s-header{text-align:center;margin-bottom:56px}
+    .s-label{font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--acc);margin-bottom:12px;display:block}
+    .s-title{font-family:var(--fh);font-size:clamp(32px,4.5vw,50px);font-weight:700;line-height:1.1;color:var(--txt);margin-bottom:12px}
+    .s-title em{font-style:italic;color:var(--acc)}
+    .s-sub{color:var(--txt-m);font-size:15px;max-width:480px;margin:0 auto}
+
+    /* DIVIDER */
+    .divider{width:60px;height:3px;background:var(--acc);margin:0 auto 32px;border-radius:2px}
+    .divider.left{margin:0 0 28px}
+
+    /* TABS */
+    .tabs{display:flex;justify-content:center;gap:4px;margin:0 auto 44px;background:rgba(181,98,42,.08);padding:6px;border-radius:16px;max-width:460px}
+    .tab-btn{flex:1;padding:10px 16px;background:transparent;border:none;color:var(--txt-m);font-size:13px;font-weight:600;border-radius:12px;transition:all .2s;font-family:var(--fs)}
+    .tab-btn.active{background:var(--acc);color:#fff}
+    .tab-panel{display:none}.tab-panel.active{display:block}
+
+    /* PRODUCT CARDS — style chaleureux avec forme arrondie */
+    .produits-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+    .produit-card{border-radius:20px;overflow:hidden;background:var(--bg-card);box-shadow:var(--shadow);transition:transform .3s,box-shadow .3s;position:relative}
+    .produit-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-h)}
+    .produit-img{width:100%;aspect-ratio:1;object-fit:cover;transition:transform .4s}
+    .produit-card:hover .produit-img{transform:scale(1.05)}
+    .produit-body{padding:16px 20px 20px}
+    .produit-badge-wrap{position:absolute;top:14px;right:14px}
+    .produit-badge{display:inline-block;padding:4px 12px;background:var(--acc);color:#fff;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;border-radius:100px;font-family:var(--fs)}
+    .produit-row{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:6px}
+    .produit-name{font-family:var(--fh);font-size:18px;font-weight:700;color:var(--txt);line-height:1.2}
+    .produit-price{font-size:16px;font-weight:700;color:var(--acc);white-space:nowrap;font-family:var(--fs)}
+    .produit-desc{font-size:13px;color:var(--txt-m);line-height:1.5}
+
+    /* SAVOIR-FAIRE — horizontal cards */
+    .savoir-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+    .savoir-card{background:var(--bg-card);border:1px solid var(--border);border-radius:20px;padding:32px;box-shadow:var(--shadow);text-align:center}
+    .savoir-icon{font-size:48px;margin-bottom:16px}
+    .savoir-title{font-family:var(--fh);font-size:20px;font-weight:700;color:var(--txt);margin-bottom:10px}
+    .savoir-desc{font-size:14px;color:var(--txt-m);line-height:1.6}
+
+    /* A PROPOS */
+    .apropos-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+    .a-label{font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--acc);margin-bottom:12px;display:block}
+    .a-title{font-family:var(--fh);font-size:clamp(28px,4vw,44px);font-weight:700;line-height:1.1;color:var(--txt);margin-bottom:24px}
+    .a-title em{font-style:italic;color:var(--acc)}
+    .a-p{font-size:15px;color:var(--txt-m);line-height:1.8;margin-bottom:16px}
+    .timeline{margin-top:36px;padding-top:36px;border-top:1px solid var(--border);display:flex;gap:36px}
+    .tl-item{text-align:center}
+    .tl-year{font-family:var(--fh);font-size:28px;font-weight:700;color:var(--acc);line-height:1;display:block}
+    .tl-label{font-size:12px;color:var(--txt-m);text-transform:uppercase;letter-spacing:.08em;margin-top:4px;display:block}
+    /* Image organique */
+    .img-org{position:relative}
+    .a-img{width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:30% 70% 70% 30% / 30% 30% 70% 70%}
+    .a-img:hover{border-radius:50%;transition:border-radius 1s ease}
+    transition-property:border-radius;transition-duration:1s;
+
+    /* HORAIRES CARD */
+    .horaires-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:0}
+    .h-card{background:var(--bg-card);border:1px solid var(--border);border-radius:16px;padding:24px;box-shadow:var(--shadow)}
+    .h-card-icon{font-size:28px;margin-bottom:12px}
+    .h-card-title{font-family:var(--fh);font-size:18px;font-weight:700;color:var(--txt);margin-bottom:12px}
+    .h-rows{display:flex;flex-direction:column;gap:6px}
+    .h-row{display:flex;justify-content:space-between;font-size:13px}
+    .h-day{color:var(--txt-m)}
+    .h-time{font-weight:600;color:var(--txt)}
+
+    /* AVIS */
+    .avis-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+    .avis-card{background:var(--bg-card);border:1px solid var(--border);border-radius:20px;padding:28px;box-shadow:var(--shadow)}
+    .avis-q{font-family:var(--fh);font-size:56px;color:var(--acc2);line-height:.6;margin-bottom:16px;opacity:.5}
+    .avis-txt{font-size:14px;color:var(--txt-m);line-height:1.7;margin-bottom:20px;font-style:italic}
+    .avis-f{display:flex;align-items:center;gap:10px}
+    .avis-av{width:42px;height:42px;background:linear-gradient(135deg,var(--acc),var(--acc-dk));border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;color:#fff;font-family:var(--fs);flex-shrink:0}
+    .avis-n{font-weight:700;font-size:14px;color:var(--txt);font-family:var(--fs)}
+    .avis-meta{font-size:12px;color:var(--txt-m)}
+    .avis-stars{color:var(--acc2);font-size:14px;letter-spacing:2px}
+
+    /* CONTACT */
+    .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
+    .contact-map{border-radius:20px;overflow:hidden;height:380px;border:1px solid var(--border);box-shadow:var(--shadow)}
+    .contact-map iframe{width:100%;height:100%;border:0;display:block}
+    .c-title{font-family:var(--fh);font-size:28px;font-weight:700;margin-bottom:32px;color:var(--txt)}
+    .c-item{display:flex;align-items:flex-start;gap:16px;margin-bottom:24px;padding-bottom:24px;border-bottom:1px solid var(--border)}
+    .c-icon{width:44px;height:44px;background:rgba(181,98,42,.1);border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:20px}
+    .c-label{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--txt-m);margin-bottom:4px;font-weight:600}
+    .c-val{font-weight:600;font-size:15px;color:var(--txt)}
+    .c-val a{color:var(--acc)}
+
+    /* FOOTER */
+    footer{background:var(--bg-dark);padding:56px 0 32px}
+    .f-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:48px;margin-bottom:48px}
+    .f-logo{font-family:var(--fh);font-size:24px;font-weight:700;color:var(--acc2);margin-bottom:12px}
+    .f-logo em{font-style:italic;color:var(--acc-lt)}
+    .f-desc{font-size:13px;color:rgba(255,255,255,.4);line-height:1.7;max-width:280px}
+    .f-col-title{font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:20px}
+    .f-links{list-style:none;display:flex;flex-direction:column;gap:10px}
+    .f-links a{font-size:13px;color:rgba(255,255,255,.35);transition:color .2s}
+    .f-links a:hover{color:var(--acc-lt)}
+    .f-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:32px;border-top:1px solid rgba(255,255,255,.08);font-size:12px;color:rgba(255,255,255,.25);flex-wrap:wrap;gap:12px}
+    .f-bottom a{color:var(--acc-lt)}
+
+    /* CTA MOBILE */
+    .mobile-cta{display:none}
+    @media(max-width:768px){
+      .mobile-cta{display:block;position:fixed;bottom:0;left:0;right:0;padding:16px 20px;background:var(--acc);color:#fff;font-weight:700;font-size:16px;text-align:center;z-index:999;border:none;font-family:var(--fs)}
+    }
+
+    /* SCROLL REVEAL */
+    .rv{opacity:0;transform:translateY(32px);transition:opacity .7s ease,transform .7s ease}
+    .rv.vis{opacity:1;transform:translateY(0)}
+    .d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}
+
+    /* RESPONSIVE */
+    @media(max-width:1024px){
+      .container{padding:0 32px}
+      .hero-inner{padding:0 32px 60px;grid-template-columns:1fr;gap:48px}
+      .hero-visual{max-width:500px;margin:0 auto}
+      .hero-float{left:0}
+      .produits-grid{grid-template-columns:repeat(2,1fr)}
+      .apropos-grid{grid-template-columns:1fr}
+      .a-img{aspect-ratio:16/9;border-radius:20px}
+      .img-org{order:-1}
+      .horaires-cards{grid-template-columns:1fr 1fr}
+      .f-grid{grid-template-columns:1fr 1fr}
+    }
+    @media(max-width:768px){
+      .nav{padding:0 20px}
+      .nav-links{display:none}
+      .burger{display:flex}
+      .container{padding:0 20px}
+      .hero-inner{padding:0 20px 48px}
+      .s-produits,.s-savoir,.s-apropos,.s-avis,.s-contact{padding:56px 0}
+      .produits-grid,.avis-grid,.savoir-grid{grid-template-columns:1fr}
+      .horaires-cards{grid-template-columns:1fr}
+      .contact-grid{grid-template-columns:1fr}
+      .timeline{gap:20px;flex-wrap:wrap}
+      .ruban-inner{gap:24px;padding:0 20px}
+      .trust-badges{gap:8px}
+      .f-grid{grid-template-columns:1fr}
+      .f-bottom{flex-direction:column;text-align:center}
+      body{padding-bottom:60px}
+    }
+  </style>
+</head>
+<body>
+
+  <div class="banner">
+    Site demo ADIGICOM &mdash; Votre site web professionnel &agrave; partir de 490 &euro;&nbsp;|&nbsp;
+    <a href="https://adigicom.com" target="_blank">Demander un devis gratuit</a>
+  </div>
+
+  <nav class="nav" id="navbar">
+    <div class="nav-logo"><em>Boulangerie</em> Calou</div>
+    <ul class="nav-links">
+      <li><a href="#produits">Nos pains</a></li>
+      <li><a href="#savoir">Savoir-faire</a></li>
+      <li><a href="#apropos">Notre histoire</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="tel:0231000006" class="nav-cta">Horaires</a></li>
+    </ul>
+    <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </nav>
+
+  <!-- HERO SPLIT-SCREEN -->
+  <section class="hero">
+    <div class="hero-inner">
+      <!-- Gauche: texte -->
+      <div class="hero-txt">
+        <span class="hero-tag"><span class="tag-dot"></span>Boulangerie Artisanale &middot; Caen</span>
+        <h1 class="hero-title">La Meilleure<br>Boulangerie<br><em>de Caen</em></h1>
+        <p class="hero-sub">Pain frais p&eacute;tri et cuit chaque matin. Farine locale, recettes transmises de g&eacute;n&eacute;ration en g&eacute;n&eacute;ration, four &agrave; bois artisanal.</p>
+        <div class="rating-pill">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <span>4.6 / 5 &middot; 94 avis Google</span>
+        </div>
+        <div class="hero-btns">
+          <a href="#produits" class="btn-terra">Nos sp&eacute;cialit&eacute;s</a>
+          <a href="#contact" class="btn-out">Horaires &amp; adresse</a>
+        </div>
+        <div class="trust-badges">
+          <span class="tbadge"><span class="tbadge-icon">&#127942;</span>Artisan 2024</span>
+          <span class="tbadge"><span class="tbadge-icon">&#127807;</span>Farine bio</span>
+          <span class="tbadge"><span class="tbadge-icon">&#8987;</span>6h &mdash; 20h</span>
+        </div>
+      </div>
+      <!-- Droite: visuel -->
+      <div class="hero-visual">
+        <img class="hero-img" src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=900&q=85&auto=format&fit=crop" alt="Pains Calou">
+        <div class="hero-float">
+          <div class="hf-top">
+            <span class="hf-icon">&#127860;</span>
+            <div><div class="hf-n">Frais</div><div class="hf-t">chaque matin</div></div>
+          </div>
+        </div>
+        <div class="hero-float2">
+          <div class="hf2-t">Ouvert</div>
+          <div class="hf2-n">6h &mdash; 20h</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RUBAN INFO -->
+  <div class="ruban">
+    <div class="ruban-inner">
+      <span class="ruban-item"><span>&#127860;</span> Pain frais chaque matin</span>
+      <span class="ruban-item"><span>&#127807;</span> P&eacute;tri &amp; cuit sur place</span>
+      <span class="ruban-item"><span>&#10003;</span> Recettes artisanales</span>
+      <span class="ruban-item"><span>&#10003;</span> Sans additifs</span>
+    </div>
+  </div>
+
+  <section class="s-produits" id="produits">
+    <div class="container">
+      <div class="s-header">
+        <span class="s-label rv">Notre savoir-faire</span>
+        <div class="divider rv"></div>
+        <h2 class="s-title rv">Nos <em>Sp&eacute;cialit&eacute;s</em></h2>
+        <p class="s-sub rv d1">Pains, viennoiseries et p&acirc;tisseries pr&eacute;par&eacute;s chaque jour par nos artisans boulangers.</p>
+      </div>
+      <div class="tabs rv">
+        <button class="tab-btn active" onclick="switchTab(event,'pains')">Pains</button>
+        <button class="tab-btn" onclick="switchTab(event,'viennoiseries')">Viennoiseries</button>
+        <button class="tab-btn" onclick="switchTab(event,'patisseries')">P&acirc;tisseries</button>
+      </div>
+
+      <div class="tab-panel active" id="tab-pains">
+        <div class="produits-grid">
+          <div class="produit-card rv">
+            <div class="produit-badge-wrap"><span class="produit-badge">Best-seller</span></div>
+            <img class="produit-img" src="https://images.unsplash.com/photo-1589367920969-ab8e050bbb04?w=600&q=80&auto=format&fit=crop" alt="Tradition" loading="lazy">
+            <div class="produit-body">
+              <div class="produit-row"><span class="produit-name">Tradition Fran&ccedil;aise</span><span class="produit-price">1,40 &euro;</span></div>
+              <p class="produit-desc">Notre baguette signature, croustillante &agrave; l&rsquo;ext&eacute;rieur, moelleuse &agrave; l&rsquo;int&eacute;rieur</p>
+            </div>
+          </div>
+          <div class="produit-card rv d1">
+            <img class="produit-img" src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=600&q=80&auto=format&fit=crop" alt="Pain de campagne" loading="lazy">
+            <div class="produit-body">
+              <div class="produit-row"><span class="produit-name">Pain de Campagne</span><span class="produit-price">3,50 &euro;</span></div>
+              <p class="produit-desc">Mie dense et savoureuse, cro&ucirc;te &eacute;paisse, farine de bl&eacute; ancien</p>
+            </div>
+          </div>
+          <div class="produit-card rv d2">
+            <div class="produit-badge-wrap"><span class="produit-badge">Coup de coeur</span></div>
+            <img class="produit-img" src="https://images.unsplash.com/photo-1585478259715-4d3916fb5a03?w=600&q=80&auto=format&fit=crop" alt="Levain" loading="lazy">
+            <div class="produit-body">
+              <div class="produit-row"><span class="produit-name">Pain au Levain</span><span class="produit-price">4,20 &euro;</span></div>
+              <p class="produit-desc">Fermentation longue 24h, go&ucirc;t subtil, tr&egrave;s digeste</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-panel" id="tab-viennoiseries">
+        <div class="produits-grid">
+          <div class="produit-card rv">
+            <div class="produit-badge-wrap"><span class="produit-badge">Signature</span></div>
+            <img class="produit-img" src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=600&q=80&auto=format&fit=crop" alt="Croissant" loading="lazy">
+            <div class="produit-body">
+              <div class="produit-row"><span class="produit-name">Croissant Pur Beurre</span><span class="produit-price">1,30 &euro;</span></div>
+              <p class="produit-desc">Feuilletage maison au beurre AOP de Normandie</p>
+            </div>
+          </div>
+          <div class="produit-card rv d1">
+            <img class="produit-img" src="https://images.unsplash.com/photo-1623334044303-241021148842?w=600&q=80&auto=format&fit=crop" alt="Pain chocolat" loading="lazy">
+            <div class="produit-body">
+              <div class="produit-row"><span class="produit-name">Pain au Chocolat</span><span class="produit-price">1,50 &euro;</span></div>
+              <p class="produit-desc">Deux barres de chocolat noir, p&acirc;te feuilletee maison</p>
+            </div>
+          </div>
+          <div class="produit-card rv d2">
+            <div class="produit-badge-wrap"><span class="produit-badge">Maison</span></div>
+            <img class="produit-img" src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=600&q=80&auto=format&fit=crop" alt="Brioche" loading="lazy">
+            <div class="produit-body">
+              <div class="produit-row"><span class="produit-name">Brioche Tress&eacute;e</span><span class="produit-price">6,50 &euro;</span></div>
+              <p class="produit-desc">Brioche moelleuse, parfum&eacute;e &agrave; la fleur d&rsquo;oranger, dorure oeuf</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-panel" id="tab-patisseries">
+        <div class="produits-grid">
+          <div class="produit-card rv">
+            <div class="produit-badge-wrap"><span class="produit-badge">Coup de coeur</span></div>
+            <img class="produit-img" src="https://images.unsplash.com/photo-1562007908-17c67e878c88?w=600&q=80&auto=format&fit=crop" alt="Tarte pommes" loading="lazy">
+            <div class="produit-body">
+              <div class="produit-row"><span class="produit-name">Tarte aux Pommes</span><span class="produit-price">3,80 &euro;</span></div>
+              <p class="produit-desc">Pommes de Normandie, cr&egrave;me p&acirc;tissi&egrave;re, p&acirc;te sabl&eacute;e maison</p>
+            </div>
+          </div>
+          <div class="produit-card rv d1">
+            <img class="produit-img" src="https://images.unsplash.com/photo-1488477181946-6428a0291777?w=600&q=80&auto=format&fit=crop" alt="Eclair" loading="lazy">
+            <div class="produit-body">
+              <div class="produit-row"><span class="produit-name">&Eacute;clair au Chocolat</span><span class="produit-price">3,20 &euro;</span></div>
+              <p class="produit-desc">Chou croustillant, cr&egrave;me au chocolat noir 70%, fondant brillant</p>
+            </div>
+          </div>
+          <div class="produit-card rv d2">
+            <div class="produit-badge-wrap"><span class="produit-badge">Signature</span></div>
+            <img class="produit-img" src="https://images.unsplash.com/photo-1464305795204-6f5bbfc7fb81?w=600&q=80&auto=format&fit=crop" alt="Mille feuille" loading="lazy">
+            <div class="produit-body">
+              <div class="produit-row"><span class="produit-name">Mille-Feuille</span><span class="produit-price">4,50 &euro;</span></div>
+              <p class="produit-desc">Feuilletage caramel, cr&egrave;me mousseline vanille, gla&ccedil;age royal</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SAVOIR-FAIRE -->
+  <section class="s-savoir">
+    <div class="container">
+      <div class="s-header">
+        <span class="s-label rv">Notre promesse</span>
+        <div class="divider rv"></div>
+        <h2 class="s-title rv">Le vrai <em>artisanat</em></h2>
+      </div>
+      <div class="savoir-grid">
+        <div class="savoir-card rv">
+          <div class="savoir-icon">&#127807;</div>
+          <div class="savoir-title">Farine Bio Locale</div>
+          <p class="savoir-desc">Nous sourcons nos farines aupr&egrave;s de meuniers normands engag&eacute;s dans l&rsquo;agriculture biologique. Qualit&eacute; garantie, origine tra&ccedil;able.</p>
+        </div>
+        <div class="savoir-card rv d1">
+          <div class="savoir-icon">&#128293;</div>
+          <div class="savoir-title">Four &agrave; Bois</div>
+          <p class="savoir-desc">Notre four en pierre r&eacute;fractatire monte &agrave; 280&deg;C pour des cuissons parfaites. Cro&ucirc;te dor&eacute;e, mie a&eacute;r&eacute;e &mdash; impossible autrement.</p>
+        </div>
+        <div class="savoir-card rv d2">
+          <div class="savoir-icon">&#8987;</div>
+          <div class="savoir-title">Fermentation Lente</div>
+          <p class="savoir-desc">Nos p&acirc;tes fermentent 24 &agrave; 48h au froid. Cette patience donne aux pains leur go&ucirc;t complexe et leur digestibilit&eacute; unique.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- A PROPOS -->
+  <section class="s-apropos" id="apropos">
+    <div class="container">
+      <div class="apropos-grid">
+        <div class="img-org rv">
+          <img class="a-img" src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=800&q=80&auto=format&fit=crop" alt="Artisan Calou" loading="lazy">
+        </div>
+        <div class="rv d1">
+          <span class="a-label">Notre histoire</span>
+          <div class="divider left"></div>
+          <h2 class="a-title">L&rsquo;art du pain<br>depuis <em>toujours</em></h2>
+          <p class="a-p">Passionn&eacute;s par le pain authentique, nous p&eacute;trissons chaque jour nos p&acirc;tes avec des farines soigneusement s&eacute;lectionn&eacute;es. Notre four tourne d&egrave;s l&rsquo;aube pour vous offrir le meilleur pain de Caen.</p>
+          <p class="a-p">Notre boulangerie est un lieu de vie o&ugrave; se retrouvent les habitants du quartier. Venez d&eacute;couvrir nos cr&eacute;ations de saison, nos viennoiseries croustillantes et nos p&acirc;tisseries gourmandes.</p>
+          <div class="timeline">
+            <div class="tl-item"><span class="tl-year">1987</span><span class="tl-label">Fondation</span></div>
+            <div class="tl-item"><span class="tl-year">3</span><span class="tl-label">G&eacute;n&eacute;rations</span></div>
+            <div class="tl-item"><span class="tl-year">4.6</span><span class="tl-label">Google</span></div>
+            <div class="tl-item"><span class="tl-year">100%</span><span class="tl-label">Maison</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AVIS -->
+  <section class="s-avis" id="avis">
+    <div class="container">
+      <div class="s-header">
+        <span class="s-label rv">Nos clients adorent</span>
+        <div class="divider rv"></div>
+        <h2 class="s-title rv">Ils nous font <em>confiance</em></h2>
+        <div class="rating-pill rv d1" style="display:inline-flex;margin-bottom:0">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <span>4.6 / 5 &middot; 94 avis Google</span>
+        </div>
+      </div>
+      <div class="avis-grid">
+        <div class="avis-card rv">
+          <div class="avis-q">&ldquo;</div>
+          <p class="avis-txt">La meilleure boulangerie de Caen ! La baguette tradition est incroyable, croustillante et savoureuse. Je viens tous les matins.</p>
+          <div class="avis-f"><div class="avis-av">CL</div><div><div class="avis-n">Claire L.</div><div class="avis-meta">Cliente r&eacute;guli&egrave;re</div><div class="avis-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div></div></div>
+        </div>
+        <div class="avis-card rv d1">
+          <div class="avis-q">&ldquo;</div>
+          <p class="avis-txt">Des croissants au beurre exceptionnels, vrais et g&eacute;n&eacute;reux. La brioche du weekend est un r&eacute;gal. &Eacute;quipe accueillante et souriante.</p>
+          <div class="avis-f"><div class="avis-av">PM</div><div><div class="avis-n">Pierre M.</div><div class="avis-meta">Via Google Maps</div><div class="avis-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div></div></div>
+        </div>
+        <div class="avis-card rv d2">
+          <div class="avis-q">&ldquo;</div>
+          <p class="avis-txt">J&rsquo;ai command&eacute; un g&acirc;teau d&rsquo;anniversaire personnalis&eacute;. Magnifique et d&eacute;licieux ! Toute la famille a &eacute;t&eacute; bluff&eacute;e. Merci Calou !</p>
+          <div class="avis-f"><div class="avis-av">NB</div><div><div class="avis-n">Nathalie B.</div><div class="avis-meta">Commande anniversaire</div><div class="avis-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="s-contact" id="contact">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-map rv">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d42002.41!2d-0.3812!3d49.1829!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x480a4f34247e62a7%3A0x40f0d03b53f338cb!2sCaen!5e0!3m2!1sfr!2sfr!4v1700000007!5m2!1sfr!2sfr" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Carte Boulangerie Calou Caen"></iframe>
+        </div>
+        <div class="rv d1">
+          <h3 class="c-title">Nous rendre visite</h3>
+          <div class="c-item"><div class="c-icon">&#128205;</div><div><div class="c-label">Adresse</div><div class="c-val">15 Rue de Bayeux, 14000 Caen</div></div></div>
+          <div class="c-item"><div class="c-icon">&#128222;</div><div><div class="c-label">T&eacute;l&eacute;phone</div><div class="c-val"><a href="tel:0231000006">02 31 50 29 83</a></div></div></div>
+          <div class="c-item" style="border-bottom:none"><div class="c-icon">&#128336;</div><div><div class="c-label">Horaires</div></div></div>
+          <div class="horaires-cards" style="margin-top:12px">
+            <div class="h-card">
+              <div class="h-card-icon">&#9728;</div>
+              <div class="h-card-title">Semaine</div>
+              <div class="h-rows">
+                <div class="h-row"><span class="h-day">Lun &mdash; Ven</span><span class="h-time">6h &mdash; 20h</span></div>
+                <div class="h-row"><span class="h-day">Fermeture</span><span class="h-time">Mercredi</span></div>
+              </div>
+            </div>
+            <div class="h-card">
+              <div class="h-card-icon">&#127773;</div>
+              <div class="h-card-title">Weekend</div>
+              <div class="h-rows">
+                <div class="h-row"><span class="h-day">Samedi</span><span class="h-time">6h &mdash; 19h30</span></div>
+                <div class="h-row"><span class="h-day">Dimanche</span><span class="h-time">7h &mdash; 13h</span></div>
+              </div>
+            </div>
+            <div class="h-card">
+              <div class="h-card-icon">&#128222;</div>
+              <div class="h-card-title">Commandes</div>
+              <div class="h-rows">
+                <div class="h-row"><span class="h-day">Pi&egrave;ces mont&eacute;es</span><span class="h-time">Sur rdv</span></div>
+                <div class="h-row"><span class="h-day">G&acirc;teaux</span><span class="h-time">J-48h</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="f-grid">
+        <div><div class="f-logo"><em>Boulangerie</em> Calou</div><p class="f-desc">Boulangerie artisanale &agrave; Caen depuis 1987. Pain frais chaque matin, viennoiseries et p&acirc;tisseries maison.</p></div>
+        <div><div class="f-col-title">Navigation</div><ul class="f-links"><li><a href="#produits">Nos pains</a></li><li><a href="#savoir">Savoir-faire</a></li><li><a href="#apropos">Notre histoire</a></li><li><a href="#contact">Contact</a></li></ul></div>
+        <div><div class="f-col-title">Services</div><ul class="f-links"><li><a href="#">Commandes sp&eacute;ciales</a></li><li><a href="#">Pi&egrave;ces mont&eacute;es</a></li><li><a href="#">Buffets entreprise</a></li><li><a href="#">Carte cadeau</a></li></ul></div>
+      </div>
+      <div class="f-bottom">
+        <span>&copy; 2026 Boulangerie Calou &middot; Artisanale &middot; Caen</span>
+        <span>Site cr&eacute;&eacute; par <a href="https://adigicom.com" target="_blank">ADIGICOM</a> &mdash; adigicom.com</span>
+      </div>
+    </div>
+  </footer>
+
+  <a href="tel:0231000006" class="mobile-cta">&#128222; Appeler &mdash; 02 31 50 29 83</a>
+
+  <script>
+    const nb=document.getElementById('navbar');
+    window.addEventListener('scroll',()=>nb.classList.toggle('scrolled',scrollY>80));
+    function switchTab(e,id){
+      document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+      document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
+      e.currentTarget.classList.add('active');
+      document.getElementById('tab-'+id).classList.add('active');
+    }
+    const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');io.unobserve(e.target)}}),{threshold:.1});
+    document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+  </script>
+</body>
+</html>
